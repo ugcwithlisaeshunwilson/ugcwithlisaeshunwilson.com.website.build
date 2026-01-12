@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login · Yoga with Lisa</title>
+
+  <!-- Fonts / CSS (same as index) -->
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="https://use.typekit.net/uwl6zhw.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Memberstack -->
+  <!-- Keep the same script+key you used on index.html -->
+  <script src="https://api.memberstack.io/static/memberstack.js?custom"
+          data-memberstack-id="pk_f2c8df1bd82da003cc34"></script>
+
+  <style>
+    /* Page-local polish; safe with your existing CSS */
+    .auth-hero {
+      padding: clamp(48px, 8vw, 96px) 0;
+      background: var(--taupe, #F0E9D8);
+    }
+    .auth-card {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      padding: clamp(24px, 4vw, 48px);
+    }
+    .auth-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: clamp(16px, 4vw, 40px);
+    }
+    .auth-grid h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
+    .auth-grid p.lead {
+      margin: 0 0 20px;
+      color: #444;
+    }
+    .plan-stack {
+      display: grid;
+      gap: 12px;
+    }
+    .plan-note { font-size: .92rem; color:#666; }
+    .btn-wide { width: 100%; text-align: center; }
+    @media (max-width: 860px){
+      .auth-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">yoga with lisa</a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="yoga.html">YOGA</a></li>
+          <li><a href="login.html" class="login-btn">LOGIN</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page -->
+  <section class="auth-hero">
+    <div class="container">
+      <div class="auth-card">
+        <div class="auth-grid">
+          <!-- Left: Copy & Login -->
+          <div>
+            <h1>Welcome back 👋</h1>
+            <p class="lead">Log in to access member content, your class library, and your billing portal.</p>
+
+            <!-- Replace YOUR_LOGIN_LINK with the link you copy from Memberstack (Login modal / portal) -->
+            <a class="btn btn-dark btn-pill"
+               href="YOUR_LOGIN_LINK">LOG IN</a>
+
+            <hr style="margin:24px 0; border:none; border-top:1px solid #eee;">
+
+            <h2 style="margin:0 0 8px;">New here?</h2>
+            <p class="lead" style="margin:0 0 16px;">Choose a plan to create your account.</p>
+
+            <div class="plan-stack">
+              <!-- Replace each href with the exact checkout/sign-up link from Memberstack -->
+              <a class="btn btn-pill btn-outline btn-wide"
+                 href="pln_free-plan-pqjp04f9">Create a FREE account</a>
+              <a class="btn btn-pill btn-dark btn-wide"
+                 href="pln_monthly-membership-v4j40n2t">Subscribe Now | Monthly Plan for $16.99</a>
+              <a class="btn btn-pill btn-dark btn-wide"
+                 href="pln_annual-membership--enj60nbm">Subscribe Now | Annual Plan for $169.99/yr</a>
+              <p class="plan-note">You can change or cancel anytime from your account portal.</p>
+            </div>
+          </div>
+
+          <!-- Right: Perks / Assurance -->
+          <aside>
+            <h3 style="margin-top:0;">What you’ll get</h3>
+            <ul style="line-height:1.6; padding-left:1.1em;">
+              <li>Full access to my on-demand class library</li>
+              <li>Monthly programming + wellness tips</li>
+              <li>Members-only updates & resources</li>
+              <li>Student & community discounts (when available)</li>
+            </ul>
+            <h3>Questions?</h3>
+            <p>Email <a href="mailto:hello@yogawithlisa.ai">hello@yogawithlisa.ai</a> and I got you.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span>, YOGA WITH LISA BY LISA ESHUN-WILSON &amp; ASSOCIATES, LLC / ALL RIGHTS RESERVED</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

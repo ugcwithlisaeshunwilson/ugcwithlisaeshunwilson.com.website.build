@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yoga with Lisa</title>
+  <link rel="icon" href="images/favicon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/uwl6zhw.css">
+  <title>Yoga with Lisa</title>
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any"> <!-- classic fallback -->
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#1a1a1a">
+<meta name="theme-color" content="#ffffff">
+  
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Memberstack webflow package -->
+<script data-memberstack-app="app_cmfs64j5s00jl0wu4h1ee40in" src="https://static.memberstack.com/scripts/v1/memberstack.js" type="text/javascript"></script>
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Private One-on-one Yoga Sessions">
+<meta property="og:description" content="Personalized yoga, meditation, and nutrition meeting you where you are.">
+<meta property="og:image" content="https://www.yogawithlisa.ai/images/oneonone-hero.jpg">
+<meta property="og:url" content="https://www.yogawithlisa.ai">
+<meta property="og:type" content="website">
+
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">yoga with lisa</a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="login.html" class="login-btn">LOGIN</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero for One-on-One Page -->
+  <section class="hero hero--image" role="banner" aria-label="Hero">
+    <!-- Set your image at images/oneonone-hero.jpg -->
+    <div class="hero-media" style="background-image:url('images/oneonone-hero.jpg');" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <h1 class="display">
+        <span class="nowrap">Movement <em>&</em> Meditation.</span><br/>
+        Just <em> for</em> you.
+      </h1>
+        <a class="btn btn-dark btn-pill" href="#packages">VIEW PROGRAMS</a>
+        <a class="btn btn-dark btn-pill" href="#contact">REQUEST A QUOTE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal Intro -->
+  <section class="intro container">
+    <h2>Let me help you <em>reach</em> your goals.</h2>
+    <p>
+     Yoga with Lisa makes yoga and meditation simple and accessible with personalized, private one-on-one classes. Whether you are interested in mastering your handstand, nursing an injury, in the market for specialized yoga practices, like chair yoga for example, we've got you covered. We will study your needs, help you reach your goals, and offer hands on adjustments during our one-on-one sessions.</p>
+  </section>
+
+<!-- Sticky taupe nav on scroll (diagnostic version) -->
+<script>
+  (function () {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    const getY = () =>
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop || 0;
+
+    const apply = (y) => {
+      const on = y > 50;
+      header.classList.toggle('scrolled', on);
+      header.dataset.scrolled = on; // handy for inspecting
+    };
+
+    const onScroll = () => apply(getY());
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+
+    let last = -1;
+    (function tick(){
+      const y = getY();
+      if (y !== last) { apply(y); last = y; }
+      requestAnimationFrame(tick);
+    })();
+
+    apply(getY());
+  })();
+</script>
+
+  <!-- Benefits strip -->
+  <section class="container" style="padding:30px 20px 10px;">
+    <div class="cards-row" style="gap:16px; display:flex; flex-wrap:wrap;">
+      <div class="card" style="flex:1 1 220px; padding:20px;">
+        <h3 style="margin:0 0 6px;">Less Stress</h3>
+        <p style="margin:0; color:#6b6b6b;">Short guided resets to downshift the nervous system.</p>
+      </div>
+      <div class="card" style="flex:1 1 220px; padding:20px;">
+        <h3 style="margin:0 0 6px;">More Energy</h3>
+        <p style="margin:0; color:#6b6b6b;">Practices to help your restore your core or gain your strength back after injury.</p>
+      </div>
+      <div class="card" style="flex:1 1 220px; padding:20px;">
+        <h3 style="margin:0 0 6px;">Team Cohesion</h3>
+        <p style="margin:0; color:#6b6b6b;">Adaptable to your needs, your body, your schedule.</p>
+      </div>
+      <div class="card" style="flex:1 1 220px; padding:20px;">
+        <h3 style="margin:0 0 6px;">Turn-key Setup</h3>
+        <p style="margin:0; color:#6b6b6b;">We design the plan and strategy to help you reach your goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section id="packages" class="cards container" aria-label="Programs" style="padding-top:40px;">
+    <h2 style="text-align:center; margin-bottom:20px;">Programs</h2>
+
+    <div class="cards-row" style="gap:20px;">
+      <!-- Single Session -->
+      <article class="card" style="flex:1 1 420px; overflow:hidden;">
+        <div class="card-media" style="height:240px; background:url('images/1-classpack.jpg') center/cover;"></div>
+        <div class="card-body" style="padding:20px;">
+          <h3>Single Session Package</h3>
+          <p style="color:#6b6b6b;">
+            Single private one-on-one yoga classes for individuals looking to deepen their practice.  
+          </p>
+          <ul style="margin:0 0 14px 18px; color:#6b6b6b;">
+            <li>A fully customized all-levels 70-95 min yoga & mobility session for $250.</li>
+            <li>Guided breathwork & meditation, which can include include yoga nidra, grounding, or visualization work.</li>
+            <li>Props can be provided for comfort & optimal alignment.</li>
+            <li>A custom follow-up plan delivered within 24–48 hours that includes: your personalized yoga sequence (PDF or video), daily or weekly homework: stretches, mobility drills, or breathwork, and finally a summary of what we worked on & why it matters.</li>
+          </ul>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-dark btn-pill" href="mailto:lisa@yogawithlisa.ai?subject=Private%20Session%20Inquiry">REQUEST QUOTE</a>
+            <a class="btn btn-pill btn-outline" href="login.html">EXPLORE MEMBERSHIP</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Multi Session Yoga Packages -->
+      <article class="card" style="flex:1 1 420px; overflow:hidden;">
+        <div class="card-media" style="height:240px; background:url('images/3-classpack.jpg') center/cover;"></div>
+        <div class="card-body" style="padding:20px;">
+          <h3>3-Session Yoga Package</h3>
+          <p style="color:#6b6b6b;">
+            Perfect for beginners, busy professionals, or anyone wanting to build consistency.
+          </p>
+          <ul style="margin:0 0 14px 18px; color:#6b6b6b;">
+	    <li>Three 75–90 minute private sessions for $675, saving you $75.</li>
+            <li>A personalized practice plan and mid-package review.</li>
+            <li>Support between sessions, up to 3 questions via text/email.</li>
+	    <li>Guided breathwork & meditation, which can include include yoga nidra, grounding, or visualization work.</li>
+	    <li>A custom follow-up plan delivered within 24–48 hours that includes: your personalized yoga sequence (PDF or video), daily or weekly homework: stretches, mobility drills, or breathwork, and finally a summary of what we worked on & why it matters.</li>
+          </ul>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-dark btn-pill" href="mailto:lisa@yogawithlisa.ai?subject=Private%20Session%20Inquiry">REQUEST QUOTE</a>
+            <a class="btn btn-pill btn-outline" href="login.html">EXPLORE MEMBERSHIP</a>
+          </div>
+        </div>
+      </article>
+
+<!-- Multi Session Yoga Packages -->
+      <article class="card" style="flex:1 1 420px; overflow:hidden;">
+        <div class="card-media" style="height:240px; background:url('images/5-classpack.jpg') center/cover;"></div>
+        <div class="card-body" style="padding:20px;">
+          <h3>5-Session Yoga Package</h3>
+          <p style="color:#6b6b6b;">
+	   A deeper, more sustainable transformation of the mind, body, and nervous system.</p>
+          <ul style="margin:0 0 14px 18px; color:#6b6b6b;">
+            <li>Five 75–90 minute private sessions for $1000.</li>
+            <li>Full personalized practice plan, mid-package review, and daily micro-practices (5-10 min each).</li>
+ 	    <li>Support between session, unlimited calls/texts.</li>
+            <li>Detailed progress tracking, including mobility assessments and pose analysis photos/videos, included in a custom follow-up plan delivered within 24–48 hours that includes: your personalized yoga sequence (PDF or video), daily or weekly homework: stretches, mobility drills, or breathwork, and finally a summary of what we worked on & why it matters.</li>
+          </ul>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-dark btn-pill" href="mailto:lisa@yogawithlisa.ai?subject=Private%20Session%20Inquiry">REQUEST QUOTE</a>
+            <a class="btn btn-pill btn-outline" href="login.html">EXPLORE MEMBERSHIP</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="container" aria-label="How it works" style="padding:60px 20px;">
+    <h2 style="text-align:center; margin-bottom:24px;">How it works</h2>
+    <div class="cards-row" style="gap:20px;">
+      <div class="card" style="flex:1 1 280px; padding:20px;">
+        <h3>1) Quick intake</h3>
+        <p style="color:#6b6b6b;">Connect, schedule preferences, and goals.</p>
+      </div>
+      <div class="card" style="flex:1 1 280px; padding:20px;">
+        <h3>2) Program setup</h3>
+        <p style="color:#6b6b6b;">We tailor a calendar + access: in-person and/or virtual sessions.</p>
+      </div>
+      <div class="card" style="flex:1 1 280px; padding:20px;">
+        <h3>3) Rollout & support</h3>
+        <p style="color:#6b6b6b;">Post session plan PDFs + individual coaching and support</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="membership" aria-label="Invite band">
+    <div class="membership-media" style="background-image:url('images/oneonone-band.jpg')"></div>
+    <div class="membership-overlay"></div>
+    <div class="membership-inner container">
+      <h2>Ideal for: Clients looking for real change — better posture, reduced pain, a calmer nervous system, stronger core, increased mobility, and a sustainable yoga lifestyle.</h2>
+      <p>Flexible plans, fast setup, real results. Let’s design a program that fits your schedule.</p>
+      <a class="btn btn-pill btn-outline" href="mailto:lisa@yogawithlisa.ai?subject=Corporate%20Wellness%20Inquiry">REQUEST A QUOTE</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container" style="padding:64px 20px;">
+    <div class="card" style="padding:24px;">
+      <h2 style="margin-top:0;">Contact</h2>
+      <p style="color:#6b6b6b;">Tell us about yourself, ideal start date, and any goals or constraints. We’ll reply with options within 1–2 business days.</p>
+      <p>
+        <a class="btn btn-dark btn-pill" href="mailto:lisa@yogawithlisa.ai?subject=Corporate%20Wellness%20Inquiry">EMAIL US</a>
+        <a class="btn btn-pill btn-outline" href="login.html">PREVIEW MEMBERSHIP</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span>, YOGA WITH LISA BY LISA ESHUN-WILSON & ASSOCIATES, LLC / ALL RIGHTS RESERVED</p>
+    </div>
+  </footer>
+
+  <!-- Sticky taupe nav on scroll -->
+  <script>
+    (function () {
+      const header = document.querySelector('.site-header');
+      if (!header) return;
+      const toggle = () => {
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      };
+      toggle();
+      window.addEventListener('scroll', toggle, { passive: true });
+    })();
+  </script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

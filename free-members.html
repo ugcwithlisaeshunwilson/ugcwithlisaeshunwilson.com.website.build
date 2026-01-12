@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yoga with Lisa</title>
+  <link rel="icon" href="images/favicon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/uwl6zhw.css">
+  <title>Yoga with Lisa</title>
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#1a1a1a">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Memberstack webflow package -->
+  <script data-memberstack-app="app_cmfs64j5s00jl0wu4h1ee40in" src="https://static.memberstack.com/scripts/v1/memberstack.js" type="text/javascript"></script>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Class Schedule">
+  <meta property="og:description" content="Personalized yoga, meditation, and nutrition meeting you where you are.">
+  <meta property="og:image" content="https://www.yogawithlisa.ai/images/preview.jpg">
+  <meta property="og:url" content="https://www.yogawithlisa.ai">
+  <meta property="og:type" content="website">
+
+  <!-- Schedule styles -->
+  <style>
+    .schedule-wrapper {
+      max-width: 1120px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    .schedule-card {
+      background: #f5eee4; /* beige card */
+      border-radius: 24px;
+      padding: 2.5rem 2rem 2rem;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+    }
+    .schedule-header {
+      margin-bottom: 1.75rem;
+    }
+    .schedule-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin: 0 0 0.5rem;
+    }
+    .schedule-subtitle {
+      max-width: 640px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 1rem;
+    }
+    .schedule-date-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+    .date-pill {
+      padding: 0.35rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid #000;
+      text-decoration: none;
+      color: #000;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .date-pill:hover,
+    .date-pill:focus-visible {
+      background: #000;
+      color: #fff;
+    }
+    .schedule-month-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #555;
+      margin-bottom: 0.75rem;
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .schedule-table th,
+    .schedule-table td {
+      padding: 0.75rem 0.75rem;
+      text-align: left;
+      vertical-align: middle;
+    }
+    .schedule-table thead th {
+      border-bottom: 1px solid #ddd;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .schedule-table tbody tr {
+      border-bottom: 1px solid #eee; /* subtle divider between classes */
+    }
+    .schedule-date {
+      white-space: nowrap;
+    }
+    .schedule-time,
+    .schedule-duration {
+      white-space: nowrap;
+    }
+    .schedule-join-col,
+    .schedule-cta {
+      text-align: right;
+      width: 120px; /* give buttons room so text stays on one line */
+    }
+    .schedule-btn {
+      display: inline-block;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.6rem;
+      border-radius: 999px;
+      text-transform: lowercase;
+      white-space: nowrap; /* keep 'join' on a single line */
+    }
+
+    @media (max-width: 768px) {
+      .schedule-card {
+        padding: 1.75rem 1.25rem;
+      }
+      .schedule-table thead {
+        display: none;
+      }
+      .schedule-table,
+      .schedule-table tbody,
+      .schedule-table tr,
+      .schedule-table td {
+        display: block;
+        width: 100%;
+      }
+      .schedule-table tr {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      .schedule-table td {
+        padding: 0.25rem 0;
+      }
+      .schedule-cta {
+        margin-top: 0.5rem;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">yoga with lisa</a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="login.html" class="login-btn">LOGIN</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero (image) -->
+  <section class="hero hero--image" role="banner" aria-label="Hero">
+    <!-- Set your image at images/yoga-inperson.jpg -->
+    <div class="hero-media" style="background-image:url('images/yoga-inperson.jpg');" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <h1 class="display">
+        <span class="nowrap">Welcome! We're so <em>happy</em> you're here!</span><br/>
+      </h1>
+      <div class="hero-ctas">
+        <a class="btn btn-dark btn-pill" href="login.html">START YOUR FREE TRIAL TODAY</a>
+        <a class="btn btn-dark btn-pill btn-wide"
+           href="https://join.slack.com/t/yogawithlisa/shared_invite/zt-3ftkru3hx-wlWSt1RYzyfNVIt0LK1HXA"
+           target="_blank" rel="noopener">
+          JOIN OUR SLACK COMMUNITY
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky taupe nav on scroll (existing script) -->
+  <script>
+    (function () {
+      const header = document.querySelector('.site-header');
+      if (!header) return;
+
+      const getY = () =>
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop || 0;
+
+      const apply = (y) => {
+        const on = y > 50;
+        header.classList.toggle('scrolled', on);
+        header.dataset.scrolled = on;
+      };
+
+      const onScroll = () => apply(getY());
+      window.addEventListener('scroll', onScroll, { passive: true });
+      document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+
+      let last = -1;
+      (function tick(){
+        const y = getY();
+        if (y !== last) { apply(y); last = y; }
+        requestAnimationFrame(tick);
+      })();
+
+      apply(getY());
+    })();
+  </script>
+
+<!-- Subscribe section -->
+<section class="subscribe-section" style="max-width: 640px; margin: 4rem auto 5rem; text-align: center;">
+  <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 0.75rem;">
+    Subscribe
+  </h2>
+  <p style="margin: 0 0 1.75rem; font-size: 0.95rem; line-height: 1.6;">
+    Sign up with your email address to receive class updates, free resources,
+    and new offerings from Yoga With Lisa.
+  </p>
+
+  <form
+    id="subscribe-form"
+    action="mailto:lisa@yogawithlisa.ai"
+    method="post"
+    enctype="text/plain"
+    style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;"
+  >
+    <label for="subscribe-email" class="sr-only">Email address</label>
+    <input
+      id="subscribe-email"
+      type="email"
+      name="email"
+      placeholder="Email Address"
+      required
+      style="
+        min-width: 260px;
+        padding: 0.8rem 1rem;
+        border-radius: 999px;
+        border: 1px solid #ccc;
+        font-size: 0.95rem;
+      "
+    />
+    <button
+      type="submit"
+      style="
+        padding: 0.8rem 1.8rem;
+        border-radius: 999px;
+        border: none;
+        background-color: #4b3b30;
+        color: #fff;
+        font-size: 0.95rem;
+        cursor: pointer;
+      "
+    >
+      Sign Up
+    </button>
+  </form>
+
+  <!-- Thank-you message (hidden by default) -->
+  <p
+    id="subscribe-thanks"
+    style="margin-top: 1rem; font-size: 0.9rem; color: #555; display: none;"
+  >
+    Thank you for subscribing. Please send the email that just opened to confirm your sign-up. 💛
+  </p>
+
+  <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #777;">
+    Your email will only be used for Yoga With Lisa updates. No spam, no sharing,
+    and you can unsubscribe at any time.
+  </p>
+</section>
+
+<script>
+  // Show a thank-you message as soon as the form is submitted
+  (function () {
+    var form = document.getElementById('subscribe-form');
+    var thanks = document.getElementById('subscribe-thanks');
+
+    if (form && thanks) {
+      form.addEventListener('submit', function () {
+        thanks.style.display = 'block';
+      });
+    }
+  })();
+</script>
+
+  <!-- =================== Find a Class (Schedule) =================== -->
+  <section class="schedule-wrapper">
+    <div class="schedule-card">
+      <header class="schedule-header">
+        <h2 class="schedule-title">Find a class.</h2>
+        <p class="schedule-subtitle">
+          Designed to lift your body and your mood. All times are in Pacific Time.
+        </p>
+        <nav class="schedule-date-nav" aria-label="Upcoming dates">
+          <a href="#dec13" class="date-pill">Dec 13</a>
+          <a href="#nov21" class="date-pill">Nov 21</a>
+          <a href="#nov15" class="date-pill">Nov 15</a>
+          <a href="#oct18" class="date-pill">Oct 18</a>
+          <a href="#sept19" class="date-pill">Sept 19</a>
+          <a href="#aug19" class="date-pill">Aug 19</a>
+        </nav>
+      </header>
+
+      <div class="schedule-month-label">Upcoming Classes</div>
+
+      <table class="schedule-table" aria-label="In-person yoga schedule">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Class</th>
+            <th scope="col">Instructor</th>
+            <th scope="col">Location</th>
+            <th scope="col" class="schedule-join-col">Sign Up</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dec 13 -->
+          <tr id="dec13">
+            <td class="schedule-date">Saturday, Dec 13th</td>
+            <td class="schedule-time">11:00 AM</td>
+            <td class="schedule-duration">60 min</td>
+            <td class="schedule-class">Vinyasa Flow</td>
+            <td class="schedule-instructor">Lisa & Brynn</td>
+            <td class="schedule-location">Green Yogi Berkeley</td>
+            <td class="schedule-cta">
+              <a class="btn btn-dark btn-pill schedule-btn"
+                 href="https://partiful.com/e/2aidGxGBVlRF2Q5FaXpf"
+                 target="_blank" rel="noopener">
+                join
+              </a>
+            </td>
+          </tr>
+
+          <!-- Nov 28 -->
+          <tr id="nov28">
+            <td class="schedule-date">Friday, Nov 28th</td>
+            <td class="schedule-time">1:00 PM</td>
+            <td class="schedule-duration">60 min</td>
+            <td class="schedule-class">Vinyasa Flow</td>
+            <td class="schedule-instructor">Lisa</td>
+            <td class="schedule-location">Beach Glass Hot Yoga & Pilates</td>
+            <td class="schedule-cta">
+              <a class="btn btn-dark btn-pill schedule-btn"
+                 href="https://www.beachglasshyp.com/schedule"
+                 target="_blank" rel="noopener">
+                join
+              </a>
+            </td>
+          </tr>
+
+          <!-- Nov 21 -->
+          <tr id="nov21">
+            <td class="schedule-date">Friday, Nov 21st</td>
+            <td class="schedule-time">1:00 PM</td>
+            <td class="schedule-duration">60 min</td>
+            <td class="schedule-class">Vinyasa Flow</td>
+            <td class="schedule-instructor">Lisa</td>
+            <td class="schedule-location">Beach Glass Hot Yoga & Pilates</td>
+            <td class="schedule-cta">
+              <a class="btn btn-dark btn-pill schedule-btn"
+                 href="https://www.beachglasshyp.com/schedule"
+                 target="_blank" rel="noopener">
+                join
+              </a>
+            </td>
+          </tr>
+
+          <!-- Nov 15 -->
+          <tr id="nov15">
+            <td class="schedule-date">Friday, Nov 15th</td>
+            <td class="schedule-time">3:00 PM</td>
+            <td class="schedule-duration">60 min</td>
+            <td class="schedule-class">Center & Flow</td>
+            <td class="schedule-instructor">Lisa & Brynn</td>
+            <td class="schedule-location">Berkeley Ballet Theater</td>
+            <td class="schedule-cta">
+              <a class="btn btn-dark btn-pill schedule-btn"
+                 href="https://partiful.com/e/DHUxfV9lVuVZHBs4idoE"
+                 target="_blank" rel="noopener">
+                join
+              </a>
+            </td>
+          </tr>
+
+          <!-- Oct 18 -->
+          <tr id="oct18">
+            <td class="schedule-date">Friday, Oct 18th</td>
+            <td class="schedule-time">5:30 PM</td>
+            <td class="schedule-duration">60 min</td>
+            <td class="schedule-class">Evening Deep Flow</td>
+            <td class="schedule-instructor">Lisa & Brynn</td>
+            <td class="schedule-location">Green Yogi Berkeley</td>
+            <td class="schedule-cta">
+              <a class="btn btn-dark btn-pill schedule-btn"
+                 href="https://partiful.com/e/TCEOyAKeVyFvav9ayY30?"
+                 target="_blank" rel="noopener">
+                join
+              </a>
+            </td>
+          </tr>
+
+          <!-- Sept 19 -->
+          <tr id="sept19">
+            <td class="schedule-date">Thursday, Sept 19th</td>
+            <td class="schedule-time">5:30 PM</td>
+            <td class="schedule-duration">60 min</td>
+            <td class="schedule-class">Sunset Flow</td>
+            <td class="schedule-instructor">Lisa & Brynn</td>
+            <td class="schedule-location">Green Yogi Berkeley</td>
+            <td class="schedule-cta">
+              <a class="btn btn-dark btn-pill schedule-btn"
+                 href="https://partiful.com/e/KKvYNm7SQLW4SXslqEhJ"
+                 target="_blank" rel="noopener">
+                join
+              </a>
+            </td>
+          </tr>
+
+          <!-- Aug 19 -->
+          <tr id="aug19">
+            <td class="schedule-date">Monday, Aug 19th</td>
+            <td class="schedule-time">5:30 PM</td>
+            <td class="schedule-duration">60 min</td>
+            <td class="schedule-class">Core Restore</td>
+            <td class="schedule-instructor">Lisa</td>
+            <td class="schedule-location">Green Yogi Berkeley</td>
+            <td class="schedule-cta">
+              <a class="btn btn-dark btn-pill schedule-btn"
+                 href="https://partiful.com/e/TCEOyAKeVyFvav9ayY30?"
+                 target="_blank" rel="noopener">
+                join
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span> YOGA WITH LISA BY LISA ESHUN-WILSON &amp; ASSOCIATES,LLC. / ALL RIGHTS RESERVED</p>
+    </div>
+  </footer>
+
+</body>
+</html>
