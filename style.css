@@ -1995,3 +1995,48 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 .page-ugc .ugc-videos .ugc-track{
   justify-content: center;   /* centers the whole strip if it’s narrower than the container */
 }
+
+/* =====================================================
+   MOBILE ONLY — enable swipe for UGC VIDEO carousels
+   ===================================================== */
+
+@media (max-width: 640px){
+
+  /* Allow horizontal scrolling */
+  .page-ugc .ugc-videos .ugc-wrap{
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Make track horizontal + swipeable */
+  .page-ugc .ugc-videos .ugc-track{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  /* Each video snaps cleanly */
+  .page-ugc .ugc-videos .ugc-reel{
+    flex: 0 0 85%;              /* shows part of next video */
+    scroll-snap-align: center;
+  }
+}  /* =====================================================
+   IPHONE ONLY — scale down Why Work With Me text
+   ===================================================== */
+
+@media (max-width: 430px){
+
+  .page-ugc .membership .membership-inner li,
+  .page-ugc .membership .membership-inner p{
+    font-size: 1.05em;      /* smaller but still strong */
+    line-height: 1.4;
+  }
+
+  .page-ugc .membership{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
