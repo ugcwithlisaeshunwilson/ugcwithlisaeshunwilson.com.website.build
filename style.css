@@ -1946,3 +1946,52 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   z-index: 9999; /* front of banner/card */
 }
 
+/* =====================================================
+   UGC — WHY WORK WITH ME: bigger text + tighter spacing
+   ===================================================== */
+
+/* Reduce overall section padding so bigger text still fits nicely */
+.page-ugc .membership{
+  padding-top: 3rem;     /* was likely ~4–6rem */
+  padding-bottom: 3rem;
+}
+
+/* Pull the text block closer to the left + let it be wider */
+.page-ugc .membership .membership-inner{
+  max-width: 920px;      /* wider so larger text fits */
+  margin-left: 2.25rem;  /* move left (reduce if needed) */
+  margin-right: auto;
+}
+
+/* Make the bullet list text ~40% larger (and readable) */
+.page-ugc .membership .membership-inner li,
+.page-ugc .membership .membership-inner p{
+  font-size: 1.4em;      /* ~40% bigger */
+  line-height: 1.35;
+}
+
+/* Tighten spacing between lines so it doesn’t push too tall */
+.page-ugc .membership .membership-inner li{
+  margin-bottom: 0.45rem;
+}
+
+/* Mobile: don’t shove it left too hard */
+@media (max-width: 700px){
+  .page-ugc .membership .membership-inner{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: 100%;
+  }
+  .page-ugc .membership{
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+}
+
+/* =====================================================
+   UGC — CENTER the reels when there are only a few cards
+   ===================================================== */
+
+.page-ugc .ugc-videos .ugc-track{
+  justify-content: center;   /* centers the whole strip if it’s narrower than the container */
+}
