@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yoga with Lisa</title>
+  <link rel="icon" href="images/favicon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/uwl6zhw.css">
+  <title>Yoga with Lisa</title>
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Memberstack webflow package -->
+<script data-memberstack-app="app_cmfs64j5s00jl0wu4h1ee40in" src="https://static.memberstack.com/scripts/v1/memberstack.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">yoga with lisa</a>     
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="login.html" class="login-btn">LOGIN</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero (image) -->
+  <section class="hero hero--image" role="banner" aria-label="Hero">
+    <!-- Set your image at images/yoga-hero.jpg -->
+    <div class="hero-media" style="background-image:url('images/yoga-hero.jpg');" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <h1 class="display">
+  	<span class="nowrap">Yoga <em>every</em> way.</span><br/>
+  	Yoga <em>every</em> day.  
+      </h1>
+  <div class="hero-ctas">
+        <a class="btn btn-dark btn-pill" href="login.html">START YOUR FREE TRIAL TODAY</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal Intro -->
+  <section class="intro container">
+    <h2>Find your flow here ✨</h2>
+    <p>
+From energizing flows to restful resets, we’ve got you covered. Join our free in-person pop-ups, or unlock our full library of yoga and meditation with a premium subscription. Side effects may include strength, flexibility, and joy.
+    </p>
+  </section>
+
+<!-- Sticky taupe nav on scroll (diagnostic version) -->
+<script>
+  (function () {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    const getY = () =>
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop || 0;
+
+    const apply = (y) => {
+      const on = y > 50;
+      header.classList.toggle('scrolled', on);
+      header.dataset.scrolled = on; // handy for inspecting
+    };
+
+    const onScroll = () => apply(getY());
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+
+    let last = -1;
+    (function tick(){
+      const y = getY();
+      if (y !== last) { apply(y); last = y; }
+      requestAnimationFrame(tick);
+    })();
+
+    apply(getY());
+  })();
+</script>
+
+<!-- =================== Yoga Workout Classes Feature Carousel =================== -->
+<section class="container" style="padding: 80px 0;">
+  <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:2.2rem; margin-bottom:40px;">
+    Your practice, your way.
+  </h2>
+
+  <div class="wellness-row" tabindex="0">
+    <!-- Lift -->
+    <article class="wellness-card">
+      <a class="poster" href="lift.html">
+        <img src="images/lift.jpg" alt="Lift">
+      </a>
+      <div class="meta">
+        <h3>Lift</h3>
+        <p>Energize your body with sculpt, pilates-infused, and strength-based flows
+        designed to leave you feeling strong, focused, and ready to take on your day.</p>
+        <a href="lift.html"
+           class="btn btn-pill btn-dark">Lift, tone, & sculpt</a>
+      </div>
+    </article>
+
+    <!-- Lull -->
+    <article class="wellness-card">
+      <a class="poster" href="lull.html">
+        <img src="images/lull.jpg" alt="Lull">
+      </a>
+      <div class="meta">
+        <h3>Lull</h3>
+        <p>Slow down and reset with restorative flows, yin practices, and meditations
+        to calm your nervous system and bring peace to your mind and body.</p>
+        <a href="lull.html"
+           class="btn btn-pill btn-dark">Regulate Nerves</a>
+      </div>
+    </article>
+
+    <!-- Level-Up -->
+    <article class="wellness-card">
+      <a class="poster" href="levelup">
+        <img src="images/levelup.jpg" alt="Level Up">
+      </a>
+      <div class="meta">
+        <h3>Level-Up</h3>
+        <p>Glow from the inside out with cardio-based workouts like running, cycling, jump rope, and kickboxing
+        to complement your practice and strength-building exercises.</p>
+        <a href="levelup.html"
+           class="btn btn-pill btn-dark">Level Up Your Practice</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<!-- =================== Feature Carousel =================== -->
+<section class="cards container" aria-label="Featured links">
+  <h2 class="visually-hidden">Explore</h2>
+<div class="in-person-classes-head">
+     <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:2.2rem; margin-bottom:40px;">
+    Join us live!
+  </h2>
+    <p class="sub">From sunny vinyasa flows to grounding yin resets, our in-person pop-ups are designed to lift your body and your mood. Bring a friend, find your flow, and leave glowing.  
+</p>
+  </div>
+
+  <div class="cards-row" tabindex="0">
+
+    <!-- Card 1 -->
+    <article class="card">
+      <a class="card-link" href="https://partiful.com/e/TCEOyAKeVyFvav9ayY30?">
+        <img class="card-img img-default" src="images/oct18-greenyogi-flyer-default.jpg" alt="Pop Up">
+        <img class="card-img img-hover"   src="images/oct18-greenyogi-flyer-hover.jpg"   alt="" aria-hidden="true">
+      </a>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card">
+      <a class="card-link" href="https://partiful.com/e/KKvYNm7SQLW4SXslqEhJ">
+        <img class="card-img img-default" src="images/sept19-greenyogi-flyer-default.jpg" alt="Pop Up">
+        <img class="card-img img-hover"   src="images/sept19-greenyogi-flyer-hover.jpg"   alt="" aria-hidden="true">
+      </a>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="card">
+      <a class="card-link" href="https://partiful.com/e/TCEOyAKeVyFvav9ayY30?">
+        <img class="card-img img-default" src="images/aug19-greenyogi-flyer-default.jpg" alt="Pop Up">
+        <img class="card-img img-hover"   src="images/aug19-greenyogi-flyer-hover.jpg"   alt="" aria-hidden="true">
+      </a>
+    </article>
+</div>
+</section>
+ 
+
+<footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span> YOGA WITH LISA BY LISA ESHUN-WILSON & ASSOCIATES,LLC. / ALL RIGHTS RESERVED</p>
+    </div>
+  </footer>
+
+</body>
+</html>
