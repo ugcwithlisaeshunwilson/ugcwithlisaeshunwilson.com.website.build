@@ -72,47 +72,42 @@
       </video>
     </div>
 
-    <!-- Right: Name + title + location + blurb + icons -->
+    <!-- Right: Rates hero (Tester Package) -->
     <div class="ugc-hero-copy">
       <h1 class="ugc-hero-name">
-      <span class="ugc-name-first">Rates</span><br>
-      <span class="ugc-name-last">&amp; Packages</span>
+        <span class="ugc-name-first">Rates</span><br>
+        <span class="ugc-name-last">&amp; Packages</span>
       </h1>
 
-      <div class="ugc-hero-title">Lisa Eshun-Wilson, Ph.D.</div>
+      <!-- Hero: show the Tester Package immediately -->
+      <aside class="rates-block rates-highlight hero-tester" aria-label="Tester package">
+        <h4 class="rates-title">Tester Package</h4>
+        <div class="tester">
+          <div class="tester-lines">
+            <div class="tester-line"><span>6 Videos</span></div>
+            <div class="tester-line"><span>3 Hooks + 2 CTA</span></div>
+            <div class="tester-line"><span class="tester-note">(Includes 3 months usage rights)</span></div>
+          </div>
+          <div class="tester-price">$950</div>
+        </div>
 
-      <div class="ugc-hero-location">
-        <span class="ugc-pin" aria-hidden="true">💸</span>
-        Let's work together!
-      </div>
+        <p class="rates-footnote">
+          Want something custom? Share your dream deliverables (platform, usage, # of assets, formats),
+          and I’ll put together options tailored to your goals.
+        </p>
 
-      <p class="ugc-hero-blurb"> 
-      </p>
-
-      <div class="ugc-social-icons">
-        <a href="mailto:lisa@ugcwithlisaeshunwilson.com?subject=UGC%20Collaboration%20Inquiry" class="icon-btn">
-          <img src="images/icons/email.svg" alt="Email">
-
-        <a href="https://calendly.com/lisaeshunwilson/30min" class="icon-btn">
-          <img src="images/icons/calendar.svg" alt="Calendar">
-
-	<a href="https://x.com/ugcwithlis42488" target="_blank" rel="noopener" class="icon-btn">
-          <img src="images/icons/x-twitter.svg" alt="Twitter/X">
-        </a>
-
-	<a href="https://www.instagram.com/ugcwithlisaeshunwilson" target="_blank" rel="noopener" class="icon-btn">
-          <img src="images/icons/instagram.svg" alt="Instagram">
-        </a>
-
-        <a href="https://www.tiktok.com/@ugcwithlisaeshunwilson" target="_blank" rel="noopener" class="icon-btn">
-          <img src="images/icons/tiktok.svg" alt="TikTok">
-        </a>
-
-        <a href="index.html" class="icon-btn">
-        <img src="images/icons/home.svg" alt="Home"> 
-        </a>
-
-      </div>
+        <div class="hero-cta-row">
+          <a class="btn btn-pill btn-outline"
+             href="mailto:lisa@ugcwithlisaeshunwilson.com?subject=UGC%20Inquiry"
+             target="_blank" rel="noopener">
+            REQUEST A QUOTE
+          </a>
+          <a class="btn btn-pill btn-outline"
+             href="#all-packages">
+            SEE ALL PACKAGES
+          </a>
+        </div>
+      </aside>
     </div>
 
   </div>
@@ -156,10 +151,10 @@
 </script>
 
 
-<!-- =================== Rates & Packages (replaces UGC Video Sections 1 + 2) =================== -->
-<section class="rates card" aria-label="Rates and packages">
+<!-- =================== All Packages (scroll section) =================== -->
+<section class="rates card" id="all-packages" aria-label="All packages">
   <div class="ig-head">
-    <h3>rates &amp; packages</h3>
+    <h3>all packages</h3>
     <a class="btn btn-pill btn-outline"
        href="mailto:lisa@ugcwithlisaeshunwilson.com?subject=UGC%20Inquiry"
        target="_blank" rel="noopener">
@@ -181,18 +176,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1 Video</td>
-              <td class="rates-price">$150</td>
-            </tr>
-            <tr>
-              <td>3 Videos</td>
-              <td class="rates-price">$400</td>
-            </tr>
-            <tr>
-              <td>5 Videos</td>
-              <td class="rates-price">$700</td>
-            </tr>
+            <tr><td>1 Video</td><td class="rates-price">$150</td></tr>
+            <tr><td>3 Videos</td><td class="rates-price">$400</td></tr>
+            <tr><td>5 Videos</td><td class="rates-price">$700</td></tr>
           </tbody>
         </table>
       </div>
@@ -207,64 +193,37 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>5 UGC Photos</td>
-              <td class="rates-price">$150</td>
-            </tr>
-            <tr>
-              <td>10 UGC Photos</td>
-              <td class="rates-price">$250</td>
-            </tr>
-            <tr>
-              <td>15 UGC Photos</td>
-              <td class="rates-price">$450</td>
-            </tr>
+            <tr><td>5 UGC Photos</td><td class="rates-price">$150</td></tr>
+            <tr><td>10 UGC Photos</td><td class="rates-price">$250</td></tr>
+            <tr><td>15 UGC Photos</td><td class="rates-price">$450</td></tr>
           </tbody>
         </table>
       </div>
 
       <h4 class="rates-title" style="margin-top: 18px;">Add-Ons</h4>
       <ul class="rates-addons" aria-label="Add-ons list">
-        <li>
-          <span class="addon-label">Paid Ad Usage</span>
-          <span class="addon-value">+20% per 30 days</span>
-        </li>
-        <li>
-          <span class="addon-label">Additional Hook / CTA</span>
-          <span class="addon-value">$50</span>
-        </li>
-        <li>
-          <span class="addon-label">Raw Footage</span>
-          <span class="addon-value">50% of video cost</span>
-        </li>
-        <li>
-          <span class="addon-label">Rush Order (less than 7 days)</span>
-          <span class="addon-value">+20% fee</span>
-        </li>
+        <li><span class="addon-label">Paid Ad Usage</span><span class="addon-value">+20% per 30 days</span></li>
+        <li><span class="addon-label">Additional Hook / CTA</span><span class="addon-value">$50</span></li>
+        <li><span class="addon-label">Raw Footage</span><span class="addon-value">50% of video cost</span></li>
+        <li><span class="addon-label">Rush Order (less than 7 days)</span><span class="addon-value">+20% fee</span></li>
       </ul>
     </div>
 
-    <!-- RIGHT: Tester Package -->
-    <aside class="rates-block rates-highlight" aria-label="Tester package">
-      <h4 class="rates-title">Tester Package</h4>
-      <div class="tester">
-        <div class="tester-lines">
-          <div class="tester-line"><span>6 Videos</span></div>
-          <div class="tester-line"><span>3 Hooks + 2 CTA</span></div>
-          <div class="tester-line"><span class="tester-note">(Includes 3 months usage rights)</span></div>
-        </div>
-        <div class="tester-price">$950</div>
-      </div>
-
+    <!-- RIGHT: Quick note -->
+    <aside class="rates-block" aria-label="Quick note">
+      <h4 class="rates-title">How brands use this</h4>
+      <p class="rates-footnote" style="margin-top: 0;">
+        Most brands start with 3–5 videos to test hooks + angles. If you tell me your goals
+        (organic vs paid, target platform, and timeline), I’ll recommend the best bundle.
+      </p>
       <p class="rates-footnote">
-        Want something custom? Share your dream deliverables (platform, usage, # of assets, formats),
-        and I’ll put together options tailored to your goals. Email me at lisa@ugcwithlisaeshunwilson.com today. 
+        Email: <a href="mailto:lisa@ugcwithlisaeshunwilson.com?subject=UGC%20Inquiry">lisa@ugcwithlisaeshunwilson.com</a>
       </p>
     </aside>
   </div>
 </section>
 
-<!-- =================== Minimal CSS (paste into style.css) =================== -->
+<!-- =================== Rates styles (page-local) =================== -->
 <style>
   /* Rates card layout */
   .rates .rates-grid{
@@ -359,7 +318,7 @@
   .addon-label{ color: #222; font-weight: 600; }
   .addon-value{ color: #222; font-weight: 700; white-space: nowrap; }
 
-  /* Tester highlight */
+  /* Tester highlight + hero tweaks */
   .rates-highlight{
     background: linear-gradient(180deg, rgba(255,192,203,0.18), rgba(255,255,255,0.75));
     border: 1px solid rgba(255, 105, 180, 0.18);
@@ -384,10 +343,7 @@
     font-weight: 600;
   }
 
-  .tester-note{
-    font-weight: 600;
-    opacity: 0.75;
-  }
+  .tester-note{ opacity: 0.75; }
 
   .tester-price{
     font-family: "Playfair Display", serif;
@@ -405,7 +361,17 @@
     line-height: 1.45;
     color: rgba(0,0,0,0.70);
   }
+
+  /* Hero tester spacing/buttons (keeps it airy) */
+  .hero-tester{ margin-top: 12px; }
+  .hero-cta-row{
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
 </style>
+
 
 <!-- =================== Meet the Creator Carousel =================== -->
 <section class="ig card" aria-label="Instagram">
