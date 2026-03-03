@@ -217,7 +217,16 @@
     </a>
   </div>
 
-  <div class="ugc-carousel" data-ugc-carousel>
+<div class="ugc-carousel" data-ugc-carousel>
+
+<button class="ugc-arrow ugc-arrow--prev" type="button" aria-label="Previous video">
+  ‹
+</button>
+
+<button class="ugc-arrow ugc-arrow--next" type="button" aria-label="Next video">
+  ›
+</button>
+
     <div class="ugc-track" data-ugc-track>
 
       <!-- Slide 1 -->
@@ -539,6 +548,9 @@
     const dotsWrap = carousel.querySelector('[data-ugc-dots]');
     const slides = Array.from(track.querySelectorAll('.ugc-slide'));
 
+    const prevBtn = carousel.querySelector('.ugc-arrow--prev');
+    const nextBtn = carousel.querySelector('.ugc-arrow--next');
+
     // build dots
     dotsWrap.innerHTML = '';
     const dots = slides.map((_, i) => {
@@ -546,14 +558,12 @@
       b.className = 'ugc-dot';
       b.type = 'button';
       b.setAttribute('aria-label', `Go to slide ${i+1}`);
-      b.addEventListener('click', () => {
-        slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      });
+      b.addEventListener('click', () => goTo(i));
       dotsWrap.appendChild(b);
       return b;
     });
 
-    function setActive(){
+    function getActiveIndex(){
       const rect = track.getBoundingClientRect();
       const centerX = rect.left + rect.width/2;
 
@@ -569,11 +579,41 @@
           bestIndex = i;
         }
       });
+      return bestIndex;
+    }
+
+    function setActive(){
+      const idx = getActiveIndex();
 
       slides.forEach(s => s.classList.remove('is-active'));
       dots.forEach(d => d.classList.remove('is-active'));
-      slides[bestIndex].classList.add('is-active');
-      dots[bestIndex].classList.add('is-active');
+      slides[idx].classList.add('is-active');
+      dots[idx].classList.add('is-active');
+
+      // optional: disable ends
+      if(prevBtn) prevBtn.disabled = (idx === 0);
+      if(nextBtn) nextBtn.disabled = (idx === slides.length - 1);
+    }
+
+    function goTo(i){
+      slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      // setActive will update on scroll, but we can nudge it too:
+      requestAnimationFrame(setActive);
+    }
+
+    // arrow controls
+    if(prevBtn){
+      prevBtn.addEventListener('click', () => {
+        const idx = getActiveIndex();
+        goTo(Math.max(0, idx - 1));
+      });
+    }
+
+    if(nextBtn){
+      nextBtn.addEventListener('click', () => {
+        const idx = getActiveIndex();
+        goTo(Math.min(slides.length - 1, idx + 1));
+      });
     }
 
     // init

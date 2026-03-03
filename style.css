@@ -2231,3 +2231,40 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 @media (min-width: 900px){
   .ugc-slide{ width: 250px; }
 }
+
+/* arrows */
+.ugc-carousel{
+  position: relative; /* needed so arrows can position over the carousel */
+}
+
+.ugc-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 26px;
+  line-height: 44px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform .15s ease, background .15s ease, opacity .15s ease;
+}
+
+.ugc-arrow:hover{
+  background: rgba(0,0,0,0.75);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.ugc-arrow--prev{ left: 10px; }
+.ugc-arrow--next{ right: 10px; }
+
+/* optional: hide arrows on tiny screens if you want */
+@media (max-width: 420px){
+  .ugc-arrow{ width: 40px; height: 40px; font-size: 24px; }
+}
