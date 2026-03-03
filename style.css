@@ -2268,3 +2268,29 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 @media (max-width: 420px){
   .ugc-arrow{ width: 40px; height: 40px; font-size: 24px; }
 }
+
+.ig-wrap{
+  position: relative;
+}
+
+.ig-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.ugc-prev{ left: 10px; }
+.ugc-next{ right: 10px; }
+
+.ig-nav:hover{
+  background: rgba(0,0,0,0.75);
+}
