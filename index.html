@@ -210,6 +210,70 @@
   })();
 </script>
 
+<!-- =================== UGC Video Carousel (Center Mode + Dots) =================== -->
+<section class="ugc-videos card" aria-label="UGC video examples">
+  <div class="ig-head">
+    <h3>ugc example videos</h3>
+    <a class="btn btn-pill btn-outline"
+       href="mailto:lisa@ugcwithlisaeshunwilson.com?subject=UGC%20Inquiry"
+       target="_blank" rel="noopener">
+      WORK WITH ME
+    </a>
+  </div>
+
+  <div class="ugc-carousel" data-ugc-carousel>
+    <div class="ugc-track" data-ugc-track>
+      <!-- Slide 1 -->
+      <article class="ugc-slide" aria-label="UGC video 1">
+        <div class="ugc-type">Skit Style</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-cadence.mp4"
+                 poster="images/ugc-cadence-poster.jpg"
+                 playsinline
+                 muted
+                 controls
+                 preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Cadence Capsules</div>
+      </article>
+
+      <!-- Slide 2 -->
+      <article class="ugc-slide" aria-label="UGC video 2">
+        <div class="ugc-type">Product Demo</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-crest.mp4"
+                 poster="images/ugc-crest-poster.jpg"
+                 playsinline
+                 muted
+                 controls
+                 preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Crest Whitening Strips</div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="ugc-slide" aria-label="UGC video 3">
+        <div class="ugc-type">Broll w/VO</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-alo.mp4"
+                 poster="images/ugc-alo-poster.jpg"
+                 playsinline
+                 muted
+                 controls
+                 preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Alo Airlift Matching Set</div>
+      </article>
+    </div>
+
+    <!-- Dots -->
+    <div class="ugc-dots" data-ugc-dots aria-label="Carousel pagination"></div>
+  </div>
+</section>
+
 <!-- =================== UGC Video Section 1 Niche 1 =================== -->
 <section class="ugc-videos card" aria-label="UGC video examples">
   <div class="ig-head">
@@ -533,6 +597,68 @@
 <div class="container" style="padding: 0 16px;">
   <!-- founder section here -->
 </div>
+
+<script>
+(function(){
+  const carousels = document.querySelectorAll('[data-ugc-carousel]');
+  if(!carousels.length) return;
+
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector('[data-ugc-track]');
+    const dotsWrap = carousel.querySelector('[data-ugc-dots]');
+    const slides = Array.from(track.querySelectorAll('.ugc-slide'));
+
+    // build dots
+    dotsWrap.innerHTML = '';
+    const dots = slides.map((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'ugc-dot';
+      b.type = 'button';
+      b.setAttribute('aria-label', `Go to slide ${i+1}`);
+      b.addEventListener('click', () => {
+        slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+
+    function setActive(){
+      const rect = track.getBoundingClientRect();
+      const centerX = rect.left + rect.width/2;
+
+      let bestIndex = 0;
+      let bestDist = Infinity;
+
+      slides.forEach((slide, i) => {
+        const r = slide.getBoundingClientRect();
+        const x = r.left + r.width/2;
+        const d = Math.abs(centerX - x);
+        if(d < bestDist){
+          bestDist = d;
+          bestIndex = i;
+        }
+      });
+
+      slides.forEach(s => s.classList.remove('is-active'));
+      dots.forEach(d => d.classList.remove('is-active'));
+      slides[bestIndex].classList.add('is-active');
+      dots[bestIndex].classList.add('is-active');
+    }
+
+    // init
+    requestAnimationFrame(setActive);
+
+    // update on scroll/resize
+    let raf = null;
+    track.addEventListener('scroll', () => {
+      if(raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(setActive);
+    }, { passive: true });
+
+    window.addEventListener('resize', setActive);
+  });
+})();
+</script>
 
 </body>
 </html>
