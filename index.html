@@ -603,9 +603,9 @@
   }, { passive: true });
 
   // init on load: center first slide
-  setActive(0);
+  setActive(3);
   // allow layout to settle (esp mobile)
-  window.setTimeout(() => goTo(0), 50);
+  window.setTimeout(() => goTo(3), 50);
 
   // if screen resizes, re-center active
   window.addEventListener('resize', () => goTo(activeIndex));
