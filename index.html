@@ -67,7 +67,6 @@
         src="videos/ugc-intro.mp4"
         poster="images/ugc-intro-poster.jpg"
         playsinline
-        muted
         controls>
       </video>
     </div>
@@ -121,7 +120,7 @@
 </div>
         <!-- CTA buttons UNDER the icons -->
 <div class="ugc-hero-cta">
-  <a href="https://calendly.com/lisaeshunwilson/30mi" class="login-btn"
+  <a href="https://calendly.com/lisaeshunwilson/30min" class="login-btn"
      target="_blank"
      rel="noopener"
      class="cta-pill">
@@ -212,16 +211,10 @@
 
 <div class="ugc-carousel" data-ugc-carousel>
 
-<button class="ugc-arrow ugc-arrow--prev" type="button" aria-label="Previous video">
-  ‹
-</button>
-
-<button class="ugc-arrow ugc-arrow--next" type="button" aria-label="Next video">
-  ›
-</button>
+<button class="ugc-arrow ugc-arrow--prev" type="button" aria-label="Previous video">‹</button>
+<button class="ugc-arrow ugc-arrow--next" type="button" aria-label="Next video">›</button>
 
     <div class="ugc-track" data-ugc-track>
-
       <!-- Slide 1 -->
       <article class="ugc-slide" aria-label="UGC video 1">
         <div class="ugc-type">Testimonial</div>
@@ -315,7 +308,7 @@
 
 <!-- =================== UGC Offer Banner =================== -->
 <section class="membership" aria-label="membership">
-  <div class="membership-media" style="background-image:url('images/membership.jpg')"></div>
+  <div class="membership-media" style="background-image:url('images/corporate.jpg')"></div>
   <div class="membership-overlay"></div>
   <div class="membership-inner container">
     <h2>Why work with me?</h2>
@@ -406,7 +399,7 @@
       <p>🏆Triathlete, 🎿Skiier, 🧗🏽‍♀️Climber, & 🏕️Backcountry Hiker</p>
       <p>🌎<strong>Globetrotter</strong> | I visit family in Norway and Czechia annually</p>
       <p>🫙🧋🍓🍌<strong>Kombucha</strong> & <strong>Smoothie</strong> Lover</p>
-      <p>📩 lisa@ugcwithlisa.com</p>
+      <p>📩 contact@ugcwithlisa.com</p>
     <a class="btn btn-pill btn-outline" href="mailto:lisa@ugcwithlisaeshunwilson.com?subject=UGC%20Inquiry">WORK WITH ME</a>
   </div>
 </section>
@@ -490,7 +483,7 @@
   </div>
 
   <a class="ugc-connect-email" href="mailto:lisa@ugcwithlisaeshunwilson.com?subject=UGC%20Collaboration%20Inquiry">
-    LISA@UGCWITHLISA.COM
+    CONTACT@UGCWITHLISA.COM
   </a>
 </section>
 
@@ -532,95 +525,90 @@
 </div>
 
 <script>
-(function(){
-  const carousels = document.querySelectorAll('[data-ugc-carousel]');
-  if(!carousels.length) return;
+(function () {
+  const root = document.querySelector('[data-ugc-carousel]');
+  if (!root) return;
 
-  carousels.forEach((carousel) => {
-    const track = carousel.querySelector('[data-ugc-track]');
-    const dotsWrap = carousel.querySelector('[data-ugc-dots]');
-    const slides = Array.from(track.querySelectorAll('.ugc-slide'));
+  const track = root.querySelector('[data-ugc-track]');
+  const slides = Array.from(root.querySelectorAll('.ugc-slide'));
+  const dotsWrap = root.querySelector('[data-ugc-dots]');
+  const prevBtn = root.querySelector('.ugc-arrow.prev');
+  const nextBtn = root.querySelector('.ugc-arrow.next');
 
-    const prevBtn = carousel.querySelector('.ugc-arrow--prev');
-    const nextBtn = carousel.querySelector('.ugc-arrow--next');
+  if (!track || slides.length === 0) return;
 
-    // build dots
-    dotsWrap.innerHTML = '';
-    const dots = slides.map((_, i) => {
-      const b = document.createElement('button');
-      b.className = 'ugc-dot';
-      b.type = 'button';
-      b.setAttribute('aria-label', `Go to slide ${i+1}`);
-      b.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(b);
-      return b;
+  let activeIndex = 0;
+  let scrollTimer = null;
+
+  // Build dots
+  const dots = slides.map((_, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'ugc-dot';
+    b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    b.addEventListener('click', () => goTo(i));
+    dotsWrap && dotsWrap.appendChild(b);
+    return b;
+  });
+
+  function setActive(i) {
+    activeIndex = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, idx) => s.classList.toggle('is-active', idx === activeIndex));
+    dots.forEach((d, idx) => d.classList.toggle('is-active', idx === activeIndex));
+  }
+
+  function centerScrollLeftFor(i) {
+    const slide = slides[i];
+    const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+    const trackCenter = track.clientWidth / 2;
+    return slideCenter - trackCenter;
+  }
+
+  function goTo(i) {
+    setActive(i);
+    track.scrollTo({ left: centerScrollLeftFor(activeIndex), behavior: 'smooth' });
+  }
+
+  function findNearestIndex() {
+    const trackRect = track.getBoundingClientRect();
+    const trackCenterX = trackRect.left + trackRect.width / 2;
+
+    let bestIdx = 0;
+    let bestDist = Infinity;
+
+    slides.forEach((slide, idx) => {
+      const r = slide.getBoundingClientRect();
+      const slideCenterX = r.left + r.width / 2;
+      const dist = Math.abs(slideCenterX - trackCenterX);
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestIdx = idx;
+      }
     });
 
-    function getActiveIndex(){
-      const rect = track.getBoundingClientRect();
-      const centerX = rect.left + rect.width/2;
+    return bestIdx;
+  }
 
-      let bestIndex = 0;
-      let bestDist = Infinity;
+  // arrows
+  prevBtn && prevBtn.addEventListener('click', () => goTo(activeIndex - 1));
+  nextBtn && nextBtn.addEventListener('click', () => goTo(activeIndex + 1));
 
-      slides.forEach((slide, i) => {
-        const r = slide.getBoundingClientRect();
-        const x = r.left + r.width/2;
-        const d = Math.abs(centerX - x);
-        if(d < bestDist){
-          bestDist = d;
-          bestIndex = i;
-        }
-      });
-      return bestIndex;
-    }
+  // on scroll, after user drags, snap active to nearest slide
+  track.addEventListener('scroll', () => {
+    window.clearTimeout(scrollTimer);
+    scrollTimer = window.setTimeout(() => {
+      const idx = findNearestIndex();
+      setActive(idx);
+    }, 80);
+  }, { passive: true });
 
-    function setActive(){
-      const idx = getActiveIndex();
+  // init on load: center first slide
+  setActive(0);
+  // allow layout to settle (esp mobile)
+  window.setTimeout(() => goTo(0), 50);
 
-      slides.forEach(s => s.classList.remove('is-active'));
-      dots.forEach(d => d.classList.remove('is-active'));
-      slides[idx].classList.add('is-active');
-      dots[idx].classList.add('is-active');
-
-      // optional: disable ends
-      if(prevBtn) prevBtn.disabled = (idx === 0);
-      if(nextBtn) nextBtn.disabled = (idx === slides.length - 1);
-    }
-
-    function goTo(i){
-      slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      // setActive will update on scroll, but we can nudge it too:
-      requestAnimationFrame(setActive);
-    }
-
-    // arrow controls
-    if(prevBtn){
-      prevBtn.addEventListener('click', () => {
-        const idx = getActiveIndex();
-        goTo(Math.max(0, idx - 1));
-      });
-    }
-
-    if(nextBtn){
-      nextBtn.addEventListener('click', () => {
-        const idx = getActiveIndex();
-        goTo(Math.min(slides.length - 1, idx + 1));
-      });
-    }
-
-    // init
-    requestAnimationFrame(setActive);
-
-    // update on scroll/resize
-    let raf = null;
-    track.addEventListener('scroll', () => {
-      if(raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(setActive);
-    }, { passive: true });
-
-    window.addEventListener('resize', setActive);
-  });
+  // if screen resizes, re-center active
+  window.addEventListener('resize', () => goTo(activeIndex));
 })();
 </script>
 

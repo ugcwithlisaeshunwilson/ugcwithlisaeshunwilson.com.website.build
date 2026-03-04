@@ -2294,3 +2294,92 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 .ig-nav:hover{
   background: rgba(0,0,0,0.75);
 }
+
+/* ===== UGC Center Carousel (snap + active scale) ===== */
+.ugc-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.ugc-track[data-ugc-track]{
+  display: flex;
+  gap: 28px;
+  padding: 18px 10px 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  /* hide scrollbar */
+  scrollbar-width: none;
+}
+.ugc-track[data-ugc-track]::-webkit-scrollbar { display: none; }
+
+.ugc-slide{
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+
+  transform: scale(0.86);
+  opacity: 0.45;
+  transition: transform 220ms ease, opacity 220ms ease;
+  pointer-events: none; /* prevents tapping a faded slide */
+}
+
+.ugc-slide.is-active{
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* optional: make the active phone pop slightly */
+.ugc-slide.is-active .ugc-phone{
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,0.18));
+}
+
+/* arrows */
+.ugc-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(0,0,0,0.55);
+  color: white;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.ugc-arrow:hover{ background: rgba(0,0,0,0.7); }
+
+.ugc-arrow.prev{ left: 10px; }
+.ugc-arrow.next{ right: 10px; }
+
+/* dots */
+.ugc-dots{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0 2px;
+}
+.ugc-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.4);
+  background: transparent;
+  cursor: pointer;
+}
+.ugc-dot.is-active{
+  background: rgba(0,0,0,0.85);
+  border-color: rgba(0,0,0,0.85);
+}
+
+/* mobile: slightly tighter */
+@media (max-width: 768px){
+  .ugc-track[data-ugc-track]{ gap: 18px; }
+  .ugc-arrow{ width: 40px; height: 40px; }
+}
