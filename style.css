@@ -2394,3 +2394,114 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   .ugc-track[data-ugc-track]{ gap: 18px; }
   .ugc-arrow{ width: 40px; height: 40px; }
 }
+
+/* =========================================
+   UGC MOBILE HERO — FINAL CENTERING FIX
+   Paste at the VERY bottom of style.css
+   ========================================= */
+@media (max-width: 768px){
+
+  /* Header row: keep brand + button balanced and centered vertically */
+  .page-ugc .site-header .nav-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .page-ugc .site-header .brand{
+    font-size: 1.45rem;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .page-ugc .site-header .main-nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-ugc .site-header .main-nav a.login-btn{
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  /* Give the fixed header a little more breathing room above the hero */
+  .page-ugc .ugc-hero{
+    padding-top: 140px;
+  }
+
+  /* Force the hero into a centered single-column layout */
+  .page-ugc .ugc-hero-inner{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: start;
+    row-gap: 20px;
+    text-align: center;
+  }
+
+  /* Center the video wrapper */
+  .page-ugc .ugc-hero-video{
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* IMPORTANT: kill the global scale on mobile so it doesn't drift right */
+  .page-ugc .ugc-hero-video-el{
+    transform: none !important;
+    transform-origin: center center !important;
+    display: block;
+    width: min(88vw, 340px);
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  /* Center the copy block */
+  .page-ugc .ugc-hero-copy{
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-ugc .ugc-hero-name,
+  .page-ugc .ugc-hero-title,
+  .page-ugc .ugc-hero-location,
+  .page-ugc .ugc-hero-blurb{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Keep the pink script name from feeling too wide */
+  .page-ugc .ugc-hero-name{
+    max-width: 95%;
+    line-height: 1.05;
+  }
+
+  /* Center social icons + CTA */
+  .page-ugc .ugc-social-icons{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .page-ugc .ugc-hero-cta{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .page-ugc .ugc-hero-cta .login-btn{
+    margin: 0 auto;
+  }
+}
