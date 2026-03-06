@@ -1925,9 +1925,20 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
    ================================ */
 
 /* 1) Stop the carousel containers from clipping the pill */
-.page-ugc .ugc-wrap,
-.page-ugc .ugc-track {
+/* Let the WRAPPER be visible (so nothing gets clipped),
+   but keep the TRACK scrollable */
+.page-ugc .ugc-wrap{
   overflow: visible !important;
+}
+
+/* The track must be scrollable */
+.page-ugc .ugc-track[data-ugc-track]{
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  scroll-snap-type: x mandatory;
+  padding-top: 3.25rem; /* makes room so the top pill isn't clipped */
 }
 
 /* 2) Make sure the card itself doesn’t clip it either */
