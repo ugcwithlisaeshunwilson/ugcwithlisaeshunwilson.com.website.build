@@ -219,43 +219,8 @@
 <button class="ugc-arrow ugc-arrow--next" type="button" aria-label="Next video">›</button>
 
     <div class="ugc-track" data-ugc-track>
+      
       <!-- Slide 1 -->
-      <article class="ugc-slide" aria-label="UGC video 1">
-        <div class="ugc-type">Testimonial</div>
-        <div class="ugc-phone">
-          <video class="ugc-video"
-                 src="videos/ugc-lipbutter.mp4"
-                 poster="images/ugc-lipbutter-poster.jpg"
-                 playsinline controls preload="metadata"></video>
-        </div>
-        <div class="ugc-pill">Rich Lips Beauty</div>
-      </article>
-
-      <!-- Slide 2 -->
-      <article class="ugc-slide" aria-label="UGC video 2">
-        <div class="ugc-type">Broll w/VO</div>
-        <div class="ugc-phone">
-          <video class="ugc-video"
-                 src="videos/ugc-levskombucha.mp4"
-                 poster="images/ugc-levskombucha-poster.jpg"
-                 playsinline controls preload="metadata"></video>
-        </div>
-        <div class="ugc-pill">Lev’s Kombucha</div>
-      </article>
-
-      <!-- Slide 3 -->
-      <article class="ugc-slide" aria-label="UGC video 3">
-        <div class="ugc-type">Broll w/VO</div>
-        <div class="ugc-phone">
-          <video class="ugc-video"
-                 src="videos/ugc-alo.mp4"
-                 poster="images/ugc-alo-poster.jpg"
-                 playsinline controls preload="metadata"></video>
-        </div>
-        <div class="ugc-pill">Alo</div>
-      </article>
-
-      <!-- Slide 4 -->
       <article class="ugc-slide" aria-label="UGC video 4">
         <div class="ugc-type">Skit Style</div>
         <div class="ugc-phone">
@@ -267,7 +232,7 @@
         <div class="ugc-pill">Keep Your Cadence</div>
       </article>
 
-      <!-- Slide 5 -->
+      <!-- Slide 2 -->
       <article class="ugc-slide" aria-label="UGC video 5">
         <div class="ugc-type">Skit Style</div>
         <div class="ugc-phone">
@@ -277,6 +242,42 @@
                  playsinline controls preload="metadata"></video>
         </div>
         <div class="ugc-pill">Keep Your Cadence</div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="ugc-slide" aria-label="UGC video 2">
+        <div class="ugc-type">Broll w/VO</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-levskombucha.mp4"
+                 poster="images/ugc-levskombucha-poster.jpg"
+                 playsinline controls preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Lev’s Kombucha</div>
+      </article>
+
+      <!-- Slide 4 -->
+      <article class="ugc-slide" aria-label="UGC video 3">
+        <div class="ugc-type">Broll w/VO</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-alo.mp4"
+                 poster="images/ugc-alo-poster.jpg"
+                 playsinline controls preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Alo</div>
+      </article>
+
+      <!-- Slide 5 -->
+      <article class="ugc-slide" aria-label="UGC video 1">
+        <div class="ugc-type">Testimonial</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-lipbutter.mp4"
+                 poster="images/ugc-lipbutter-poster.jpg"
+                 playsinline controls preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Rich Lips Beauty</div>
       </article>
 
       <!-- Slide 6 -->
@@ -326,7 +327,7 @@
     </p>
     
     <p>
-    ✅ <strong>Direct Response Marketing</strong> | Convert viewers into customers.
+    ✅ <strong>Sales & Marketing</strong> | Convert views into sales.
     </p>
     
     <p>
@@ -607,9 +608,9 @@
   }, { passive: true });
 
   // init on load: center first slide
-  setActive(3);
+  setActive(0);
   // allow layout to settle (esp mobile)
-  window.setTimeout(() => goTo(3), 50);
+  window.setTimeout(() => goTo(0), 50);
 
   // if screen resizes, re-center active
   window.addEventListener('resize', () => goTo(activeIndex));
