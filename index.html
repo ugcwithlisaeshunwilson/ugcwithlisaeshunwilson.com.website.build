@@ -530,28 +530,49 @@
   const slides = Array.from(root.querySelectorAll('.ugc-slide'));
   const dotsWrap = root.querySelector('[data-ugc-dots]');
   const prevBtn = root.querySelector('.ugc-arrow--prev');
-  const nextBtn = root.querySelector('..ugc-arrow--next');
+  const nextBtn = root.querySelector('.ugc-arrow--next');
 
   if (!track || slides.length === 0) return;
 
   let activeIndex = 0;
   let scrollTimer = null;
 
-  // Build dots
-  const dots = slides.map((_, i) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'ugc-dot';
-    b.setAttribute('aria-label', `Go to slide ${i + 1}`);
-    b.addEventListener('click', () => goTo(i));
-    dotsWrap && dotsWrap.appendChild(b);
-    return b;
-  });
+  // Build dots only if dots container exists
+  const dots = dotsWrap
+    ? slides.map((_, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'ugc-dot';
+        b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        b.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(b);
+        return b;
+      })
+    : [];
+
+  function pauseInactiveVideos() {
+    slides.forEach((slide, idx) => {
+      const video = slide.querySelector('video');
+      if (!video) return;
+
+      if (idx !== activeIndex) {
+        video.pause();
+      }
+    });
+  }
 
   function setActive(i) {
     activeIndex = Math.max(0, Math.min(slides.length - 1, i));
-    slides.forEach((s, idx) => s.classList.toggle('is-active', idx === activeIndex));
-    dots.forEach((d, idx) => d.classList.toggle('is-active', idx === activeIndex));
+
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle('is-active', idx === activeIndex);
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === activeIndex);
+    });
+
+    pauseInactiveVideos();
   }
 
   function centerScrollLeftFor(i) {
@@ -563,7 +584,10 @@
 
   function goTo(i) {
     setActive(i);
-    track.scrollTo({ left: centerScrollLeftFor(activeIndex), behavior: 'smooth' });
+    track.scrollTo({
+      left: centerScrollLeftFor(activeIndex),
+      behavior: 'smooth'
+    });
   }
 
   function findNearestIndex() {
@@ -574,9 +598,10 @@
     let bestDist = Infinity;
 
     slides.forEach((slide, idx) => {
-      const r = slide.getBoundingClientRect();
-      const slideCenterX = r.left + r.width / 2;
+      const rect = slide.getBoundingClientRect();
+      const slideCenterX = rect.left + rect.width / 2;
       const dist = Math.abs(slideCenterX - trackCenterX);
+
       if (dist < bestDist) {
         bestDist = dist;
         bestIdx = idx;
@@ -586,26 +611,45 @@
     return bestIdx;
   }
 
-  // arrows
-  prevBtn && prevBtn.addEventListener('click', () => goTo(activeIndex - 1));
-  nextBtn && nextBtn.addEventListener('click', () => goTo(activeIndex + 1));
+  function updateActiveSlide() {
+    const idx = findNearestIndex();
+    setActive(idx);
+  }
 
-  // on scroll, after user drags, snap active to nearest slide
+  // Arrow navigation
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      goTo(activeIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      goTo(activeIndex + 1);
+    });
+  }
+
+  // Update active slide while scrolling
   track.addEventListener('scroll', () => {
     window.clearTimeout(scrollTimer);
     scrollTimer = window.setTimeout(() => {
-      const idx = findNearestIndex();
-      setActive(idx);
+      updateActiveSlide();
     }, 80);
   }, { passive: true });
 
-  // init on load: center first slide
-  setActive(0);
-  // allow layout to settle (esp mobile)
-  window.setTimeout(() => goTo(0), 50);
+  // Start on the 4th slide (index 3)
+  setActive(3);
+  window.setTimeout(() => goTo(3), 50);
 
-  // if screen resizes, re-center active
-  window.addEventListener('resize', () => goTo(activeIndex));
+  // Re-center on resize
+  window.addEventListener('resize', () => {
+    goTo(activeIndex);
+  });
+
+  // Ensure correct state on initial load
+  window.addEventListener('load', () => {
+    updateActiveSlide();
+  });
 })();
 </script>
 
