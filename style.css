@@ -2527,3 +2527,10 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   opacity: 1;
   transform: scale(1.05);
 }
+
+/* FINAL UGC CAROUSEL EDGE FIX */
+.ugc-track[data-ugc-track]{
+  padding-left: max(16px, calc((100% - 260px) / 2)) !important;
+  padding-right: max(16px, calc((100% - 260px) / 2)) !important;
+  box-sizing: border-box;
+}
