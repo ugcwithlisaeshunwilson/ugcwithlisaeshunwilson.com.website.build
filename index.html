@@ -575,12 +575,17 @@
     pauseInactiveVideos();
   }
 
-  function centerScrollLeftFor(i) {
-    const slide = slides[i];
-    const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-    const trackCenter = track.clientWidth / 2;
-    return slideCenter - trackCenter;
-  }
+function centerScrollLeftFor(i) {
+  const slide = slides[i];
+  const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+  const trackCenter = track.clientWidth / 2;
+
+  const raw = slideCenter - trackCenter;
+
+  const maxScroll = track.scrollWidth - track.clientWidth;
+
+  return Math.max(0, Math.min(raw, maxScroll));
+}
 
   function goTo(i) {
     setActive(i);
