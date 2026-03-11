@@ -2528,3 +2528,26 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   transform: scale(1.05);
 }
 
+/* =========================================
+   UGC carousel spacers — allow first/last slide to center
+   ========================================= */
+.page-ugc .ugc-track[data-ugc-track]{
+  display: flex !important;
+  align-items: flex-start;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page-ugc .ugc-spacer{
+  flex: 0 0 calc((100% - 220px) / 2);
+}
+
+.page-ugc .ugc-slide{
+  flex: 0 0 220px !important;
+  width: 220px !important;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
