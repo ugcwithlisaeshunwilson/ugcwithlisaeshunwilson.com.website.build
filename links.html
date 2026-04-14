@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UGC with Lisa</title>
+  <link rel="icon" href="images/favicon-ugc.png">
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/uwl6zhw.css">
+  <title>UGC with Lisa</title>
+  
+<!-- UGC Favicons -->
+<link rel="icon" href="/images/favicon-ugc.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" hrief="/images/favicon-ugc-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-ugc-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-ugc-180.png">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#1a1a1a">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="UGC with Lisa">
+<meta property="og:description" content="High-quality content to promote high-quality products.">
+<meta property="og:image" content="https://www.ugcwithlisaeshunwilson.com/images/ugc.jpg">
+<meta property="og:url" content="https://www.ugcwithlisaeshunwilson.com//ugc-hero.html">
+<meta property="og:type" content="website">
+
+<!-- Slack Rich Preview Enhancement -->
+<meta property="og:site_name" content="UGC with Lisa">
+<meta name="author" content="Lisa Eshun-Wilson">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="UGC with Lisa">
+<meta name="twitter:description" content="High-quality content to promote high-quality products.">
+<meta name="twitter:image" content="https://www.ugcwithlisaeshunwilson.com/images/ugc-hero.jpg">
+</head>
+
+<body class="page-ugc">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry">ugc with lisa</a>     
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry" class="login-btn">WORK WITH ME</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<!-- Hero (UGC landing) -->
+<section class="ugc-hero" role="banner" aria-label="UGC hero">
+  <div class="ugc-hero-inner">
+
+    <!-- Left: Intro video (what people see immediately) -->
+    <div class="ugc-hero-video">
+      <video
+        class="ugc-hero-video-el"
+        src="videos/ugc-intro.mp4"
+        poster="images/ugc-intro-poster.jpg"
+        playsinline
+        controls>
+      </video>
+    </div>
+
+    <!-- Right: Name + title + location + blurb + icons -->
+    <div class="ugc-hero-copy">
+      <h1 class="ugc-hero-name">
+      <span class="ugc-name-first">Links</span><br>
+      <span class="ugc-name-last">by Lisa</span>
+      </h1>
+
+      <div class="ugc-hero-title">All our links in one place.</div>
+
+      <div class="ugc-hero-location">
+        <span class="ugc-pin" aria-hidden="true">📍</span>
+        Global
+      </div>
+
+      <p class="ugc-hero-blurb">
+        Send me the link bro. 
+      </p>
+
+      <div class="ugc-social-icons">
+
+        <a href="drive.ugcwithlisa.com" class="icon-btn">
+          <img src="images/icons/drive.svg" alt="Google Drive"></a>
+
+	<a href="review.ugcwithlisa.com" target="_blank" rel="noopener" class="icon-btn">
+          <img src="images/icons/review.svg" alt="Survey">
+        </a>
+
+	<a href="rates.ugcwithlisa.com" target="_blank" rel="noopener" class="icon-btn">
+          <img src="images/icons/rates.svg" alt="Rates">
+        </a>
+
+        <a href="pay.ugcwithlisa.com" target="_blank" rel="noopener" class="icon-btn">
+          <img src="images/icons/pay.svg" alt="Pay">
+        </a>
+
+</div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Sticky taupe nav on scroll (diagnostic version) -->
+<script>
+  (function () {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+
+    const getY = () =>
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.bodyscrollTop || 0;
+
+    const apply = (y) => {
+      const on = y > 50;
+      header.classList.toggle('scrolled', on);
+      header.dataset.scrolled = on; // handy for inspecting
+    };
+
+    const onScroll = () => apply(getY());
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+
+    let last = -1;
+    (function tick(){
+      const y = getY();
+      if (y !== last) { apply(y); last = y; }
+      requestAnimationFrame(tick);
+    })();
+
+    apply(getY());
+  })();
+</script>
+
+<!-- =================== UGC Video Carousel (Center Mode + Dots) =================== -->
+<section class="ugc-videos card" aria-label="UGC video examples">
+  <div class="ig-head"></div>
+
+<div class="ugc-carousel" data-ugc-carousel>
+
+<button class="ugc-arrow ugc-arrow--prev" type="button" aria-label="Previous video">‹</button>
+<button class="ugc-arrow ugc-arrow--next" type="button" aria-label="Next video">›</button>
+
+    <div class="ugc-track" data-ugc-track>
+
+  <div class="ugc-spacer" aria-hidden="true"></div>
+
+  <div class="ugc-spacer" aria-hidden="true"></div>
+           
+      <!-- Slide 1 -->
+      <article class="ugc-slide" aria-label="UGC video 1">
+        <div class="ugc-type">Product Demo</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-crest.mp4"
+                 poster="images/ugc-crest-poster.jpg"
+                 playsinline controls preload="metadata"></video>
+       </div>
+        <div class="ugc-pill">Crest</div>
+      </article>
+
+      <!-- Slide 2 -->
+      <article class="ugc-slide" aria-label="UGC video 2">
+        <div class="ugc-type">Greenscreen</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-sprout.mp4"
+                 poster="images/ugc-prepAI-sprout-poster.jpg"
+                 playsinline controls preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Sprout AI</div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="ugc-slide" aria-label="UGC video 3">
+        <div class="ugc-type">Skit Style</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-cadence.mp4"
+                 poster="images/ugc-cadence-poster.jpg"
+                 playsinline controls preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Keep Your Cadence</div>
+      </article>
+
+      <!-- Slide 4 -->
+      <article class="ugc-slide" aria-label="UGC video 4">
+        <div class="ugc-type">Skit Style</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-cadence-second-session.mp4"
+                 poster="images/ugc-cadence-second-session.jpg"
+                 playsinline controls preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Keep Your Cadence</div>
+      </article>
+
+       <!-- Slide 5 -->
+<article class="ugc-slide" aria-label="UGC video 5">
+        <div class="ugc-type">Broll w/VO</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-alo.mp4"
+                 poster="images/ugc-alo-poster.jpg"
+                 playsinline controls preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Alo</div>
+      </article>
+
+      <!-- Slide 6 -->
+      <article class="ugc-slide" aria-label="UGC video 6">
+        <div class="ugc-type">Broll w/VO</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-levskombucha.mp4"
+                 poster="images/ugc-levskombucha-poster.jpg"
+                 playsinline controls preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Lev’s Kombucha</div>
+      </article>
+
+      <!-- Slide 7 -->
+      <article class="ugc-slide" aria-label="UGC video 7">
+        <div class="ugc-type">Broll</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-bali.mp4"
+                 poster="images/ugc-bali-poster.jpg"
+                 playsinline controls preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Tropical Glamping</div>
+      </article>
+
+     <!-- Slide 8 -->
+      <article class="ugc-slide" aria-label="UGC video 8">
+        <div class="ugc-type">Testimonial</div>
+        <div class="ugc-phone">
+          <video class="ugc-video"
+                 src="videos/ugc-lipbutter.mp4"
+                 poster="images/ugc-lipbutter-poster.jpg"
+                 playsinline controls preload="metadata"></video>
+        </div>
+        <div class="ugc-pill">Rich Lips Beauty</div>
+      </article>
+    
+<div class="ugc-spacer" aria-hidden="true"></div>
+
+    </div>
+    <!-- Dots -->
+    <div class="ugc-dots" data-ugc-dots aria-label="Carousel pagination"></div>
+  </div>
+</section>
+
+<!-- =================== UGC Offer Banner =================== -->
+<section class="membership" aria-label="membership">
+  <div class="membership-media" style="background-image:url('images/membership.jpg')"></div>
+  <div class="membership-overlay"></div>
+  <div class="membership-inner container">
+    <h2>Why work with me?</h2>
+    
+    <p>
+    ✅ <strong>UGC Mastery Academy Certified</strong> | High-quality service.
+    </p>
+    
+    <p>
+    ✅ <strong>Acting Experience</strong> | Script reads, energetic delivery. 
+    </p>
+    
+    <p>
+    ✅ <strong>Sales & Marketing</strong> | Convert views into sales.
+    </p>
+    
+    <p>
+    ✅ <strong>Fast & Reliable</strong> | Clear communicator.
+    </p>
+
+    <a class="btn btn-pill btn-outline" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry">WORK WITH ME</a>
+  
+  </div>
+</section>
+
+<!-- =================== Instagram Carousel =================== -->
+<section class="ig card" aria-label="Instagram">
+  <div class="ig-head">
+    <h3>ugc photography</h3>
+    <a class="btn btn-pill btn-outline" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Inquiry" target="_blank" rel="noopener">
+      WORK WITH ME
+    </a>
+  </div>
+
+  <div class="ig-wrap">
+    <button class="ig-nav ig-prev" aria-label="Previous">‹</button> 
+
+    <div class="ig-track">
+      <!-- Replace these image paths with your own (local images or CDN) -->
+      <a class="ig-card" href="#" aria-label="Instagram post 1">
+        <img src="images/ug/ug1.jpg" alt="Yoga with Lisa — post 1" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 2">
+        <img src="images/ug/ug2.jpg" alt="Yoga with Lisa — post 2" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 3">
+        <img src="images/ug/ug3.jpg" alt="Yoga with Lisa — post 3" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 4">
+        <img src="images/ug/ug4.jpg" alt="Yoga with Lisa — post 4" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 5">
+        <img src="images/ug/ug5.jpg" alt="Yoga with Lisa — post 5" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 6">
+        <img src="images/ug/ug6.jpg" alt="Yoga with Lisa — post 6" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 7">
+        <img src="images/ug/ug7.jpg" alt="Yoga with Lisa — post 7" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 8">
+        <img src="images/ug/ug8.jpg" alt="Yoga with Lisa — post 8" />
+      </a>
+       <a class="ig-card" href="#" aria-label="Instagram post 9">
+        <img src="images/ug/ug9.jpg" alt="Yoga with Lisa — post 9" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 10">
+        <img src="images/ug/ug10.jpg" alt="Yoga with Lisa — post 10" />
+      </a>
+    </div>
+
+    <button class="ig-nav ig-next" aria-label="Next">›</button>
+  </div>
+</section>
+
+<!-- =================== Founder Banner =================== -->
+<section class="founder message" aria-label="Our founder">
+  <div class="founder-media" style="background-image:url('images/founder.jpg')"></div>
+  <div class="founder-overlay"></div>
+  <div class="founder-inner container">
+    <h2>meet the creator</h2>
+      <p>🍾Go-to <strong>party-planner</strong> for my girls</p>
+      <p>💸<strong>Finance oracle for the fam</strong> | Let's talk Roth IRA, crypto & more</p>
+      <p>🌁Living and working in <strong>SF</strong></p>
+      <p>🧬<strong>Science Creator</strong> | PhD in Molecular Biology from UC Berkeley</p>
+      <p>🧘🏽‍♀️<strong>Yoga Creator</strong> | Yoga Alliance Certified | 500-hour</p>
+      <p>👧🏽👧🏾<strong>Big Sister Creator</strong> | Oldest of 6 siblings | Extra UGC Moels!</p>
+      <p>🏆Triathlete, 🎿Skiier, 🧗🏽‍♀️Climber, & 🏕️Backcountry Hiker</p>
+      <p>🌎<strong>Globetrotter</strong> | I visit family in Norway and Czechia annually</p>
+      <p>🫙🧋🍓🍌<strong>Kombucha</strong> & <strong>Smoothie</strong> Lover</p>
+      <p>📩 contact@ugcwithlisa.com</p>
+    <a class="btn btn-pill btn-outline" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Inquiry">WORK WITH ME</a>
+  </div>
+</section>
+
+<!-- =================== Meet the Creator Carousel =================== -->
+<section class="ig card" aria-label="Instagram">
+  <div class="ig-head">
+    <h3>a little more about lisa</h3>
+    <a class="btn btn-pill btn-outline" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Inquiry" target="_blank" rel="noopener">
+      WORK WITH ME
+    </a>
+  </div>
+
+  <div class="ig-wrap">
+    <button class="ig-nav ig-prev" aria-label="Previous">‹</button> 
+
+    <div class="ig-track">
+      <!-- Replace these image paths with your own (local images or CDN) -->
+      <a class="ig-card" href="#" aria-label="Instagram post 1">
+        <img src="images/mtc/mtc1.jpg" alt="Yoga with Lisa — post 1" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 2">
+        <img src="images/mtc/mtc2.jpg" alt="Yoga with Lisa — post 2" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 3">
+        <img src="images/mtc/mtc3.jpg" alt="Yoga with Lisa — post 3" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 4">
+        <img src="images/mtc/mtc4.jpg" alt="Yoga with Lisa — post 4" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 5">
+        <img src="images/mtc/mtc5.jpg" alt="Yoga with Lisa — post 5" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 6">
+        <img src="images/mtc/mtc6.jpg" alt="Yoga with Lisa — post 6" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 7">
+        <img src="images/mtc/mtc7.jpg" alt="Yoga with Lisa — post 7" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 8">
+        <img src="images/mtc/mtc8.jpg" alt="Yoga with Lisa — post 8" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 9">
+        <img src="images/mtc/mtc9.jpg" alt="Yoga with Lisa — post 9" />
+      </a>
+      <a class="ig-card" href="#" aria-label="Instagram post 10">
+        <img src="images/mtc/mtc10.jpg" alt="Yoga with Lisa — post 10" />
+      </a>
+    </div>
+
+    <button class="ig-nav ig-next" aria-label="Next">›</button>
+  </div>
+</section>
+
+<!-- ==================== Connect ==================== -->
+<section class="ugc-connect" aria-label="Connect with Lisa">
+  <h2 class="ugc-connect-title">CONNECT WITH ME</h2>
+
+  <div class="ugc-connect-card">
+    <img class="ugc-connect-photo" src="images/connect-lisa.jpg" alt="Lisa Eshun-Wilson">
+  </div>
+
+  <div class="ugc-connect-icons">
+
+    <a href="mailto:lisa@ugcwithlisaeshunwilson.com?subject=UGC%20Collaboration%20Inquiry" class="ugc-connect-icon">
+      <img src="images/icons/email.svg" alt="Email">
+    </a>
+
+   <a href="https://x.com/ugcwithlis42488" target="_blank" rel="noopener" class="ugc-connect-icon">
+      <img src="images/icons/x-twitter.svg" alt="Twitter/X">
+    </a>
+
+    <a href="https://www.instagram.com/ugcwithlisaeshunwilson" target="_blank" rel="noopener" class="ugc-connect-icon">
+      <img src="images/icons/instagram.svg" alt="Instagram">
+    </a>
+
+    <a href="https://www.tiktok.com/@ugcwithlisaeshunwilson?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" class="ugc-connect-icon">
+      <img src="images/icons/tiktok.svg" alt="TikTok">
+    </a>
+
+  </div>
+
+  <a class="ugc-connect-email" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry">
+    CONTACT@UGCWITHLISA.COM
+  </a>
+</section>
+
+<script>
+(function(){
+  function bindIgCarousel(wrap){
+    const track = wrap.querySelector('.ig-track');
+    const prev = wrap.querySelector('.ig-prev');
+    const next = wrap.querySelector('.ig-next');
+    if(!track || !prev || !next) return;
+
+    const step = () => Math.max(260, Math.floor(track.clientWidth * 0.85));
+
+    prev.addEventListener('click', () => {
+      track.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+
+    next.addEventListener('click', () => {
+      track.scrollBy({ left: step(), behavior: 'smooth' });
+    });
+  }
+
+  document.querySelectorAll('[data-ig-carousel]').forEach(bindIgCarousel);
+})();
+</script>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span> UGC WITH LISA BY LISA ESHUN-WILSON & ASSOCIATES,LLC. / ALL RIGHTS RESERVED</p>
+    </div>
+  </footer>
+
+<div class="container" style="padding: 0 16px;">
+  <!-- membership section here -->
+</div>
+
+<div class="container" style="padding: 0 16px;">
+  <!-- founder section here -->
+</div>
+
+<script>
+(function () {
+  const root = document.querySelector('[data-ugc-carousel]');
+  if (!root) return;
+
+  const track = root.querySelector('[data-ugc-track]');
+  const slides = Array.from(root.querySelectorAll('.ugc-slide'));
+  const dotsWrap = root.querySelector('[data-ugc-dots]');
+  const prevBtn = root.querySelector('.ugc-arrow--prev');
+  const nextBtn = root.querySelector('.ugc-arrow--next');
+
+  if (!track || slides.length === 0) return;
+
+  let activeIndex = 0;
+  let scrollTimer = null;
+
+  // Build dots only if dots container exists
+  const dots = dotsWrap
+    ? slides.map((_, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'ugc-dot';
+        b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        b.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(b);
+        return b;
+      })
+    : [];
+
+  function pauseInactiveVideos() {
+    slides.forEach((slide, idx) => {
+      const video = slide.querySelector('video');
+      if (!video) return;
+
+      if (idx !== activeIndex) {
+        video.pause();
+      }
+    });
+  }
+
+  function setActive(i) {
+    activeIndex = Math.max(0, Math.min(slides.length - 1, i));
+
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle('is-active', idx === activeIndex);
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === activeIndex);
+    });
+
+    pauseInactiveVideos();
+  }
+
+function centerScrollLeftFor(i) {
+  const slide = slides[i];
+  const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+  const trackCenter = track.clientWidth / 2;
+
+  const raw = slideCenter - trackCenter;
+
+  const maxScroll = track.scrollWidth - track.clientWidth;
+
+  return Math.max(0, Math.min(raw, maxScroll));
+}
+
+  function goTo(i) {
+    setActive(i);
+    track.scrollTo({
+      left: centerScrollLeftFor(activeIndex),
+      behavior: 'smooth'
+    });
+  }
+
+  function findNearestIndex() {
+    const trackRect = track.getBoundingClientRect();
+    const trackCenterX = trackRect.left + trackRect.width / 2;
+
+    let bestIdx = 0;
+    let bestDist = Infinity;
+
+    slides.forEach((slide, idx) => {
+      const rect = slide.getBoundingClientRect();
+      const slideCenterX = rect.left + rect.width / 2;
+      const dist = Math.abs(slideCenterX - trackCenterX);
+
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestIdx = idx;
+      }
+    });
+
+    return bestIdx;
+  }
+
+  function updateActiveSlide() {
+    const idx = findNearestIndex();
+    setActive(idx);
+  }
+
+  // Arrow navigation
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      goTo(activeIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      goTo(activeIndex + 1);
+    });
+  }
+
+  // Update active slide while scrolling
+  track.addEventListener('scroll', () => {
+    window.clearTimeout(scrollTimer);
+    scrollTimer = window.setTimeout(() => {
+      updateActiveSlide();
+    }, 80);
+  }, { passive: true });
+
+  // Start on the 4th slide (index 3)
+  setActive(3);
+  window.setTimeout(() => goTo(3), 50);
+
+  // Re-center on resize
+  window.addEventListener('resize', () => {
+    goTo(activeIndex);
+  });
+
+  // Ensure correct state on initial load
+  window.addEventListener('load', () => {
+    updateActiveSlide();
+  });
+})();
+</script>
+
+</body>
+</html>
