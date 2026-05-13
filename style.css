@@ -2135,9 +2135,9 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 }
 
 .client-logo img {
-  height: 56px;
+  height: 67px;
   width: auto;
-  max-width: 160px;
+  max-width: 192px;
   object-fit: contain;
   display: block;
   filter: grayscale(100%);
@@ -2149,7 +2149,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 }
 
 @media (max-width: 600px) {
-  .client-logo img { height: 42px; }
+  .client-logo img { height: 50px; }
   .clients-track { gap: 40px; }
 }
 
