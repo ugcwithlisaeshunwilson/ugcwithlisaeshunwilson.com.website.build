@@ -700,6 +700,10 @@ html, body { overflow-x: hidden; }
   font-weight: 400;
 }
 
+.page-ugc .founder p {
+  font-size: 1.15em;
+}
+
 /* Button looks good on dark photos */
 .membership .btn-outline,
 .founder .btn-outline{
@@ -1977,7 +1981,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 /* Make the bullet list text ~40% larger (and readable) */
 .page-ugc .membership .membership-inner li,
 .page-ugc .membership .membership-inner p{
-  font-size: 1.4em;      /* ~40% bigger */
+  font-size: 1.26em;
   line-height: 1.35;
 }
 
@@ -2041,7 +2045,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 
   .page-ugc .membership .membership-inner li,
   .page-ugc .membership .membership-inner p{
-    font-size: 1.05em;      /* smaller but still strong */
+    font-size: 0.95em;
     line-height: 1.4;
   }
 
@@ -2568,4 +2572,28 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   width: 220px !important;
   scroll-snap-align: center;
   scroll-snap-stop: always;
+}
+
+/* =================== Niche Carousels — 20% smaller slides =================== */
+/* To add a new niche: create a new <section class="ugc-videos card niche-carousel"> following the same pattern */
+
+.niche-carousel .ugc-slide {
+  flex: 0 0 150px !important;
+  width: 150px !important;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.niche-carousel .ugc-spacer {
+  flex: 0 0 calc((100% - 150px) / 2);
+}
+
+@media (min-width: 900px) {
+  .niche-carousel .ugc-slide {
+    flex: 0 0 170px !important;
+    width: 170px !important;
+  }
+  .niche-carousel .ugc-spacer {
+    flex: 0 0 calc((100% - 170px) / 2);
+  }
 }
