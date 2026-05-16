@@ -902,6 +902,23 @@
   }
 
   document.querySelectorAll('[data-ugc-carousel]').forEach(initCarousel);
+
+  // Auto-inject cover images from matching .jpg files
+  document.querySelectorAll('.ugc-video').forEach(video => {
+    const src = video.getAttribute('src');
+    if (!src) return;
+    const coverSrc = src.replace(/\.[^.]+$/, '.jpg');
+    video.poster = coverSrc;
+    const img = document.createElement('img');
+    img.className = 'ugc-cover';
+    img.src = coverSrc;
+    img.alt = '';
+    img.setAttribute('aria-hidden', 'true');
+    img.onerror = () => { img.style.display = 'none'; };
+    video.parentElement.appendChild(img);
+    video.addEventListener('play', () => { img.style.display = 'none'; });
+    video.addEventListener('ended', () => { img.style.display = ''; });
+  });
 })();
 </script>
 
