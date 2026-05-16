@@ -1087,7 +1087,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   display: block;
 
   object-fit: cover;
-  border-radius: 36px;
+  border-radius: 25px;
 
   /* thick black iPhone-style border */
   border: 10px solid #111;
@@ -2196,7 +2196,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   position: relative;
   width: 100%;
   aspect-ratio: 9/16;
-  border-radius: 40px;
+  border-radius: 28px;
   overflow: hidden;
   background: #000;
   box-shadow:
