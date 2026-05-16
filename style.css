@@ -2630,3 +2630,32 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
     flex: 0 0 calc((100% - 145px) / 2);
   }
 }
+
+/* ===== Mobile/tablet only (< 1024px) ===== */
+@media (max-width: 1023px) {
+  .ugc-carousel {
+    touch-action: pan-y;
+  }
+  .niche-carousel .ugc-slide {
+    flex: 0 0 102px !important;
+    width: 102px !important;
+  }
+  .niche-carousel .ugc-spacer {
+    flex: 0 0 calc((100% - 102px) / 2);
+  }
+  .ugc-type,
+  .ugc-pill {
+    font-size: 10px;
+    padding: 6px 11px;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1023px) {
+  .niche-carousel .ugc-slide {
+    flex: 0 0 116px !important;
+    width: 116px !important;
+  }
+  .niche-carousel .ugc-spacer {
+    flex: 0 0 calc((100% - 116px) / 2);
+  }
+}
