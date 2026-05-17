@@ -2442,10 +2442,6 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   border-color: rgba(0,0,0,0.85);
 }
 
-/* gap handled by the <1023px block above */
-@media (max-width: 768px){
-  .ugc-arrow{ width: 40px; height: 40px; }
-}
 
 /* =========================================
    UGC MOBILE HERO — FINAL CENTERING FIX
@@ -2646,52 +2642,3 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   }
 }
 
-/* ===== Pill size on small screens ===== */
-@media (max-width: 767px) {
-  .niche-carousel .ugc-type,
-  .niche-carousel .ugc-pill {
-    font-size: 13px !important;
-    padding: 4px 8px !important;
-  }
-}
-
-/* ===== Mobile/tablet only (< 1024px) ===== */
-@media (max-width: 1023px) {
-  .ugc-carousel {
-    touch-action: pan-y;
-  }
-  .niche-carousel .ugc-slide {
-    flex: 0 0 102px !important;
-    width: 102px !important;
-  }
-  .niche-carousel .ugc-spacer {
-    flex: 0 0 calc((100% - 102px) / 2);
-  }
-  /* pill sizes handled by global base above */
-
-  /* disable center card scale-up — all cards same size */
-  .ugc-slide {
-    transform: none !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-  .ugc-slide.is-active {
-    transform: none !important;
-    opacity: 1 !important;
-  }
-
-  /* gap +30% of original 28px, then +40% for mobile breathing room */
-  .ugc-track[data-ugc-track] {
-    gap: 50px;
-  }
-}
-
-@media (min-width: 900px) and (max-width: 1023px) {
-  .niche-carousel .ugc-slide {
-    flex: 0 0 116px !important;
-    width: 116px !important;
-  }
-  .niche-carousel .ugc-spacer {
-    flex: 0 0 calc((100% - 116px) / 2);
-  }
-}
