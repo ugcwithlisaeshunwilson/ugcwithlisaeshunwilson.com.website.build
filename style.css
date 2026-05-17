@@ -2110,8 +2110,8 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 96px;
-  height: 96px;
+  width: 134px;
+  height: 134px;
   border-radius: 50%;
   background: #fff;
   overflow: hidden;
@@ -2133,38 +2133,13 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   filter: grayscale(100%);
 }
 
-/* Reviews masonry */
-.clients-reviews {
-  padding: 0 24px 24px;
-  columns: 3;
-  column-gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.review-card {
-  break-inside: avoid;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.14);
-  margin-bottom: 20px;
-  overflow: hidden;
-}
-
-.review-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
 
 @media (max-width: 768px) {
-  .clients-reviews { columns: 2; }
-  .client-circle { width: 80px; height: 80px; }
+  .client-circle { width: 112px; height: 112px; }
 }
 
 @media (max-width: 480px) {
-  .clients-reviews { columns: 1; }
-  .client-circle { width: 72px; height: 72px; }
+  .client-circle { width: 101px; height: 101px; }
   .clients-grid { gap: 14px; }
 }
 
@@ -2223,8 +2198,8 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 36%;
-  height: 20px;
+  width: 25%;
+  height: 14px;
   background: #1c1c1e;
   border-radius: 999px;
   z-index: 5;
@@ -2638,12 +2613,24 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   width: 128px !important;
   scroll-snap-align: center;
   scroll-snap-stop: always;
-  position: relative; /* anchors absolutely-positioned pills to each slide */
 }
 
-/* bottom pill hangs below the card, mirroring the top pill above */
+/* Return pills to grid flow — eliminates all overflow clipping */
+.niche-carousel .ugc-type,
 .niche-carousel .ugc-pill {
-  bottom: -2.4rem !important;
+  position: static !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+  font-size: 9px !important;
+  padding: 3px 6px !important;
+}
+
+/* Reduce top padding (type pill is now in flow, not floating above) */
+.niche-carousel .ugc-track[data-ugc-track] {
+  padding-top: 12px !important;
+  padding-bottom: 30px !important;
 }
 
 .niche-carousel .ugc-spacer {
