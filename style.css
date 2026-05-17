@@ -2082,9 +2082,9 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 }
 
 /* Past Clients — infinite scrolling banner */
+/* ===== Past Clients — circle grid + reviews ===== */
 .past-clients {
   padding: 56px 0;
-  overflow: hidden;
 }
 
 .past-clients__title {
@@ -2092,69 +2092,79 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 300;
   text-align: center;
-  margin: 0 0 32px;
+  margin: 0 0 40px;
 }
 
-/* The visible window — fades out at edges */
-.clients-banner {
-  overflow: hidden;
-  width: 100%;
-  mask-image: linear-gradient(to right,
-    transparent 0%, black 10%, black 90%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right,
-    transparent 0%, black 10%, black 90%, transparent 100%);
-}
-
-/* The moving strip — contains two identical sets of logos */
-.clients-track {
+/* Logo circles */
+.clients-grid {
   display: flex;
-  align-items: center;
-  gap: 64px;
-  width: max-content;
-  animation: scroll-clients 28s linear infinite;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 24px 52px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* Pause on hover so visitors can read a logo */
-.clients-banner:hover .clients-track {
-  animation-play-state: paused;
-}
-
-@keyframes scroll-clients {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.client-logo {
-  flex: 0 0 auto;
+.client-circle {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--brand, #333);
+  overflow: hidden;
+  flex-shrink: 0;
   text-decoration: none;
-  opacity: 0.65;
-  transition: opacity 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.client-logo:hover {
-  opacity: 1;
+.client-circle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.30);
 }
 
-.client-logo img {
-  height: 67px;
-  width: auto;
-  max-width: 192px;
+.client-circle img {
+  width: 68%;
+  height: 68%;
   object-fit: contain;
   display: block;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
 }
 
-.client-logo:hover img {
-  filter: grayscale(0%);
+/* Reviews masonry */
+.clients-reviews {
+  padding: 0 24px 24px;
+  columns: 3;
+  column-gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-@media (max-width: 600px) {
-  .client-logo img { height: 50px; }
-  .clients-track { gap: 40px; }
+.review-card {
+  break-inside: avoid;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.14);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.review-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .clients-reviews { columns: 2; }
+  .client-circle { width: 80px; height: 80px; }
+}
+
+@media (max-width: 480px) {
+  .clients-reviews { columns: 1; }
+  .client-circle { width: 72px; height: 72px; }
+  .clients-grid { gap: 14px; }
 }
 
 /* ===== UGC Center Carousel ===== */
