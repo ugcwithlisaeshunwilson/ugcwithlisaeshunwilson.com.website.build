@@ -2228,7 +2228,18 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   display: block;
   position: relative;
   z-index: 0;
+  /* clear border/outline inherited from earlier .ugc-video rule */
+  border: none;
+  box-sizing: content-box;
   outline: none;
+}
+
+/* prevent browser from adding any focus ring when video is played */
+.ugc-video:focus,
+.ugc-video:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border: none;
 }
 
 /* cover image — shown before play, hidden on play via JS */
@@ -2248,12 +2259,12 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 14px;
+  padding: 4px 7px;
   border-radius: 999px;
   background: #000;
   color: #fff;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 7px;
   line-height: 1;
   margin-top: 4px;
 }
@@ -2262,12 +2273,12 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 14px;
+  padding: 4px 7px;
   border-radius: 999px;
   background: rgba(255,255,255,0.95);
   border: 1px solid rgba(0,0,0,0.10);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 7px;
   line-height: 1;
 }
 
@@ -2644,11 +2655,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   .niche-carousel .ugc-spacer {
     flex: 0 0 calc((100% - 102px) / 2);
   }
-  .ugc-type,
-  .ugc-pill {
-    font-size: 9px;
-    padding: 6px 10px;
-  }
+  /* pill sizes handled by global base above */
 }
 
 @media (min-width: 900px) and (max-width: 1023px) {
