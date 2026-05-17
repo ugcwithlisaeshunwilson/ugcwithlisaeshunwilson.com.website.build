@@ -2638,6 +2638,12 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   width: 128px !important;
   scroll-snap-align: center;
   scroll-snap-stop: always;
+  position: relative; /* anchors absolutely-positioned pills to each slide */
+}
+
+/* bottom pill hangs below the card, mirroring the top pill above */
+.niche-carousel .ugc-pill {
+  bottom: -2.4rem !important;
 }
 
 .niche-carousel .ugc-spacer {
@@ -2651,6 +2657,15 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   }
   .niche-carousel .ugc-spacer {
     flex: 0 0 calc((100% - 145px) / 2);
+  }
+}
+
+/* ===== Pill size on small screens ===== */
+@media (max-width: 767px) {
+  .niche-carousel .ugc-type,
+  .niche-carousel .ugc-pill {
+    font-size: 10px !important;
+    padding: 4px 8px !important;
   }
 }
 
