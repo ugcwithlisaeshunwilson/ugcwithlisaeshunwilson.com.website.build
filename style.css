@@ -2113,7 +2113,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: var(--brand, #333);
+  background: #fff;
   overflow: hidden;
   flex-shrink: 0;
   text-decoration: none;
@@ -2130,6 +2130,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   height: 68%;
   object-fit: contain;
   display: block;
+  filter: grayscale(100%);
 }
 
 /* Reviews masonry */
