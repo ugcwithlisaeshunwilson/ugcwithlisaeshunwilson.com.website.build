@@ -47,14 +47,62 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry">ugc with lisa</a>     
-      <nav class="main-nav" aria-label="Primary">
-        <ul>
-          <li><a href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry" class="login-btn">WORK WITH ME</a></li>
-        </ul>
-      </nav>
+      <a class="brand" href="index.html">ugc with lisa</a>
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="siteDrawer">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+
+  <!-- Nav Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <nav class="site-drawer" id="siteDrawer" aria-label="Site navigation" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+    <div class="drawer-inner">
+      <a class="drawer-home" href="index.html">HOME</a>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">SOCIALS</div>
+        <a href="https://www.instagram.com/ugcwithlisadotcom" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@ugcwithlisadotcom" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@ugcwithlisadotcom" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.twitter.com/@ugcwithlisa" target="_blank" rel="noopener">Twitter / X</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">CONNECT</div>
+        <a href="index.html#meet-the-creator">About</a>
+        <a href="mailto:lisa@yogawithlisa.ai">Email Me</a>
+        <a href="https://calendly.com/lisaeshunwilson/30min" target="_blank" rel="noopener">Book a Call</a>
+        <a href="https://meet.ugcwithlisaeshunwilson.com" target="_blank" rel="noopener">Meet with Me</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">CLIENTS</div>
+        <a href="index.html#case-studies">Case Studies</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="reviews.html">Submit Review</a>
+        <a href="https://pay.ugcwithlisa.com" target="_blank" rel="noopener">Submit Payment</a>
+        <a href="rates.html">Rates &amp; Packages</a>
+        <a href="https://drive.ugcwithlisa.com" target="_blank" rel="noopener">Google Drive Storage</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">UGC MEDIA</div>
+        <a href="index.html#health-wellness">Health &amp; Wellness</a>
+        <a href="index.html#travel-hospitality">Travel &amp; Hospitality</a>
+        <a href="index.html#apps-tech">Apps &amp; Tech</a>
+        <a href="index.html#beauty-lifestyle">Beauty &amp; Lifestyle</a>
+        <a href="index.html#ugc-photography">Photography</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">OFFICIAL</div>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </nav>
 
 <!-- Hero (UGC landing) -->
 <section class="ugc-hero" role="banner" aria-label="UGC hero">
@@ -233,7 +281,7 @@
 
 <!-- =================== Health & Wellness =================== -->
 <!-- To add a video: drop the file in videos/health-wellness/ and copy one article block below -->
-<section class="ugc-videos card niche-carousel" aria-label="Health and Wellness videos">
+<section class="ugc-videos card niche-carousel" id="health-wellness" aria-label="Health and Wellness videos">
   <div class="ig-head">
     <h3>Health &amp; Wellness</h3>
     <a class="btn btn-pill btn-outline" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry">WORK WITH ME</a>
@@ -307,7 +355,7 @@
 
 <!-- =================== Travel & Hospitality =================== -->
 <!-- To add a video: drop the file in videos/travel-hospitality/ and copy one article block below -->
-<section class="ugc-videos card niche-carousel" aria-label="Travel and Hospitality videos">
+<section class="ugc-videos card niche-carousel" id="travel-hospitality" aria-label="Travel and Hospitality videos">
   <div class="ig-head">
     <h3>Travel &amp; Hospitality</h3>
     <a class="btn btn-pill btn-outline" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry">WORK WITH ME</a>
@@ -388,7 +436,7 @@
 
 <!-- =================== Apps & Tech =================== -->
 <!-- To add a video: drop the file in videos/apps-tech/ and copy one article block below -->
-<section class="ugc-videos card niche-carousel" aria-label="Apps and Tech videos">
+<section class="ugc-videos card niche-carousel" id="apps-tech" aria-label="Apps and Tech videos">
   <div class="ig-head">
     <h3>Apps &amp; Tech</h3>
     <a class="btn btn-pill btn-outline" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry">WORK WITH ME</a>
@@ -441,7 +489,7 @@
 
 <!-- =================== Beauty & Lifestyle =================== -->
 <!-- To add a video: drop the file in videos/beauty-lifestyle/ and copy one article block below -->
-<section class="ugc-videos card niche-carousel" aria-label="Beauty and Lifestyle videos">
+<section class="ugc-videos card niche-carousel" id="beauty-lifestyle" aria-label="Beauty and Lifestyle videos">
   <div class="ig-head">
     <h3>Beauty &amp; Lifestyle</h3>
     <a class="btn btn-pill btn-outline" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry">WORK WITH ME</a>
@@ -521,7 +569,7 @@
 </section>
 
 <!-- =================== Instagram Carousel =================== -->
-<section class="ig card" aria-label="Instagram">
+<section class="ig card" id="ugc-photography" aria-label="Instagram">
   <div class="ig-head">
     <h3>ugc photography</h3>
     <a class="btn btn-pill btn-outline" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Inquiry" target="_blank" rel="noopener">
@@ -571,7 +619,7 @@
 </section>
 
 <!-- =================== Founder Banner =================== -->
-<section class="founder message" aria-label="Our founder">
+<section class="founder message" id="meet-the-creator" aria-label="Our founder">
   <div class="founder-media" style="background-image:url('images/founder.jpg')"></div>
   <div class="founder-overlay"></div>
   <div class="founder-inner container">
@@ -696,11 +744,88 @@
 })();
 </script>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="y"></span> UGC WITH LISA BY LISA ESHUN-WILSON & ASSOCIATES,LLC. / ALL RIGHTS RESERVED</p>
+  <!-- Site Footer -->
+  <footer class="site-footer-full">
+    <div class="footer-columns container">
+
+      <div class="footer-col">
+        <div class="footer-col-head">SOCIALS</div>
+        <a href="https://www.instagram.com/ugcwithlisadotcom" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@ugcwithlisadotcom" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@ugcwithlisadotcom" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.twitter.com/@ugcwithlisa" target="_blank" rel="noopener">Twitter / X</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">CONNECT</div>
+        <a href="index.html#meet-the-creator">About</a>
+        <a href="mailto:lisa@yogawithlisa.ai">Email Me</a>
+        <a href="https://calendly.com/lisaeshunwilson/30min" target="_blank" rel="noopener">Book a Call</a>
+        <a href="https://meet.ugcwithlisaeshunwilson.com" target="_blank" rel="noopener">Meet with Me</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">CLIENTS</div>
+        <a href="index.html#case-studies">Case Studies</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="reviews.html">Submit Review</a>
+        <a href="https://pay.ugcwithlisa.com" target="_blank" rel="noopener">Submit Payment</a>
+        <a href="rates.html">Rates &amp; Packages</a>
+        <a href="https://drive.ugcwithlisa.com" target="_blank" rel="noopener">Google Drive Storage</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">UGC MEDIA</div>
+        <a href="index.html#health-wellness">Health &amp; Wellness</a>
+        <a href="index.html#travel-hospitality">Travel &amp; Hospitality</a>
+        <a href="index.html#apps-tech">Apps &amp; Tech</a>
+        <a href="index.html#beauty-lifestyle">Beauty &amp; Lifestyle</a>
+        <a href="index.html#ugc-photography">Photography</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">OFFICIAL</div>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+
+    </div>
+    <div class="footer-copy">
+      &copy; UGC with Lisa by Lisa Eshun-Wilson &amp; Associates, LLC. All Rights Reserved.
     </div>
   </footer>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('hamburgerBtn');
+    var overlay = document.getElementById('drawerOverlay');
+    var drawer = document.getElementById('siteDrawer');
+    var close = document.getElementById('drawerClose');
+    function openDrawer(){
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-open');
+      btn.setAttribute('aria-expanded','true');
+      drawer.setAttribute('aria-hidden','false');
+      overlay.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function closeDrawer(){
+      drawer.classList.remove('is-open');
+      overlay.classList.remove('is-open');
+      btn.setAttribute('aria-expanded','false');
+      drawer.setAttribute('aria-hidden','true');
+      overlay.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    }
+    btn.addEventListener('click', openDrawer);
+    close.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDrawer(); });
+    drawer.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeDrawer);
+    });
+  })();
+  </script>
 
 <div class="container" style="padding: 0 16px;">
   <!-- membership section here -->
