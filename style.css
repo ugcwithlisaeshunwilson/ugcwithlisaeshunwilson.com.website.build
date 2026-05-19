@@ -1333,6 +1333,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   display: flex;
   gap: .9rem;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .page-ugc .ugc-social-icons .icon-btn{

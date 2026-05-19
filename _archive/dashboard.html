@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creator Stats Dashboard | UGC with Lisa</title>
+  <link rel="icon" href="images/favicon-ugc.png">
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/uwl6zhw.css">
+
+  <!-- UGC Favicons -->
+  <link rel="icon" href="/images/favicon-ugc.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-ugc-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-ugc-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-ugc-180.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#1a1a1a">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Creator Stats Dashboard | UGC with Lisa">
+  <meta property="og:description" content="Live performance metrics for brands evaluating UGC partnerships with Lisa Eshun-Wilson.">
+  <meta property="og:image" content="https://www.ugcwithlisaeshunwilson.com/images/ugc.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UGC with Lisa">
+  <meta name="author" content="Lisa Eshun-Wilson">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Creator Stats Dashboard | UGC with Lisa">
+  <meta name="twitter:description" content="Live performance metrics for brands evaluating UGC partnerships.">
+
+  <style>
+    /* ── Page intro (dark band) ── */
+    .dash-intro {
+      background: #111;
+      text-align: center;
+      padding: 72px 24px 0;
+    }
+    .dash-intro h1 {
+      font-family: 'Great Vibes', cursive;
+      color: #ff5fa2;
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-weight: 400;
+      margin: 0 0 .4rem;
+      line-height: 1.1;
+    }
+    .dash-intro-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin: 0 0 48px;
+    }
+
+    /* ── Hero stats grid ── */
+    .dash-hero {
+      background: #111;
+      padding-bottom: 64px;
+    }
+    .dash-hero-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.1);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .dash-hero-stat {
+      background: #111;
+      padding: 44px 28px;
+      text-align: center;
+    }
+    .dash-hero-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-weight: 700;
+      color: #ff5fa2;
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+    .dash-hero-number.is-text {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      letter-spacing: -.01em;
+    }
+    .dash-hero-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .67rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* ── Section shared ── */
+    .dash-section {
+      padding: 60px 0;
+    }
+    .dash-section-head {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: #111;
+      margin: 0 0 28px;
+      letter-spacing: -.01em;
+    }
+    .dash-divider {
+      border: none;
+      border-top: 1px solid #f0ede9;
+      margin: 0;
+    }
+
+    /* ── Performance cards ── */
+    .dash-perf-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .dash-perf-card {
+      background: #fff;
+      border: 1.5px solid #e3ddd6;
+      border-radius: 6px;
+      padding: 32px 28px;
+    }
+    .dash-perf-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: #111;
+      line-height: 1;
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+    }
+    .dash-perf-number.is-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 1.4;
+    }
+    .dash-perf-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .67rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #6b6b6b;
+    }
+    .dash-coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Inter', sans-serif;
+      font-size: .67rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #888;
+      background: #f7f5f2;
+      border: 1px solid #e3ddd6;
+      border-radius: 999px;
+      padding: 5px 14px;
+      margin-bottom: 10px;
+    }
+    .dash-coming-soon-badge::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d0c9bf;
+      flex-shrink: 0;
+    }
+
+    /* ── Industry chips ── */
+    .dash-chip-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .dash-chip {
+      font-family: 'Inter', sans-serif;
+      font-size: .78rem;
+      letter-spacing: .04em;
+      font-weight: 500;
+      background: #111;
+      color: #fff;
+      border-radius: 999px;
+      padding: 8px 20px;
+      white-space: nowrap;
+    }
+
+    /* ── Trust statement ── */
+    .dash-trust-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .dash-trust-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      line-height: 1.8;
+      color: #111;
+    }
+
+    /* ── Last updated ── */
+    .dash-updated-bar {
+      text-align: center;
+      padding: 20px 24px 48px;
+    }
+    .dash-updated-bar p {
+      font-family: 'Inter', sans-serif;
+      font-size: .62rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #bbb;
+      margin: 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 780px) {
+      .dash-hero-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .dash-perf-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .dash-hero-stat { padding: 28px 16px; }
+      .dash-hero-number { font-size: 2rem; }
+      .dash-hero-number.is-text { font-size: 1.25rem; }
+      .dash-perf-grid { grid-template-columns: 1fr; }
+      .dash-perf-card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+
+<body class="page-ugc">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">ugc with lisa</a>
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="siteDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Nav Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <nav class="site-drawer" id="siteDrawer" aria-label="Site navigation" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+    <div class="drawer-inner">
+      <a class="drawer-home" href="index.html">HOME</a>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">SOCIALS</div>
+        <a href="https://www.instagram.com/ugcwithlisadotcom" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@ugcwithlisadotcom" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@ugcwithlisadotcom" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.twitter.com/@ugcwithlisa" target="_blank" rel="noopener">Twitter / X</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">CONNECT</div>
+        <a href="index.html#meet-the-creator">About</a>
+        <a href="mailto:lisa@yogawithlisa.ai">Email Me</a>
+        <a href="https://calendly.com/lisaeshunwilson/30min" target="_blank" rel="noopener">Book a Call</a>
+        <a href="https://meet.ugcwithlisaeshunwilson.com" target="_blank" rel="noopener">Meet with Me</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">CLIENTS</div>
+        <a href="index.html#case-studies">Case Studies</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="reviews.html">Submit Review</a>
+        <a href="https://pay.ugcwithlisa.com" target="_blank" rel="noopener">Submit Payment</a>
+        <a href="rates.html">Rates &amp; Packages</a>
+        <a href="https://drive.google.com/drive/folders/14bN_touXWfPwfv4o7op3kT_MQy6byLZ3" target="_blank" rel="noopener">Google Drive Storage</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">UGC MEDIA</div>
+        <a href="index.html#health-wellness">Health &amp; Wellness</a>
+        <a href="index.html#travel-hospitality">Travel &amp; Hospitality</a>
+        <a href="index.html#apps-tech">Apps &amp; Tech</a>
+        <a href="index.html#beauty-lifestyle">Beauty &amp; Lifestyle</a>
+        <a href="index.html#ugc-photography">Photography</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">OFFICIAL</div>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Intro -->
+  <section class="dash-intro">
+    <h1>Creator Stats</h1>
+    <p class="dash-intro-sub">Live performance metrics for brand partners</p>
+  </section>
+
+  <!-- Section 1: Hero Stats -->
+  <section class="dash-hero">
+    <div class="dash-hero-grid" id="heroStats" role="list" aria-label="Key performance stats">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <hr class="dash-divider">
+
+  <!-- Section 2: Performance Metrics -->
+  <section class="dash-section">
+    <div class="container">
+      <h2 class="dash-section-head">Performance Metrics</h2>
+      <div class="dash-perf-grid" id="perfMetrics" role="list" aria-label="Performance metrics">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <hr class="dash-divider">
+
+  <!-- Section 3: Industries Served -->
+  <section class="dash-section">
+    <div class="container">
+      <h2 class="dash-section-head">Industries Served</h2>
+      <div class="dash-chip-wrap" id="industryChips" aria-label="Industries served">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <hr class="dash-divider">
+
+  <!-- Section 4: Trust Statement -->
+  <section class="dash-section">
+    <div class="container">
+      <div class="dash-trust-wrap">
+        <p class="dash-trust-text" id="trustStatement">
+          <!-- Populated by JS -->
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Last Updated -->
+  <div class="dash-updated-bar">
+    <p id="lastUpdatedNote">Stats updated manually by Lisa Eshun-Wilson and Associates, LLC.</p>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer-full">
+    <div class="footer-columns container">
+
+      <div class="footer-col">
+        <div class="footer-col-head">SOCIALS</div>
+        <a href="https://www.instagram.com/ugcwithlisadotcom" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@ugcwithlisadotcom" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@ugcwithlisadotcom" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.twitter.com/@ugcwithlisa" target="_blank" rel="noopener">Twitter / X</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">CONNECT</div>
+        <a href="index.html#meet-the-creator">About</a>
+        <a href="mailto:lisa@yogawithlisa.ai">Email Me</a>
+        <a href="https://calendly.com/lisaeshunwilson/30min" target="_blank" rel="noopener">Book a Call</a>
+        <a href="https://meet.ugcwithlisaeshunwilson.com" target="_blank" rel="noopener">Meet with Me</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">CLIENTS</div>
+        <a href="index.html#case-studies">Case Studies</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="reviews.html">Submit Review</a>
+        <a href="https://pay.ugcwithlisa.com" target="_blank" rel="noopener">Submit Payment</a>
+        <a href="rates.html">Rates &amp; Packages</a>
+        <a href="https://drive.google.com/drive/folders/14bN_touXWfPwfv4o7op3kT_MQy6byLZ3" target="_blank" rel="noopener">Google Drive Storage</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">UGC MEDIA</div>
+        <a href="index.html#health-wellness">Health &amp; Wellness</a>
+        <a href="index.html#travel-hospitality">Travel &amp; Hospitality</a>
+        <a href="index.html#apps-tech">Apps &amp; Tech</a>
+        <a href="index.html#beauty-lifestyle">Beauty &amp; Lifestyle</a>
+        <a href="index.html#ugc-photography">Photography</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">OFFICIAL</div>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+
+    </div>
+    <div class="footer-copy">
+      &copy; UGC with Lisa by Lisa Eshun-Wilson &amp; Associates, LLC. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- Dashboard JS -->
+  <script>
+  (function () {
+
+    var HERO_METRICS = ['brands_worked_with', 'videos_delivered', 'views_last_90_days', 'longest_partnership'];
+    var PERF_METRICS = ['avg_star_rating', 'repeat_client_rate', 'avg_cpv', 'avg_turnaround'];
+    var PLUS_METRICS = ['brands_worked_with', 'videos_delivered', 'views_last_90_days'];
+
+    var INDUSTRIES = [
+      'Fitness', 'Wellness & Yoga', 'Finance', 'Apps & AI', 'Tech',
+      'Travel & Hospitality', 'Cruises & Excursions', 'Museums & Cultural Sites',
+      'Health & Sleep', 'Beauty', 'Consumer Goods', 'Sports & Outdoors', 'Food & Beverage'
+    ];
+
+    function parseCSV(text) {
+      var lines = text.trim().split('\n');
+      var data = {};
+      for (var i = 1; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (!line) continue;
+        var firstComma = line.indexOf(',');
+        if (firstComma === -1) continue;
+        var secondComma = line.indexOf(',', firstComma + 1);
+        if (secondComma === -1) continue;
+        var metric = line.slice(0, firstComma).trim();
+        var value  = line.slice(firstComma + 1, secondComma).trim();
+        var label  = line.slice(secondComma + 1).trim();
+        data[metric] = { value: value, label: label };
+      }
+      return data;
+    }
+
+    function formatHeroNumber(metric, value) {
+      if (PLUS_METRICS.indexOf(metric) !== -1) {
+        var num = Number(value.replace(/,/g, ''));
+        if (!isNaN(num) && num > 0) {
+          var formatted;
+          if (num >= 1000000)      formatted = (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+          else if (num >= 10000)   formatted = Math.round(num / 1000) + 'K';
+          else                     formatted = num.toLocaleString();
+          return formatted + '+';
+        }
+      }
+      return value;
+    }
+
+    function formatLong(value) {
+      var num = Number(value.replace(/,/g, ''));
+      return (!isNaN(num) && num > 0) ? num.toLocaleString() : value;
+    }
+
+    function isComingSoon(value) {
+      return value.toLowerCase().trim() === 'coming soon';
+    }
+
+    /* Hero stats */
+    function renderHeroStats(data) {
+      var grid = document.getElementById('heroStats');
+      if (!grid) return;
+      HERO_METRICS.forEach(function (metric) {
+        var entry = data[metric];
+        if (!entry) return;
+        var numStr = formatHeroNumber(metric, entry.value);
+        var isText = numStr.replace(/[^a-z]/gi, '').length > 3; // non-numeric-ish
+        var div = document.createElement('div');
+        div.className = 'dash-hero-stat';
+        div.setAttribute('role', 'listitem');
+        div.innerHTML =
+          '<div class="dash-hero-number' + (isText ? ' is-text' : '') + '">' + numStr + '</div>' +
+          '<div class="dash-hero-label">'  + entry.label + '</div>';
+        grid.appendChild(div);
+      });
+    }
+
+    /* Performance metrics */
+    function renderPerfMetrics(data) {
+      var grid = document.getElementById('perfMetrics');
+      if (!grid) return;
+      PERF_METRICS.forEach(function (metric) {
+        var entry = data[metric];
+        if (!entry) return;
+        var div = document.createElement('div');
+        div.className = 'dash-perf-card';
+        div.setAttribute('role', 'listitem');
+        var valueHTML;
+        if (isComingSoon(entry.value)) {
+          valueHTML = '<div class="dash-coming-soon-badge">Coming Soon</div>';
+        } else {
+          var isLong = entry.value.replace(/\s/g, '').length > 8;
+          valueHTML = '<div class="dash-perf-number' + (isLong ? ' is-text' : '') + '">' + entry.value + '</div>';
+        }
+        div.innerHTML = valueHTML + '<div class="dash-perf-label">' + entry.label + '</div>';
+        grid.appendChild(div);
+      });
+    }
+
+    /* Industry chips */
+    function renderIndustries() {
+      var wrap = document.getElementById('industryChips');
+      if (!wrap) return;
+      INDUSTRIES.forEach(function (name) {
+        var span = document.createElement('span');
+        span.className = 'dash-chip';
+        span.textContent = name;
+        wrap.appendChild(span);
+      });
+    }
+
+    /* Trust statement */
+    function renderTrustStatement(data) {
+      var el = document.getElementById('trustStatement');
+      if (!el) return;
+      var brands = data['brands_worked_with'] ? data['brands_worked_with'].value : '35';
+      var videos = data['videos_delivered']   ? data['videos_delivered'].value   : '70';
+      var views  = data['views_last_90_days'] ? formatLong(data['views_last_90_days'].value) : '115,000';
+      el.innerHTML =
+        'Lisa has partnered with <strong>' + brands + '+ brands</strong> across ' +
+        '<strong>13 industries</strong>, delivering <strong>' + videos + '+ videos</strong> and ' +
+        '<strong>' + views + '+ views</strong> in the last 90 days alone. ' +
+        'Available for gifted, paid, and long-term retainer collaborations.';
+    }
+
+    /* Last updated note */
+    function renderLastUpdated(data) {
+      var el = document.getElementById('lastUpdatedNote');
+      if (!el) return;
+      var lu = data['last_updated'];
+      var base = 'Stats updated manually by Lisa Eshun-Wilson and Associates, LLC.';
+      el.textContent = lu && lu.value ? base + ' Last updated: ' + lu.value + '.' : base;
+    }
+
+    function init(data) {
+      renderHeroStats(data);
+      renderPerfMetrics(data);
+      renderIndustries();
+      renderTrustStatement(data);
+      renderLastUpdated(data);
+    }
+
+    fetch('dashboard-data.csv')
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(function (text) { init(parseCSV(text)); })
+      .catch(function (err) {
+        console.warn('dashboard-data.csv could not be loaded:', err);
+        init({});
+      });
+
+  })();
+  </script>
+
+  <!-- Scroll + Hamburger JS -->
+  <script>
+  (function () {
+    var header = document.querySelector('.site-header');
+    if (header) {
+      var getY = function () { return window.pageYOffset || document.documentElement.scrollTop || 0; };
+      var apply = function (y) { header.classList.toggle('scrolled', y > 50); };
+      window.addEventListener('scroll', function () { apply(getY()); }, { passive: true });
+      apply(getY());
+    }
+  })();
+  (function () {
+    var btn     = document.getElementById('hamburgerBtn');
+    var overlay = document.getElementById('drawerOverlay');
+    var drawer  = document.getElementById('siteDrawer');
+    var close   = document.getElementById('drawerClose');
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      drawer.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      overlay.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    btn.addEventListener('click', openDrawer);
+    close.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDrawer(); });
+    drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeDrawer); });
+  })();
+  </script>
+
+</body>
+</html>
