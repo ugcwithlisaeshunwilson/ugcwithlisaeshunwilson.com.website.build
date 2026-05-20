@@ -2082,6 +2082,162 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   opacity: 0.9;
 }
 
+/* ==================== Case Study ==================== */
+.case-study-section {
+  background: #fff;
+  padding: 64px 0 72px;
+}
+.case-study-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.case-study-heading {
+  font-family: 'Great Vibes', cursive;
+  color: #ff5fa2;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  margin: 0 0 .25rem;
+  line-height: 1.1;
+}
+.case-study-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 400;
+  color: #e8a0bf;
+  margin: 0;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.case-study-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.case-study-left {
+  display: flex;
+  flex-direction: column;
+}
+.case-study-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.case-study-stats li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.cs-emoji {
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.cs-stat-body {
+  font-family: 'Inter', sans-serif;
+  font-size: .875rem;
+  line-height: 1.7;
+  color: #444;
+}
+.cs-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: #111;
+  margin-right: 5px;
+}
+.case-study-callout {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.case-study-logo-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #f0ede9;
+  box-shadow: 0 2px 10px rgba(0,0,0,.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.case-study-logo-circle img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+.case-study-arrow-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #ff5fa2;
+  transition: opacity .2s;
+}
+.case-study-arrow-link:hover { opacity: .75; }
+.cs-arrow {
+  font-size: 1.6rem;
+  line-height: 1;
+  display: inline-block;
+  transform: rotate(-15deg);
+  color: #ff5fa2;
+}
+.cs-arrow-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+.case-study-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.case-study-phone-wrap {
+  width: 100%;
+  max-width: 240px;
+}
+.case-study-phone-wrap .ugc-phone {
+  max-width: 100%;
+}
+.case-study-phone-link {
+  display: block;
+}
+.case-study-phone-link:hover .ugc-video {
+  opacity: .88;
+  transition: opacity .2s;
+}
+.case-study-views {
+  font-family: 'Great Vibes', cursive;
+  color: #ff5fa2;
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .case-study-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .case-study-right {
+    order: -1;
+  }
+  .case-study-phone-wrap {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+}
+
 /* ==================== Testimonials ==================== */
 .testimonials-section {
   background: #fdf9f7;
@@ -2114,11 +2270,10 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   text-align: center;
 }
 .testimonial-logo-wrap {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background: #fff;
-  border: 1.5px solid #f0ede9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2127,8 +2282,8 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   flex-shrink: 0;
 }
 .testimonial-logo {
-  width: 56px;
-  height: 56px;
+  width: 84px;
+  height: 84px;
   object-fit: contain;
 }
 .testimonial-card-heading {
@@ -2173,63 +2328,55 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 /* Past Clients — infinite scrolling banner */
 /* ===== Past Clients — circle grid + reviews ===== */
 .past-clients {
-  padding: 56px 0;
+  background: #fff;
+  padding: 64px 0 16px;
 }
 
 .past-clients__title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: 300;
+  font-family: 'Great Vibes', cursive;
+  color: #ff5fa2;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 .25rem;
+  line-height: 1.1;
+}
+
+.past-clients__subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 400;
+  color: #e8a0bf;
   text-align: center;
   margin: 0 0 40px;
+  letter-spacing: .1em;
 }
 
-/* Logo circles */
 .clients-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 0 24px 52px;
-  max-width: 900px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  padding: 0 0 56px;
+  width: 100%;
 }
 
-.client-circle {
+.client-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 134px;
-  height: 134px;
-  border-radius: 50%;
-  background: #fff;
-  overflow: hidden;
-  flex-shrink: 0;
+  aspect-ratio: 4 / 3;
+  padding: 8%;
+  border-radius: 8px;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
 }
 
-.client-circle:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.30);
-}
-
-.client-circle img {
-  width: 68%;
-  height: 68%;
+.client-card img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
-  filter: grayscale(100%);
-}
-
-
-@media (max-width: 768px) {
-  .client-circle { width: 112px; height: 112px; }
-}
-
-@media (max-width: 480px) {
-  .client-circle { width: 101px; height: 101px; }
-  .clients-grid { gap: 14px; }
+  mix-blend-mode: multiply;
 }
 
 /* ===== UGC Center Carousel ===== */
