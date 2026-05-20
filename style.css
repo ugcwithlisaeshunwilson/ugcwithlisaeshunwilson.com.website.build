@@ -2387,7 +2387,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 }
 
 .logo-scroll-item {
-  height: 40px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -2395,7 +2395,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 }
 
 @media (max-width: 768px) {
-  .logo-scroll-item { height: 28px; }
+  .logo-scroll-item { height: 34px; }
   .logo-scroll-track { gap: 40px; }
   .logo-scroll-wrap::before,
   .logo-scroll-wrap::after { width: 60px; }
