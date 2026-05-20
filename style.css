@@ -2343,40 +2343,62 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   letter-spacing: .1em;
 }
 
-.clients-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 4px;
-  padding: 0 5% 56px;
+/* ── Logo scroll carousel ── */
+.logo-scroll-wrap {
+  overflow: hidden;
+  position: relative;
   width: 100%;
-  box-sizing: border-box;
+  padding: 20px 0 48px;
 }
 
-.client-card {
+/* Fade edges */
+.logo-scroll-wrap::before,
+.logo-scroll-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.logo-scroll-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, transparent 100%);
+}
+.logo-scroll-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, transparent 100%);
+}
+
+.logo-scroll-track {
   display: flex;
   align-items: center;
-  justify-content: center;
-  aspect-ratio: 4 / 3;
-  padding: 26%;
-  border-radius: 8px;
-  background: transparent;
-  text-decoration: none;
-  box-sizing: border-box;
+  gap: 56px;
+  width: max-content;
+  animation: logoScroll 40s linear infinite;
+}
+.logo-scroll-track:hover {
+  animation-play-state: paused;
 }
 
-.client-card img {
-  width: 100%;
-  height: 100%;
+@keyframes logoScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.logo-scroll-item {
+  height: 40px;
+  width: auto;
   object-fit: contain;
   display: block;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
-  .clients-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (max-width: 480px) {
-  .clients-grid { grid-template-columns: repeat(2, 1fr); }
+  .logo-scroll-item { height: 28px; }
+  .logo-scroll-track { gap: 40px; }
+  .logo-scroll-wrap::before,
+  .logo-scroll-wrap::after { width: 60px; }
 }
 
 /* ===== UGC Center Carousel ===== */
