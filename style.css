@@ -2277,6 +2277,14 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   height: 84px;
   object-fit: contain;
 }
+.testimonial-stars {
+  color: #FFD700;
+  font-size: 1.25rem;
+  letter-spacing: .15em;
+  margin: 0 0 14px;
+  line-height: 1;
+}
+
 .testimonial-card-heading {
   font-family: 'Playfair Display', serif;
   font-size: .72rem;
