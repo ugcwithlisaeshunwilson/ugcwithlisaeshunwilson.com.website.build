@@ -3111,3 +3111,47 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   }
 }
 
+/* ---------- Carousel play button overlay (desktop only) ---------- */
+.ugc-play-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  transition: background 0.15s;
+}
+
+.ugc-play-btn::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #ffffff;
+  margin-left: 4px;
+}
+
+.ugc-play-btn:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+@media (min-width: 1024px) {
+  .ugc-play-btn {
+    display: flex;
+  }
+  .ugc-play-btn.is-hidden {
+    display: none;
+  }
+}
+
