@@ -2247,8 +2247,11 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   display: flex;
   flex-wrap: nowrap;
   gap: 28px;
-  max-width: 900px;
-  margin: 0 auto;
+  width: 90vw;
+  max-width: 90vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 4px;
