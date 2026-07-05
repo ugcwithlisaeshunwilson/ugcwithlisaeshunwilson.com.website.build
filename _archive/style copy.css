@@ -1,0 +1,3166 @@
+/* ---------- Base / Typography ---------- */
+:root{
+  --bg:#ffffff;
+  --text:#111111;
+  --muted:#6b6b6b;
+  --container:1200px;
+
+  --black:#000;
+  --white:#fff;
+  --taupe:#e3ddd6;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height:1.6;
+}
+
+h1,h2,h3{
+  font-family:'Playfair Display', Georgia, serif;
+  font-weight:300;
+  letter-spacing:-0.4px;
+  margin:0;
+}
+
+.container{max-width:var(--container); margin-inline:auto; padding-inline:20px}
+
+/* ---------- Header / Nav ---------- */
+.nav-wrap{display:flex; align-items:center; justify-content:space-between}
+.brand{
+  text-decoration:none; color:var(--white);
+  font-family:'Playfair Display', serif; font-size:1.4rem; font-weight:700;
+}
+.main-nav ul{display:flex; gap:30px; list-style:none; margin:0; padding:0}
+.main-nav a{
+  color:var(--white); text-decoration:none; font-weight:600;
+}
+.main-nav a:hover{opacity:.75}
+
+/* ---------- Hero (image) ---------- */
+.hero{
+  position:relative; height:100vh; min-height:560px;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  overflow:hidden; color:var(--white);
+}
+
+.hero-media{
+  position:absolute; inset:0; background-size:cover; background-position:center;
+  transform:scale(1.02); /* tiny zoom for luxe feel */
+}
+
+.hero-overlay{
+  position:absolute; inset:0;
+  background:linear-gradient(0deg, rgba(0,0,0,.58), rgba(0,0,0,.42));
+}
+
+.hero-inner{position:relative; z-index:1; padding:0 24px; max-width:1100px}
+
+.display{
+  font-size:clamp(2.2rem, 5.5vw + .5rem, 5.2rem);
+  font-weight:700; line-height:1.1; letter-spacing:-.5px;
+}
+.display em{font-style:italic}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-block; text-decoration:none; font-weight:700;
+  padding:16px 28px; border-radius:6px; transition:.25s ease;
+}
+.btn-pill{border-radius:999px; padding:16px 32px}
+.btn-dark{background:var(--black); color:var(--white); border:1px solid var(--black)}
+.btn-dark:hover{transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18)}
+
+/* CTA Row */
+.hero-ctas{margin-top:28px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap}
+
+/* ---------- Intro ---------- */
+.intro{padding:88px 20px 64px; text-align:center}
+.intro h2{font-size:clamp(1.6rem, 2.5vw + .5rem, 2.4rem); margin-bottom:12px}
+.intro p{max-width:780px; margin:0 auto; color:var(--muted)}
+
+/* ---------- Footer ---------- */
+.site-footer{border-top:1px solid #eee; padding:34px 0; color:#777; text-align:center}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 820px){
+  .main-nav ul{gap:18px}
+  .brand{font-size:1.25rem}
+}
+
+footer {
+  background-color: #000;       /* black background */
+  color: #fff;                  /* white text */
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* clean sans serif */
+  font-size: 11px;              /* slightly smaller text */
+  font-weight: 400;             /* semi-bold */
+  text-transform: uppercase;    /* all caps */
+  letter-spacing: 1px;          /* adds spacing between letters */
+  text-align: center;           /* center align */
+  padding: 20px 0;              /* space above and below */
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);  /* bigger: ~35–48px */
+  line-height: 1.2;
+  font-weight: 300;  /* lighter, like Shaep */
+}
+
+.hero h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);  /* slightly bigger: ~22–32px */
+  line-height: 1.3;
+  font-weight: 300;  /* softer secondary line */
+}
+
+.hero .btn {
+  font-size: 0.75rem;  
+  font-weight: 500;    
+  padding: 0.75rem 1.5rem; /* balanced pill button */
+  border-radius: 9999px;
+}
+
+/* === Hero type & button overrides (place at very end) === */
+.hero h1{
+  font-size: clamp(2.4rem, 4.2vw, 3.2rem);  /* bigger */
+  line-height: 1.2;
+  font-weight: 400;                          /* thinner */
+}
+
+.hero h2{
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);   /* bigger but secondary */
+  line-height: 1.3;
+  font-weight: 300;
+}
+
+/* Your HTML uses .btn-dark / .btn-pill — target those, not .btn */
+.hero .btn-dark,
+.hero .btn-pill,
+.hero .btn-dark.btn-pill{
+  font-size: 0.9rem;               /* smaller label */
+  font-weight: 400 !important;     /* un-bold the text */
+  letter-spacing: 0.3px;
+  text-transform: none;            /* remove all-caps if inherited */
+  line-height: 1;
+  padding: 12px 24px;              /* slightly smaller pill */
+  border-radius: 9999px;
+}
+
+
+/* Brand name top-right */
+.brand-text {
+  white-space: nowrap;          /* keeps 'yoga with lisa' on one line */
+}
+
+/* Hero heading */
+.display {
+  text-wrap: balance;           /* evens out line breaks */
+  word-break: keep-all;         /* don’t break inside words */
+  overflow-wrap: normal;
+  line-height: 1.15;
+  max-width: 16ch;              /* ~16 characters per line feels elegant */
+  margin: 0 auto;               /* centers within hero */
+}
+
+/* Keep specific words together */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Mobile tweaks */
+@media (max-width: 430px) {
+  .display {
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+    max-width: 18ch;           /* allow a bit more width on small screens */
+    letter-spacing: -0.3px;
+  }
+}
+
+/* Brand name top-right */
+.brand-text {
+  white-space: nowrap;          /* keeps 'yoga with lisa' on one line */
+}
+
+/* Hero heading */
+.display {
+  text-wrap: balance;           /* evens out line breaks */
+  word-break: keep-all;         /* don’t break inside words */
+  overflow-wrap: normal;
+  line-height: 1.15;
+  max-width: 16ch;              /* tighter column width for desktop */
+  margin: 0 auto;
+}
+
+/* Keep specific phrases together */
+.nowrap { white-space: nowrap; }
+
+/* ——— Mobile headline comfort ——— */
+@media (max-width: 430px){
+  .hero .display,
+  .display {
+    font-size: clamp(1.8rem, 7.2vw, 2.4rem);
+    max-width: 90vw;        /* use most of the viewport */
+    padding-inline: 16px;   /* breathing room from edges */
+    text-wrap: balance;
+  }
+}
+
+/* Larger desktop screens: extra editorial feel */
+@media (min-width: 1200px) {
+  .display {
+    max-width: 14ch;           /* narrow for elegant line breaks */
+    font-size: clamp(2.8rem, 4vw, 4.2rem);
+    line-height: 1.1;
+  }
+}
+.brand {
+  font-family: "amandine", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  color: #ffffff;        /* adjust if you want a softer gray/white */
+  letter-spacing: .02em;
+  font-size: 3rem;
+
+}
+
+/* Login Button in Header */
+.login-btn {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200; /* Thin */
+  border: 1px solid #000;   /* black outline */
+  background: transparent;  /* see-through background */
+  color: #000;              /* black text */
+  padding: 6px 18px;
+  border-radius: 20px;      /* pill style */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #000;   /* black fill on hover */
+  color: #fff;        /* invert to white text */
+}
+
+/* CTA Button (Hero Section) */
+.btn {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200; /* Thin */
+  border-radius: 25px;
+  padding: 12px 28px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.btn-dark {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+.btn-dark:hover {
+  background: #fff;
+  color: #000;
+}
+
+.login-btn {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200; /* Thin */
+  border: 1px solid #000;   /* Black outline */
+  background: transparent;  
+  color: #000;
+  padding: 6px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-left: 12px;
+}
+
+.login-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* LOGIN button (force over nav link styles) */
+.main-nav a.login-btn{
+  display:inline-block;         /* needed so padding + border form a pill */
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight:150;
+  border:1px solid #000;
+  background:000;
+  color:#fff !important;        /* override white nav link color */
+  padding:6px 16px;
+  border-radius:20px;
+  text-decoration:none;
+  letter-spacing:.5px;
+  transition:all .25s ease;
+  margin-left:12px;             /* little gap from last nav link */
+}
+.main-nav a.login-btn:hover{
+  background:#fff;
+  color:#000 !important;
+  border-color:#000;
+}
+
+/* Hero headline */
+.display{
+  text-wrap: balance;       /* balances lines nicely */
+  word-break: keep-all;
+  overflow-wrap: normal;
+  line-height:1.15;
+  max-width:24ch;           /* wider column -> 2 lines on desktop */
+  margin:0 auto;
+}
+
+/* Mobile: allow a touch more width so it doesn't stack */
+@media (max-width:430px){
+  .display{
+    font-size:clamp(1.9rem, 7vw, 2.6rem);
+    max-width:26ch;         /* still likely 2 lines on small phones */
+    letter-spacing:-0.2px;
+  }
+}
+
+/* Large desktop: slightly tighter */
+@media (min-width:1200px){
+  .display{
+    max-width:22ch;
+    font-size:clamp(2.8rem, 4vw, 4.2rem);
+    line-height:1.12;
+  }
+}
+
+/* LOGIN button in header */
+.main-nav a.login-btn {
+  display: inline-block;         
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  background: #000;              /* black fill */
+  color: #fff !important;        /* white text */
+  padding: 10px 22px;            /* a bit more padding for balance */
+  border-radius: 9999px;         /* full pill */
+  text-decoration: none;
+  letter-spacing: .5px;
+  transition: all .25s ease;
+  margin-left: 12px;             /* small gap */
+}
+.main-nav a.login-btn:hover {
+  background: #fff;              /* invert on hover */
+  color: #000 !important;        /* black text */
+  border: 1px solid #000;
+}
+
+/* Force LOGIN to look like CTA button */
+.main-nav .login-btn {
+  background: #000 !important;
+  color: #fff !important;
+  border: 1px solid #000;
+  padding: 10px 22px;
+  border-radius: 9999px;
+}
+.main-nav .login-btn:hover {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.main-nav .login-btn{
+  background:#000 !important;
+  color:#fff !important;
+  border:1px solid #000 !important;
+  border-radius:9999px !important;
+  padding:10px 22px !important;
+  display:inline-block !important;
+}
+.main-nav .login-btn:hover{
+  background:#fff !important;
+  color:#000 !important;
+}
+
+/* ===== LOGIN button – must be at the very end to win specificity ===== */
+.site-header .main-nav a.login-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: 1px solid #000;
+  background: #000;              /* solid black like the hero CTA */
+  color: #fff !important;        /* defeat .main-nav a { color: white } */
+  font-weight: 700;
+  font-size: 0.85rem;   /* or try 14px */
+  letter-spacing: .2px;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+
+.site-header .main-nav a.login-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+}
+
+/* ===== Mobile header & LOGIN pill ===== */
+@media (max-width: 820px){
+  .nav-wrap{ gap:12px; }
+  .brand{ font-size:1.6rem; }           /* smaller logo text */
+  .main-nav ul{
+    gap:16px;
+    align-items:center;
+    flex-wrap:nowrap;                    /* keep on one line */
+  }
+  .main-nav a{ font-size:.9rem; }        /* smaller link text */
+
+  /* Make the LOGIN pill smaller so it fits */
+  .site-header .main-nav a.login-btn{
+    padding:8px 16px;                    /* was 12px 24px */
+    border-radius:9999px;
+    font-weight:600;
+  }
+}
+
+/* Extra-tight phones */
+@media (max-width: 430px){
+  .brand{ font-size:1.35rem; }
+  .main-nav ul{ gap:12px; }
+  .site-header .main-nav a.login-btn{
+    padding:7px 14px;
+    letter-spacing:.1px;
+  }
+}
+
+/* Prevent any sideways scroll caused by transforms etc. */
+html, body { overflow-x: hidden; }
+
+@media (max-width: 430px){
+  .display{
+    max-width: 24ch;         /* a touch wider so it breaks into 2–3 lines nicely */
+  }
+  .hero .btn-dark.btn-pill{
+    padding: 12px 22px;
+  }
+}
+
+/* --- Nav alignment fixes (place at the very end) --- */
+.site-header .main-nav ul{
+  display:flex;           /* already flex, but ensure */
+  align-items:center;     /* vertically center all items */
+  gap:30px;
+}
+
+.site-header .main-nav a{
+  display:inline-flex;    /* centers text inside links */
+  align-items:center;
+  line-height:1;          /* prevents baseline wobble */
+}
+
+/* Match LOGIN pill height to neighbors a bit tighter */
+.site-header .main-nav a.login-btn{
+  padding:10px 18px;      /* slightly shorter so it aligns */
+  font-weight:400;        
+}
+
+/* ==== Sticky taupe header — final, authoritative ==== */
+
+/* Base header: fixed and transparent over the hero */
+.site-header{
+  position: fixed !important;
+  top: 0; left: 0; right: 0;
+  padding: 22px 0;
+  background: transparent !important;     /* start transparent */
+  z-index: 2000;                           /* above hero overlay */
+  transition: background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
+}
+
+/* Scrolled state: taupe bar + subtle depth */
+.site-header.scrolled{
+  background: var(--taupe) !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  backdrop-filter: saturate(110%) blur(6px);
+}
+
+/* Link colors: white on transparent, dark on taupe */
+.site-header .brand,
+.site-header .main-nav a{ color:#fff !important; }
+
+.site-header.scrolled .brand,
+.site-header.scrolled .main-nav a{ color:#111 !important; opacity:.9; }
+.site-header.scrolled .main-nav a:hover{ opacity:1; }
+
+/* Ensure the hero sits under the header */
+.hero, .hero-media, .hero-overlay { z-index: 0; }
+.hero-inner { z-index: 1; }
+
+/* Keep LOGIN text white always */
+.site-header .main-nav a.login-btn {
+  color: #fff !important;
+}
+
+.site-header.scrolled .main-nav a.login-btn {
+  color: #fff !important;   /* force white even when scrolled */
+  border-color: #000;       /* keep the black pill outline */
+  background: #000;         /* solid black fill (if you want) */
+}
+
+.site-header.scrolled .main-nav a.login-btn:hover {
+  background: #fff;         /* invert on hover */
+  color: #000 !important;   /* black text only on hover */
+}
+
+/* --- Mobile hero fixes (center + reflow) --- */
+@media (max-width: 430px){
+  /* Let the first line wrap normally on small screens */
+  .nowrap { white-space: normal; }
+
+  /* Give the headline a full-width, centered box with padding */
+  .hero .display,
+  .display{
+    max-width: calc(100vw - 32px);   /* ~16px side padding */
+    padding-inline: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    text-wrap: balance;               /* nicer line breaks */
+    overflow-wrap: anywhere;          /* never clip off-screen */
+    font-size: clamp(1.75rem, 6.8vw, 2.35rem);  /* a touch smaller */
+    line-height: 1.18;
+  }
+
+  /* iOS safe-area nicety (notch edges) */
+  .hero .display{
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+}
+/* Keep LOGIN white in scrolled (taupe) state */
+.site-header.scrolled .main-nav a.login-btn{
+  color:#fff !important;
+  background:#000;
+  border-color:#000;
+}
+
+.hero .display {
+  font-family: 'Playfair Display', Georgia, serif !important; /* or remove line per Option A */
+  font-weight: 500 !important;           /* thinner Playfair that you have loaded */
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem) !important;
+  line-height: 1.2 !important;
+  /* keep your other lines as-is */
+}
+
+/* ===== Utilities ===== */
+.visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
+
+/* ===== Cards / Carousel ===== */
+.cards{padding:48px 0}
+.cards-row{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:minmax(240px, 320px);
+  gap:16px;
+  overflow-x:auto;
+  padding-bottom:6px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+.cards-row::-webkit-scrollbar{height:8px}
+.cards-row::-webkit-scrollbar-thumb{background:#ddd;border-radius:8px}
+
+.card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  scroll-snap-align:start;
+  background:#f7f7f7;
+}
+.card-link{display:block; position:relative}
+.card-img{
+  display:block; width:100%; height:100%;
+  object-fit:cover; aspect-ratio: 4 / 5;
+  transition:opacity .35s ease, transform .35s ease;
+  backface-visibility:hidden;
+}
+.img-hover{position:absolute; inset:0; opacity:0; transform:scale(1.02)}
+.card-tag{
+  position:absolute; top:12px; right:12px;
+  background:#111; color:#fff; font-size:.7rem; letter-spacing:.06em;
+  padding:6px 10px; border-radius:999px
+}
+.card-cta{
+  position:absolute; left:50%; bottom:14px; transform:translateX(-50%);
+  background:rgba(255,255,255,.92);
+  color:#111; border:1px solid #111;
+  padding:10px 18px; border-radius:999px; font-weight:700; font-size:.82rem;
+  opacity:0; transition:opacity .25s ease, transform .25s ease;
+  pointer-events:none;
+}
+.card-cta span{white-space:nowrap}
+
+/* Hover states for devices with fine pointer */
+@media (hover:hover){
+  .card:hover .img-hover{opacity:1; transform:scale(1)}
+  .card:hover .img-default{opacity:0}
+  .card:hover .card-cta{opacity:1; transform:translateX(-50%) translateY(-2px)}
+}
+
+/* Touch: show pill CTA always (can tweak to taste) */
+@media (hover:none){
+  .card-cta{opacity:1}
+}
+
+/* ===== Mission Banner ===== */
+.mission{position:relative; border-radius:20px; overflow:hidden; margin:48px 20px}
+.mission-media{
+  position:absolute; inset:0; background-size:cover; background-position:center;
+  transform:scale(1.02);
+}
+.mission-overlay{
+  position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,.40), rgba(0,0,0,.30));
+}
+.mission-inner{
+  position:relative; z-index:1; text-align:center; color:#fff;
+  padding:96px 20px;
+}
+.mission h2{
+  font-family:'Playfair Display', Georgia, serif; font-weight:700;
+  font-size:clamp(1.8rem, 4vw, 3rem); letter-spacing:-.3px; margin:0 0 12px;
+}
+.mission p{
+  max-width:800px; margin:0 auto 22px; color:#f1f1f1; line-height:1.7;
+}
+
+/* Button variant used on mission */
+.btn-outline{
+  background:transparent; color:#fff; border:1.5px solid #fff;
+}
+.btn-outline:hover{
+  background:#fff; color:#000; transform:translateY(-1px);
+}
+
+/* Mobile niceties */
+@media (max-width: 480px){
+  .cards-row{grid-auto-columns:78%}
+  .mission{margin:32px 0; border-radius:0}
+  .mission-inner{padding:72px 18px}
+}
+
+/* ===== Image banners: Membership + Founder ===== */
+.membership,
+.founder{
+  position: relative;
+  min-height: 420px;                 /* gives the section a visible height */
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* background image layer */
+.membership-media,
+.founder-media{
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);            /* subtle luxe zoom */
+  z-index: 0;
+}
+
+/* darken so text is readable */
+.membership-overlay,
+.founder-overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,.42), rgba(0,0,0,.28));
+  z-index: 0;
+}
+
+/* content */
+.membership-inner,
+.founder-inner{
+  position: relative;
+  z-index: 1;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 64px 20px;                /* vertical breathing room */
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+
+.membership h2,
+.founder h2{ 
+  color:#fff; 
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  margin: 0 0 12px;
+}
+
+.membership p,
+.founder p{
+  max-width: 900px;
+  margin: 10px 0;
+  color: rgba(255,255,255,.92);
+  font-weight: 400;
+}
+
+.page-ugc .founder p {
+  font-size: 1.15em;
+}
+
+/* Button looks good on dark photos */
+.membership .btn-outline,
+.founder .btn-outline{
+  border-color:#fff;
+  color:#fff;
+}
+.membership .btn-outline:hover,
+.founder .btn-outline:hover{
+  background:#fff;
+  color:#000;
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .membership, .founder{ min-height: 360px; }
+  .membership-inner, .founder-inner{ padding: 40px 16px; }
+}
+
+/* ==== Rounded section cards (membership + founder) ==== */
+.membership,
+.founder {
+  position: relative;
+  max-width: 1200px;       /* same container width */
+  margin: 48px auto;       /* centered with breathing room */
+  border-radius: 24px;     /* the softness */
+  overflow: hidden;        /* clips the background image to the curve */
+  isolation: isolate;      /* keeps overlay effects contained */
+}
+
+.membership-media,
+.founder-media {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transform: scale(1.02);         /* subtle luxe zoom */
+}
+
+.membership-overlay,
+.founder-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,.25));
+}
+
+.membership-inner,
+.founder-inner {
+  position: relative; z-index: 1; color: #fff;
+  padding: clamp(28px, 6vw, 64px);
+  text-align: left;
+}
+
+.membership-inner h2,
+.founder-inner h2 { margin: 0 0 12px; }
+
+/* Optional: a soft outer shadow like rhode cards */
+.membership,
+.founder { box-shadow: 0 10px 30px rgba(0,0,0,.10); }
+
+/* Optional: outline button style you used elsewhere */
+.btn-outline {
+  background: transparent;
+  color: #fff; border: 1.5px solid #fff;
+}
+.btn-outline:hover { background: #fff; color: #000; }
+
+/* ==== Card wrapper for carousel (rounded + shadow, like rhode) ==== */
+.card {
+  max-width: 1200px; margin: 48px auto;
+  background: #fff; border-radius: 24px; overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+/* Header row: title left, CTA right */
+.ig-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px clamp(20px, 4vw, 32px) 12px;
+}
+.ig-head h3 {
+  margin: 0; font-size: clamp(1.25rem, 2vw, 1.6rem);
+}
+
+/* Track area with scroll-snap */
+.ig-wrap {
+  position: relative;
+  padding: 12px clamp(16px, 3vw, 24px) 28px; /* extra bottom = room for dots/nav */
+}
+
+.ig-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 80%;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.ig-track::-webkit-scrollbar { display: none; }
+
+@media (min-width: 700px) {
+  .ig-track { grid-auto-columns: calc((100% - 2*16px) / 3); } /* 3-up */
+}
+@media (min-width: 1100px) {
+  .ig-track { grid-auto-columns: calc((100% - 3*16px) / 4); } /* 4-up */
+}
+
+.ig-card {
+  display: block; height: 360px;
+  border-radius: 20px; overflow: hidden;
+  scroll-snap-align: start;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+}
+.ig-card img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .35s ease;
+}
+.ig-card:hover img { transform: scale(1.03); }
+
+/* Nav arrows */
+.ig-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid #ddd; background: rgba(255,255,255,.9);
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  display: grid; place-items: center; font-size: 24px; line-height: 1;
+  cursor: pointer;
+}
+.ig-prev { left: 10px; }
+.ig-next { right: 10px; }
+.ig-nav:hover { background: #fff; }
+@media (max-width: 640px) { .ig-nav { display: none; } } /* arrows off on small phones */
+
+/* ==== Instagram header CTA override ==== */
+.ig-head .btn-outline {
+  color: #111;                     /* dark text */
+  border-color: #111;              /* dark border */
+  font-size: 0.9rem;
+  padding: 8px 18px;
+  transition: all .25s ease;
+}
+
+.ig-head .btn-outline:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* Align "Back to Home" button inside aside column */
+.back-home-wrap {
+  margin-top: 16px;       /* space above button */
+  display: flex;
+  justify-content: flex-start;  /* aligns with left edge of text in aside */
+}
+
+/* ===== Member Library Carousel ===== */
+.card-shelf {
+  position: relative;
+  margin: 56px auto;
+}
+
+.card-shelf .shelf-head h2 { margin: 0 0 4px; }
+.card-shelf .sub { color: #777; margin: 0 0 16px; }
+
+.card-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 6px 4px 18px;
+}
+.card-track::-webkit-scrollbar { display: none; }
+
+.mcard {
+  flex: 0 0 auto;
+  width: 280px;               /* match your pop-up card width vibe */
+  scroll-snap-align: start;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+
+.mcard-link { display: block; color: inherit; text-decoration: none; }
+.mcard-media { position: relative; aspect-ratio: 16/9; background: #eee; }
+.mcard-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.mcard .lock {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-size: 22px;
+  line-height: 1;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.35));
+}
+
+.mcard-meta { padding: 12px 14px 14px; }
+.mcard-meta h3 { margin: 0 0 8px; font-size: 16px; line-height: 1.3; }
+.mcard-meta .pill {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #f1f1f1;
+}
+
+/* Nav arrows */
+.shelf-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40px; width: 40px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 38px;
+  text-align: center;
+  z-index: 2;
+}
+.shelf-nav.prev { left: -6px; }
+.shelf-nav.next { right: -6px; }
+
+.shelf-cta {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+/* Unlock state: when logged in, hide lock & remove "locked" pointer behavior */
+body[data-ms-member="true"] .mcard.locked .lock { display: none; }
+
+/* Wellness poster cards (match pop-up look) */
+.wellness-row {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+}
+.wellness-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  text-align: center;
+}
+.wellness-card .poster {
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.wellness-card .poster img {
+  width: 100%;
+  aspect-ratio: 3 / 4;         /* tall poster */
+  object-fit: cover;
+  display: block;
+}
+.wellness-card:hover .poster {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 28px rgba(0,0,0,.14);
+}
+.wellness-card .meta {
+  padding: 12px 6px 0;
+}
+.wellness-card h3 {
+  font-family: "Playfair Display", serif;
+  margin: 10px 0 6px;
+}
+.wellness-card p {
+  font-size: .95rem;
+  color: #444;
+  margin: 0 0 12px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;       /* keep it tidy like the posters */
+  overflow: hidden;
+}
+
+/* Hide scrollbar and add soft edge fade on horizontal carousels */
+.cards-row::-webkit-scrollbar { display: none; }
+.cards-row { scrollbar-width: none; }
+
+.yoga-cards {
+  mask-image: linear-gradient(to right,
+               rgba(0,0,0,0) 0, rgba(0,0,0,1) 24px,
+               rgba(0,0,0,1) calc(100% - 24px), rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right,
+               rgba(0,0,0,0) 0, rgba(0,0,0,1) 24px,
+               rgba(0,0,0,1) calc(100% - 24px), rgba(0,0,0,0) 100%);
+}
+
+/* Horizontal carousel layout */
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 0;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* hide scrollbar for cleaner look */
+}
+
+.card {
+  flex: 0 0 260px; /* fixed width for each card */
+  scroll-snap-align: start;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-img {
+  width: 100%;
+  display: block;
+}
+
+.ugc-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.icon-btn {
+  width: 62px;
+  height: 62px;
+  background-color: #3d3c3a;  /* dark gray like mockup */
+  border-radius: 50%;
+  border: 3px solid #e5e2dd;  /* light outline like Canva preview */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.icon-btn img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); /* makes icons white */
+}
+
+.icon-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.85;
+}
+
+/* ==================== UGC Reel Layout ==================== */
+
+.ugc-reel-section {
+  padding: 4rem 1rem 6rem;
+  text-align: center;
+}
+
+.ugc-card {
+  display: inline-block;
+  margin-top: 3rem;
+}
+
+/* Container (still useful for sizing/centering) */
+.ugc-phone {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* ✅ Option B: video becomes the “phone” */
+.ugc-video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  height: auto;
+  display: block;
+
+  object-fit: cover;
+  border-radius: 14px;
+
+  /* thick black iPhone-style border */
+  border: 10px solid #111;
+  box-sizing: border-box;
+  background: #111;
+
+  /* optional: tiny inner rim for polish */
+  outline: 2px solid rgba(255,255,255,0.18);
+  outline-offset: -6px;
+}
+
+/* Hide the phone-frame overlay (we’re not using it in Option B) */
+.ugc-phone-frame {
+  display: none;
+}
+
+/* “testimonial” pill label */
+.ugc-tag {
+  position: absolute;
+  top: -2.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  padding: 0.55rem 1.6rem;
+  border-radius: 999px;
+
+  background: #111827;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (min-width: 900px) {
+  .ugc-phone {
+    max-width: 380px;
+  }
+}
+
+/* === Homepage cards carousel fix === */
+
+/* The row that holds all the cards */
+.cards .carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 0;
+}
+
+.cards .carousel::-webkit-scrollbar {
+  display: none; /* hide scrollbar */
+}
+
+/* Each individual card */
+.cards .card {
+  flex: 0 0 260px;           /* fixed width like before */
+  scroll-snap-align: start;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f7f7f7;
+  transition: transform 0.3s ease;
+}
+
+.cards .card:hover {
+  transform: scale(1.03);
+}
+
+/* Images inside those cards */
+.cards .card-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;       /* keeps them card-shaped instead of huge */
+  object-fit: cover;
+}
+
+/* Keep the hover image positioned correctly */
+.cards .img-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+@media (hover:hover) {
+  .cards .card:hover .img-hover { opacity: 1; transform: scale(1); }
+  .cards .card:hover .img-default { opacity: 0; }
+}
+
+/* ================================
+   UGC Intro Section (Scoped Only)
+   ================================ */
+
+.intro.container {
+  padding: 2.5rem 1rem;      /* reduces white space */
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro.container .intro-text {
+  margin: 1.25rem auto 2rem;
+  line-height: 1.6;
+  max-width: 680px;
+  color: #444;
+}
+
+/* CTA button — scoped, black with white text */
+.intro.container .cta-btn {
+  display: inline-block;
+  padding: 0.85rem 2.25rem;
+  border-radius: 999px;
+
+  background-color: #000;    /* black */
+  color: #fff;               /* white text */
+
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  border: none;
+  cursor: pointer;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.intro.container .cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 600px) {
+  .intro.container .intro-text {
+    text-align: left;
+  }
+}
+
+/* Sticky taupe nav on scroll */
+.site-header.scrolled,
+.site-header[data-scrolled="true"] {
+  background-color: var(--taupe) !important;
+}
+
+/* =========================================================
+   UGC page-only fixes (won't affect other pages)
+   Add this to ugc.html:  <body class="page-ugc">
+   ========================================================= */
+
+/* 1) Force sticky header to stay taupe on the UGC page */
+.page-ugc .site-header {
+  background-color: rgba(207, 219, 227, 0.10) !important;
+  backdrop-filter: saturate(120%) blur(6px);
+  -webkit-backdrop-filter: saturate(120%) blur(6px);
+}
+
+/* 2) Center the UGC reel cards (the 5-phone strip) */
+.page-ugc .ugc-reel-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+
+  /* keep your existing spacing + centering */
+  text-align: center;
+}
+
+.page-ugc .ugc-reel-section > h2 {
+  flex: 0 0 100%;
+  margin: 0 0 1.25rem;
+}
+
+.page-ugc .ugc-card {
+  margin-top: 0; /* avoid extra top gap since we're using flex + gap */
+}
+
+:root {
+  --baby-blue: #cfe7f5;
+}
+
+/* ==================== UGC HERO (page-only) ==================== */
+.page-ugc .ugc-hero{
+  background: #fff;
+  padding: 3.25rem 1rem 2.25rem;
+}
+
+.page-ugc .ugc-hero-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.page-ugc .ugc-hero-video-el{
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  display: block;
+  border-radius: 28px;
+  border: 10px solid #111;
+  background: #111;
+  object-fit: cover;
+}
+
+.page-ugc .ugc-hero-name{
+  margin: 0 0 .35rem;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 1.02;
+}
+
+.page-ugc .ugc-hero-title{
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: .65rem;
+}
+
+.page-ugc .ugc-hero-location{
+  font-size: 1.05rem;
+  opacity: .9;
+  margin-bottom: 1rem;
+}
+
+.page-ugc .ugc-hero-blurb{
+  margin: 0 0 1.25rem;
+  max-width: 44ch;
+  line-height: 1.6;
+}
+
+.page-ugc .ugc-social-icons{
+  display: flex;
+  gap: .9rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.page-ugc .ugc-social-icons .icon-btn{
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+}
+
+.page-ugc .ugc-social-icons .icon-btn img{
+  width: 26px;
+  height: 26px;
+}
+
+/* Mobile */
+@media (max-width: 980px){
+  .page-ugc .ugc-hero-inner{
+    grid-template-columns: 1fr;
+  }
+  .page-ugc .ugc-hero-video{
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .page-ugc .ugc-hero-copy{
+    text-align: center;
+  }
+  .page-ugc .ugc-social-icons{
+    justify-content: center;
+  }
+  .page-ugc .ugc-hero-blurb{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ==================== UGC CONNECT (page-only) ==================== */
+.page-ugc .ugc-connect{
+  background: #111;
+  color: #fff;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.page-ugc .ugc-connect-title{
+  margin: 0 0 1.5rem;
+  letter-spacing: .12em;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.page-ugc .ugc-connect-card{
+  max-width: 520px;
+  margin: 0 auto 1.25rem;
+}
+
+.page-ugc .ugc-connect-photo{
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+}
+
+.page-ugc .ugc-connect-icons{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.page-ugc .ugc-connect-icon{
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+}
+
+.page-ugc .ugc-connect-icon img{
+  width: 28px;
+  height: 28px;
+}
+
+.page-ugc .ugc-connect-email{
+  display: inline-block;
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+/* =========================
+   UGC HERO — VIDEO SIZING
+   ========================= */
+
+.page-ugc .hero-intro-video {
+  max-width: 340px;        /* was visually too dominant */
+}
+
+.page-ugc .hero-intro-video video {
+  width: 100%;
+  border-radius: 28px;
+}
+
+/* =========================
+   UGC HERO — TEXT HIERARCHY
+   ========================= */
+
+.page-ugc .hero-inner h1 {
+  font-size: clamp(3.2rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: 0.75rem;
+}
+
+.page-ugc .hero-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.page-ugc .hero-location {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.page-ugc .hero-blurb {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* =====================================================
+   UGC HERO — OUTRAGEOUS SCALE TEST (DESKTOP ONLY)
+   TEMPORARY: for visual comparison
+   ===================================================== */
+
+@media (min-width: 981px){
+
+  /* Name — MASSIVE */
+  .page-ugc .ugc-hero-name{
+    font-size: clamp(6rem, 9vw, 8.5rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Title */
+  .page-ugc .ugc-hero-title{
+    font-size: 2.1rem;   /* match blurb */
+    font-weight: 600;    /* slightly stronger than body */
+    line-height: 1.35;
+    margin-bottom: 1rem;
+  }
+
+  /* Location */
+  .page-ugc .ugc-hero-location{
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Blurb */
+  .page-ugc .ugc-hero-blurb{
+    font-size: 1.6rem;
+    max-width: 60ch;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+
+  /* Email line (if added as <div class="ugc-hero-email">) */
+  .page-ugc .ugc-hero-email{
+    font-size: 2rem;
+    margin-bottom: 2.25rem;
+  }
+
+  /* Social icons — bigger to match */
+  .page-ugc .ugc-social-icons .icon-btn{
+    width: 72px;
+    height: 72px;
+  }
+
+  .page-ugc .ugc-social-icons .icon-btn img{
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* ==========================================
+   UGC PAGE ONLY — Fix header overlap on hero
+   ========================================== */
+
+/* Make room for the fixed header so it doesn't cover the hero */
+.page-ugc .ugc-hero{
+  padding-top: 120px; /* adjust if needed */
+}
+
+/* Optional: if the hero still feels tight, add a bit more breathing room */
+@media (min-width: 981px){
+  .page-ugc .ugc-hero{
+    padding-top: 140px;
+  }
+}
+
+/* ==========================================
+   UGC PAGE ONLY — Make header title black
+   ========================================== */
+
+.page-ugc .site-header .brand{
+  color: #000 !important;
+  text-shadow: none !important;
+}
+
+.page-ugc .site-header .brand:visited{
+  color: #000 !important;
+}
+
+/* ==================== UGC HERO SPACING FIX ==================== */
+.page-ugc .ugc-hero {
+  padding-top: 7.5rem;
+}
+
+/* ==================== UGC HEADER TEXT COLOR ==================== */
+.page-ugc .site-header .brand {
+  color: #000 !important;
+}
+
+/* ==================== UGC HERO SOCIAL ICON FIX ==================== */
+.page-ugc .ugc-social-icons .icon-btn {
+  background: #000;
+  border: none;
+}
+
+.page-ugc .ugc-social-icons .icon-btn img {
+  filter: invert(1);
+}
+
+/* ==================== UGC HERO NAME – SCRIPT STYLE ==================== */
+
+.page-ugc .ugc-hero-name {
+  font-family: 'Great Vibes', cursive;
+  color: #ff5fa2; /* soft pink */
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+}
+
+/* Desktop only – let it be dramatic */
+@media (min-width: 981px) {
+  .page-ugc .ugc-hero-name {
+    font-size: clamp(5rem, 7vw, 7.5rem);
+  }
+}
+
+/* ==================== UGC VIDEO CAROUSEL (page-only) ==================== */
+.page-ugc .ugc-wrap{
+  position: relative;
+  margin-top: 1.25rem;
+}
+
+.page-ugc .ugc-track{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(320px, 78vw);
+  gap: 1.25rem;            /* ~ "1/4 inch" feel */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 3.25rem; /* room for the arrows */
+}
+
+.page-ugc .ugc-reel{
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.page-ugc .ugc-reel-video{
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  height: auto;
+  display: block;
+  object-fit: cover;
+
+  border-radius: 36px;
+  border: 10px solid #111;
+  box-sizing: border-box;
+  background: #111;
+
+  outline: 2px solid rgba(255,255,255,0.18);
+  outline-offset: -6px;
+}
+
+/* White pill label (hides on hover so controls are easy to use) */
+.page-ugc .ugc-pill{
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 3;
+
+  background: #fff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 999px;
+
+  padding: 0.55rem 1.05rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.page-ugc .ugc-reel:hover .ugc-pill,
+.page-ugc .ugc-reel:focus-within .ugc-pill{
+  opacity: 0;
+  transform: translateX(-50%) translateY(6px);
+  pointer-events: none;
+}
+
+/* Carousel arrows */
+.page-ugc .ugc-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+
+  display: grid;
+  place-items: center;
+
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.page-ugc .ugc-prev{ left: 10px; }
+.page-ugc .ugc-next{ right: 10px; }
+
+.page-ugc .ugc-nav:hover{
+  background: #fff;
+}
+
+/* Optional: hide scrollbar for a cleaner look (still scrolls) */
+.page-ugc .ugc-track::-webkit-scrollbar{ height: 10px; }
+.page-ugc .ugc-track::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,0.12);
+  border-radius: 999px;
+}
+
+/* ==================== UGC HERO INTRO VIDEO ==================== */
+
+.page-ugc .ugc-hero-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-ugc .ugc-hero-video-el {
+  transform: scale(0.7); /* 30% smaller */
+  transform-origin: center;
+}
+
+/* Desktop-only safety (keeps mobile natural) */
+@media (min-width: 1024px) {
+  .page-ugc .ugc-hero-video-el {
+    transform: scale(0.7);
+    transform-origin: center;
+  }
+}
+
+/* ==================== UGC VIDEO CAROUSEL: shrink by 30% ==================== */
+/* (UGC page only; affects both UGC video sections) */
+
+.page-ugc .ugc-videos .ugc-reel {
+  transform: scale(0.7);
+  transform-origin: top center;
+}
+
+/* keep spacing feeling intentional after scaling */
+.page-ugc .ugc-videos .ugc-track,
+.page-ugc .ugc-videos .ugc-wrap {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* ==================== UGC HERO TITLE ALIGNMENT TWEAK ==================== */
+
+/* Desktop only */
+@media (min-width: 1024px) {
+  .page-ugc .ugc-hero-title {
+    font-size: 1.6rem;      /* smaller than before */
+    line-height: 1.2;       /* tighter vertical rhythm */
+    margin-top: 0.5rem;     /* pull it closer to the name */
+    margin-bottom: 0.75rem;/* reduce push-down effect */
+    font-weight: 600;       /* still strong, but not bulky */
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-ugc .ugc-social-icons {
+    margin-top: 0.75rem;
+  }
+}
+
+@media (min-width: 981px){
+  .page-ugc .ugc-hero-name{
+    font-size: clamp(4rem, 7vw, 6.5rem);
+  }
+}
+
+/* ==================== UGC ONLY: Banner background images ==================== */
+.page-ugc .membership .membership-media{
+  background-image: url("images/ugc-whyworkwithme.jpg") !important;
+}
+
+.page-ugc .founder .founder-media{
+  background-image: url("images/ugc-meetthecreator.jpg") !important;
+}
+
+/* ================================
+   UGC – Meet the Creator Spacing
+   ================================ */
+
+.page-ugc .meet-creator {
+  display: flex;
+  align-items: flex-start;   /* ⬅️ stop vertical centering */
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.page-ugc .meet-creator .membership-inner {
+  max-width: 760px;          /* ⬅️ wider text column */
+  margin-left: 6rem;         /* ⬅️ push off left edge like Why Work With Me */
+}
+
+/* Title spacing */
+.page-ugc .meet-creator h2 {
+  margin-bottom: 2.5rem;
+}
+
+/* Paragraph rhythm */
+.page-ugc .meet-creator p {
+  margin-bottom: 1.25rem;
+  line-height: 1.65;
+}
+
+/* Button breathing room */
+.page-ugc .meet-creator .btn {
+  margin-top: 2.5rem;
+}
+
+/* ====================
+   UGC REEL VIDEO SIZE
+   (does NOT affect hero video)
+   ==================== */
+
+.page-ugc .ugc-reel-video {
+  transform: scale(0.85);   /* ← adjust this number */
+  transform-origin: center;
+}
+
+/* ================================
+   UGC – Meet the Creator Spacing
+   ================================ */
+
+.page-ugc .meet-creator {
+  display: flex;
+  align-items: flex-start;   /* ⬅️ stop vertical centering */
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.page-ugc .meet-creator .membership-inner {
+  max-width: 760px;          /* ⬅️ wider text column */
+  margin-left: 6rem;         /* ⬅️ push off left edge like Why Work With Me */
+}
+
+/* Title spacing */
+.page-ugc .meet-creator h2 {
+  margin-bottom: 2.5rem;
+}
+
+/* Paragraph rhythm */
+.page-ugc .meet-creator p {
+  margin-bottom: 1.25rem;
+  line-height: 1.65;
+}
+
+/* Button breathing room */
+.page-ugc .meet-creator .btn {
+  margin-top: 2.5rem;
+}
+
+/* =====================================================
+   UGC REELS — TIGHTER GRID + LESS WHITESPACE (PAGE ONLY)
+   - affects ONLY the reel carousels (.ugc-videos)
+   - does NOT touch the hero intro video (.ugc-hero-*)
+   ===================================================== */
+
+/* 0) Neutralize earlier scale experiments so sizing is driven by the track columns */
+.page-ugc .ugc-videos .ugc-reel,
+.page-ugc .ugc-videos .ugc-reel-video{
+  transform: none !important;
+}
+
+/* 1) Reduce vertical whitespace inside each UGC video card */
+.page-ugc section.ugc-videos.card{
+  margin: 1.75rem auto;              /* was larger */
+}
+
+.page-ugc section.ugc-videos.card .ig-head{
+  margin-bottom: 0.75rem;            /* tighten header-to-reels */
+}
+
+.page-ugc section.ugc-videos.card .ugc-wrap{
+  margin-top: 0.5rem;                /* was 1.25rem */
+}
+
+/* 2) Reduce horizontal whitespace between reels + reduce side padding */
+.page-ugc .ugc-videos .ugc-track{
+  gap: 0.95 rem;                      /* tighter than 1.25rem */
+  padding: 0.25rem 1rem 0.75rem;     /* remove big arrow room */
+  grid-auto-columns: min(280px, 78vw); /* phone default */
+}
+
+/* Tablet: 3 reels visible more often */
+@media (min-width: 700px){
+  .page-ugc .ugc-videos .ugc-track{
+    grid-auto-columns: calc((100% - (2 * 0.75rem)) / 3);
+  }
+}
+
+/* Desktop: aim for 4 reels per row (still horizontally scrollable if more) */
+@media (min-width: 981px){
+  .page-ugc .ugc-videos .ugc-track{
+    grid-auto-columns: calc((100% - (3 * 0.75rem)) / 4);
+  }
+}
+
+/* 3) Optional: slightly smaller pill + closer to bottom */
+.page-ugc .ugc-videos .ugc-pill{
+  bottom: 15px;
+  padding: 0.45rem 0.9rem;
+  font-size: 1.25rem;
+}
+
+/* ================================
+   UGC REEL — TOP TYPE PILL (BLACK)
+   ================================ */
+
+   .page-ugc .ugc-reel {
+    position: relative; /* ensures absolute pills anchor correctly */
+  }
+  
+  .page-ugc .ugc-type {
+    position: absolute;
+    top: -2.75rem;                 /* sits above the phone */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+  
+    background: #000;
+    color: #fff;
+  
+    border-radius: 999px;
+    padding: 0.7rem 1.4rem;        /* ⬆️ ~30% bigger than bottom pill */
+    
+    white-space: nowrap;
+    width: max-content;
+    min-width: 140px;
+    
+    font-size: 1.21rem;            /* ⬆️ visual weight like your mockup */
+    font-weight: 525;
+    letter-spacing: 0.02em;
+    text-transform: none;          /* keep “Skit”, “Product Demo” natural */
+  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                 "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  
+    box-shadow: 0 14px 36px rgba(0,0,0,0.35);
+    pointer-events: none;          /* purely informational */
+  }
+
+  /* ================================
+   UGC REEL — TOP PILL NOT CLIPPED
+   ================================ */
+
+/* 1) Stop the carousel containers from clipping the pill */
+/* Let the WRAPPER be visible (so nothing gets clipped),
+   but keep the TRACK scrollable */
+.page-ugc .ugc-wrap{
+  overflow: visible !important;
+}
+
+/* The track must be scrollable */
+.page-ugc .ugc-track[data-ugc-track]{
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  scroll-snap-type: x mandatory;
+  padding-top: 3.25rem; /* makes room so the top pill isn't clipped */
+}
+
+/* 2) Make sure the card itself doesn’t clip it either */
+.page-ugc section.ugc-videos.card {
+  overflow: visible !important;
+}
+
+/* 3) Bring the top pill in front of everything */
+.page-ugc .ugc-reel {
+  position: relative;
+  z-index: 2;
+}
+
+.page-ugc .ugc-type {
+  position: absolute;
+  z-index: 9999; /* front of banner/card */
+}
+
+/* =====================================================
+   UGC — WHY WORK WITH ME: bigger text + tighter spacing
+   ===================================================== */
+
+/* Reduce overall section padding so bigger text still fits nicely */
+.page-ugc .membership{
+  padding-top: 3rem;     /* was likely ~4–6rem */
+  padding-bottom: 3rem;
+}
+
+/* Pull the text block closer to the left + let it be wider */
+.page-ugc .membership .membership-inner{
+  max-width: 920px;      /* wider so larger text fits */
+  margin-left: 2.25rem;  /* move left (reduce if needed) */
+  margin-right: auto;
+}
+
+/* Make the bullet list text ~40% larger (and readable) */
+.page-ugc .membership .membership-inner li,
+.page-ugc .membership .membership-inner p{
+  font-size: 1.26em;
+  line-height: 1.35;
+}
+
+/* Tighten spacing between lines so it doesn’t push too tall */
+.page-ugc .membership .membership-inner li{
+  margin-bottom: 0.45rem;
+}
+
+/* Mobile: don’t shove it left too hard */
+@media (max-width: 700px){
+  .page-ugc .membership .membership-inner{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: 100%;
+  }
+  .page-ugc .membership{
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+}
+
+/* =====================================================
+   UGC — CENTER the reels when there are only a few cards
+   ===================================================== */
+
+.page-ugc .ugc-videos .ugc-track{
+  justify-content: center;   /* centers the whole strip if it’s narrower than the container */
+}
+
+/* =====================================================
+   MOBILE ONLY — enable swipe for UGC VIDEO carousels
+   ===================================================== */
+
+@media (max-width: 640px){
+
+  /* Allow horizontal scrolling */
+  .page-ugc .ugc-videos .ugc-wrap{
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Make track horizontal + swipeable */
+  .page-ugc .ugc-videos .ugc-track{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  /* Each video snaps cleanly */
+  .page-ugc .ugc-videos .ugc-reel{
+    flex: 0 0 85%;              /* shows part of next video */
+    scroll-snap-align: center;
+  }
+}  /* =====================================================
+   IPHONE ONLY — scale down Why Work With Me text
+   ===================================================== */
+
+@media (max-width: 430px){
+
+  .page-ugc .membership .membership-inner li,
+  .page-ugc .membership .membership-inner p{
+    font-size: 0.95em;
+    line-height: 1.4;
+  }
+
+  .page-ugc .membership{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.ugc-hero-cta{
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-start; /* change to center if preferred */
+}
+
+.cta-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  border: 2px solid #000;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.cta-pill:hover{
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* ==================== Case Study ==================== */
+.case-study-section {
+  background: #fff;
+  padding: 64px 0 72px;
+}
+.case-study-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.case-study-heading {
+  font-family: 'Great Vibes', cursive;
+  color: #ff5fa2;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  margin: 0 0 .25rem;
+  line-height: 1.1;
+}
+.case-study-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 400;
+  color: #e8a0bf;
+  margin: 0;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.case-study-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.case-study-left {
+  display: flex;
+  flex-direction: column;
+}
+.case-study-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.case-study-stats li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.cs-emoji {
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.cs-stat-body {
+  font-family: 'Inter', sans-serif;
+  font-size: .875rem;
+  line-height: 1.7;
+  color: #444;
+}
+.cs-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: #111;
+  margin-right: 5px;
+}
+.case-study-callout {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.case-study-logo-flat {
+  width: 86px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  transition: opacity .2s;
+}
+.case-study-logo-flat:hover { opacity: .75; }
+.case-study-arrow-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #ff5fa2;
+  transition: opacity .2s;
+}
+.case-study-arrow-link:hover { opacity: .75; }
+.cs-arrow {
+  font-size: 1.6rem;
+  line-height: 1;
+  display: inline-block;
+  transform: rotate(-15deg);
+  color: #ff5fa2;
+}
+.cs-arrow-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+.case-study-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.case-study-phone-wrap {
+  width: 100%;
+  max-width: 240px;
+}
+.case-study-phone-wrap .ugc-phone {
+  max-width: 100%;
+}
+.case-study-phone-link {
+  display: block;
+}
+.case-study-phone-link:hover .ugc-video {
+  opacity: .88;
+  transition: opacity .2s;
+}
+.case-study-views {
+  font-family: 'Great Vibes', cursive;
+  color: #ff5fa2;
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .case-study-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .case-study-right {
+    order: -1;
+  }
+  .case-study-phone-wrap {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+}
+
+/* ==================== Testimonials ==================== */
+.testimonials-section {
+  background: #fdf9f7;
+  padding: 64px 0 72px;
+}
+.testimonials-heading {
+  font-family: 'Great Vibes', cursive;
+  color: #ff5fa2;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 48px;
+  line-height: 1.1;
+}
+.testimonials-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 28px;
+  width: 90vw;
+  max-width: 90vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 4px;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 14px;
+}
+.testimonials-grid > .testimonial-card {
+  flex: 0 0 clamp(260px, 78%, 320px);
+  scroll-snap-align: start;
+}
+.testimonial-card {
+  background: #fff;
+  border: 2px solid #ff5fa2;
+  border-radius: 16px;
+  padding: 40px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.testimonial-logo-wrap {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.testimonial-logo {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+}
+.testimonial-stars {
+  color: #FFD700;
+  font-size: 1.25rem;
+  letter-spacing: .15em;
+  margin: 0 0 14px;
+  line-height: 1;
+}
+
+.testimonial-card-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: .72rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6b6b6b;
+  margin: 0 0 16px;
+}
+.testimonial-quote {
+  font-family: 'Inter', sans-serif;
+  font-size: .9rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0 0 24px;
+  font-style: italic;
+  flex-grow: 1;
+}
+.testimonial-quote strong {
+  font-style: normal;
+  color: #111;
+  font-weight: 600;
+}
+.testimonial-reviewer {
+  font-family: 'Great Vibes', cursive;
+  color: #ff5fa2;
+  font-size: 1.5rem;
+  margin: 0;
+  line-height: 1.3;
+}
+@media (max-width: 700px) {
+  .testimonial-card {
+    padding: 32px 24px 28px;
+  }
+}
+
+/* Past Clients — infinite scrolling banner */
+/* ===== Past Clients — circle grid + reviews ===== */
+.past-clients {
+  background: #fff;
+  padding: 64px 0 16px;
+}
+
+.past-clients__title {
+  font-family: 'Great Vibes', cursive;
+  color: #ff5fa2;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 .25rem;
+  line-height: 1.1;
+}
+
+.past-clients__subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 400;
+  color: #e8a0bf;
+  text-align: center;
+  margin: 0 0 40px;
+  letter-spacing: .1em;
+}
+
+/* ── Logo scroll carousel ── */
+.logo-scroll-wrap {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 20px 0 48px;
+}
+
+/* Fade edges */
+.logo-scroll-wrap::before,
+.logo-scroll-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.logo-scroll-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, transparent 100%);
+}
+.logo-scroll-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, transparent 100%);
+}
+
+.logo-scroll-track {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  width: max-content;
+  animation: logoScroll 40s linear infinite;
+}
+.logo-scroll-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes logoScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.logo-scroll-item {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .logo-scroll-item { height: 43px; }
+  .logo-scroll-track { gap: 40px; }
+  .logo-scroll-wrap::before,
+  .logo-scroll-wrap::after { width: 60px; }
+}
+
+/* ===== UGC Center Carousel ===== */
+.ugc-carousel{
+  margin-top: 14px;
+}
+
+.ugc-track{
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 10px 6px 18px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.ugc-track::-webkit-scrollbar{ display:none; }
+
+/* each slide snaps to center */
+.ugc-slide{
+  flex: 0 0 auto;
+  width: 220px;                 /* smaller than before (mobile friendly) */
+  scroll-snap-align: center;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  transform: scale(0.90);       /* default smaller */
+  opacity: 0.75;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.ugc-slide.is-active{
+  transform: scale(1.05);       /* center bigger */
+  opacity: 1;
+}
+
+/* iPhone-style frame */
+.ugc-phone{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  box-shadow:
+    0 0 0 7px #1c1c1e,
+    0 0 0 8px rgba(255,255,255,0.07),
+    0 22px 55px rgba(0,0,0,0.30);
+}
+
+/* Dynamic Island */
+.ugc-phone::after{
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25%;
+  height: 14px;
+  background: #1c1c1e;
+  border-radius: 999px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* video fills the phone */
+.ugc-video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 0;
+  /* clear border/outline inherited from earlier .ugc-video rule */
+  border: none;
+  box-sizing: content-box;
+  outline: none;
+}
+
+/* prevent browser from adding any focus ring when video is played */
+.ugc-video:focus,
+.ugc-video:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* cover image — shown before play, hidden on play via JS */
+.ugc-cover{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
+/* keep your label pills */
+.ugc-type{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  font-size: 4px;
+  line-height: 1;
+  margin-top: 4px;
+}
+
+.ugc-pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.10);
+  font-weight: 600;
+  font-size: 4px;
+  line-height: 1;
+}
+
+/* dots */
+.ugc-dots{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 0 4px;
+}
+
+.ugc-dot{
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.35);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ugc-dot.is-active{
+  background: #000;
+  border-color: #000;
+}
+
+/* slightly larger on desktop */
+@media (min-width: 900px){
+  .ugc-slide{ width: 250px; }
+}
+
+/* arrows */
+.ugc-carousel{
+  position: relative; /* needed so arrows can position over the carousel */
+}
+
+.ugc-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 26px;
+  line-height: 44px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform .15s ease, background .15s ease, opacity .15s ease;
+}
+
+.ugc-arrow:hover{
+  background: rgba(0,0,0,0.75);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.ugc-arrow--prev{ left: 10px; }
+.ugc-arrow--next{ right: 10px; }
+
+/* optional: hide arrows on tiny screens if you want */
+@media (max-width: 420px){
+  .ugc-arrow{ width: 40px; height: 40px; font-size: 24px; }
+}
+
+.ig-wrap{
+  position: relative;
+}
+
+.ig-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.ugc-prev{ left: 10px; }
+.ugc-next{ right: 10px; }
+
+.ig-nav:hover{
+  background: rgba(0,0,0,0.75);
+}
+
+/* ===== UGC Center Carousel (snap + active scale) ===== */
+.ugc-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.ugc-track[data-ugc-track]{
+  display: flex;
+  gap: 28px;
+  padding: 18px 10px 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  /* hide scrollbar */
+  scrollbar-width: none;
+}
+.ugc-track[data-ugc-track]::-webkit-scrollbar { display: none; }
+
+.ugc-slide{
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+
+  transform: scale(0.86);
+  opacity: 0.45;
+  transition: transform 220ms ease, opacity 220ms ease;
+  pointer-events: none; /* prevents tapping a faded slide */
+}
+
+.ugc-slide.is-active{
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* keep border consistent — no extra shadow on active/playing state */
+.ugc-slide.is-active .ugc-phone{
+  filter: none;
+}
+
+/* arrows */
+.ugc-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(0,0,0,0.55);
+  color: white;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.ugc-arrow:hover{ background: rgba(0,0,0,0.7); }
+
+.ugc-arrow.prev{ left: 10px; }
+.ugc-arrow.next{ right: 10px; }
+
+/* dots */
+.ugc-dots{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0 2px;
+}
+.ugc-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.4);
+  background: transparent;
+  cursor: pointer;
+}
+.ugc-dot.is-active{
+  background: rgba(0,0,0,0.85);
+  border-color: rgba(0,0,0,0.85);
+}
+
+
+/* =========================================
+   UGC MOBILE HERO — FINAL CENTERING FIX
+   Paste at the VERY bottom of style.css
+   ========================================= */
+@media (max-width: 768px){
+
+  /* Header row: keep brand + button balanced and centered vertically */
+  .page-ugc .site-header .nav-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .page-ugc .site-header .brand{
+    font-size: 1.45rem;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .page-ugc .site-header .main-nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-ugc .site-header .main-nav a.login-btn{
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  /* Give the fixed header a little more breathing room above the hero */
+  .page-ugc .ugc-hero{
+    padding-top: 140px;
+  }
+
+  /* Force the hero into a centered single-column layout */
+  .page-ugc .ugc-hero-inner{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: start;
+    row-gap: 20px;
+    text-align: center;
+  }
+
+  /* Center the video wrapper */
+  .page-ugc .ugc-hero-video{
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* IMPORTANT: kill the global scale on mobile so it doesn't drift right */
+  .page-ugc .ugc-hero-video-el{
+    transform: none !important;
+    transform-origin: center center !important;
+    display: block;
+    width: min(88vw, 340px);
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  /* Center the copy block */
+  .page-ugc .ugc-hero-copy{
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-ugc .ugc-hero-name,
+  .page-ugc .ugc-hero-title,
+  .page-ugc .ugc-hero-location,
+  .page-ugc .ugc-hero-blurb{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Keep the pink script name from feeling too wide */
+  .page-ugc .ugc-hero-name{
+    max-width: 95%;
+    line-height: 1.05;
+  }
+
+  /* Center social icons + CTA */
+  .page-ugc .ugc-social-icons{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .page-ugc .ugc-hero-cta{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .page-ugc .ugc-hero-cta .login-btn{
+    margin: 0 auto;
+  }
+}
+
+.ugc-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 40px 0;
+}
+
+.ugc-slide {
+  flex: 0 0 260px;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.5;
+  transform: scale(0.85);
+}
+
+.ugc-slide.active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* =========================================
+   UGC carousel spacers — allow first/last slide to center
+   ========================================= */
+.page-ugc .ugc-track[data-ugc-track]{
+  display: flex !important;
+  align-items: flex-start;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page-ugc .ugc-spacer{
+  flex: 0 0 calc((100% - 220px) / 2);
+}
+
+.page-ugc .ugc-slide{
+  flex: 0 0 220px !important;
+  width: 220px !important;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+/* =================== Niche Carousels — 20% smaller slides =================== */
+/* To add a new niche: create a new <section class="ugc-videos card niche-carousel"> following the same pattern */
+
+.niche-carousel .ugc-slide {
+  flex: 0 0 128px !important;
+  width: 128px !important;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+/* Return pills to grid flow — eliminates all overflow clipping */
+.niche-carousel .ugc-type,
+.niche-carousel .ugc-pill {
+  position: static !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+  font-size: 11px !important;
+  padding: 3px 6px !important;
+}
+
+/* Reduce top padding (type pill is now in flow, not floating above) */
+.niche-carousel .ugc-track[data-ugc-track] {
+  padding-top: 12px !important;
+  padding-bottom: 30px !important;
+}
+
+.niche-carousel .ugc-spacer {
+  flex: 0 0 calc((100% - 128px) / 2);
+}
+
+@media (min-width: 900px) {
+  .niche-carousel .ugc-slide {
+    flex: 0 0 145px !important;
+    width: 145px !important;
+  }
+  .niche-carousel .ugc-spacer {
+    flex: 0 0 calc((100% - 145px) / 2);
+  }
+}
+
+/* =====================================================
+   HAMBURGER BUTTON
+   ===================================================== */
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 3100;
+  flex-shrink: 0;
+}
+.hamburger-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #111;
+  border-radius: 2px;
+  transition: background .2s ease;
+}
+.page-ugc .site-header .hamburger-btn span {
+  background: #111;
+}
+
+/* =====================================================
+   DRAWER OVERLAY
+   ===================================================== */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 3000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.drawer-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* =====================================================
+   SITE DRAWER (slide-in panel)
+   ===================================================== */
+.site-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 88vw);
+  background: #fff;
+  z-index: 3200;
+  transform: translateX(100%);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  overflow-y: auto;
+  box-shadow: -4px 0 24px rgba(0,0,0,.12);
+}
+.site-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Close button */
+.drawer-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: #111;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1;
+}
+.drawer-close:hover { opacity: .6; }
+
+/* Inner content */
+.drawer-inner {
+  padding: 64px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* HOME link */
+.drawer-home {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: #111;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 12px 0;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 8px;
+}
+.drawer-home:hover { opacity: .6; }
+
+/* Section groups */
+.drawer-section {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.drawer-section-head {
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.drawer-section a {
+  font-family: 'Inter', sans-serif;
+  font-size: .95rem;
+  font-weight: 400;
+  color: #111;
+  text-decoration: none;
+  padding: 7px 0;
+  transition: opacity .15s ease;
+  display: block;
+}
+.drawer-section a:hover { opacity: .55; }
+
+/* =====================================================
+   FULL-WIDTH MULTI-COLUMN FOOTER
+   ===================================================== */
+.site-footer-full {
+  background: #111;
+  color: #fff;
+  padding: 56px 0 0;
+  margin-top: 64px;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+  padding-bottom: 48px;
+}
+
+.footer-col-head {
+  font-family: 'Inter', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-col a {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: .88rem;
+  font-weight: 400;
+  color: rgba(255,255,255,.78);
+  text-decoration: none;
+  padding: 5px 0;
+  transition: color .15s ease;
+}
+.footer-col a:hover { color: #fff; }
+
+.footer-copy {
+  border-top: 1px solid rgba(255,255,255,.12);
+  text-align: center;
+  padding: 20px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: .75rem;
+  font-weight: 400;
+  letter-spacing: .05em;
+  color: rgba(255,255,255,.45);
+  text-transform: uppercase;
+}
+
+/* Responsive: 3 cols on tablet */
+@media (max-width: 900px) {
+  .footer-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Responsive: 2 cols on phone */
+@media (max-width: 560px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .site-footer-full {
+    padding-top: 40px;
+  }
+}
+
+/* ---------- Carousel play button overlay (desktop only) ---------- */
+.ugc-play-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  transition: background 0.15s;
+}
+
+.ugc-play-btn::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #ffffff;
+  margin-left: 4px;
+}
+
+.ugc-play-btn:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+@media (min-width: 1024px) {
+  .ugc-play-btn {
+    display: flex;
+  }
+  .ugc-play-btn.is-hidden {
+    display: none;
+  }
+}
+
