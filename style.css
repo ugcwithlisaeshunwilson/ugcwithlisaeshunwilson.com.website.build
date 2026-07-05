@@ -2392,7 +2392,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
   align-items: center;
   gap: 56px;
   width: max-content;
-  animation: logoScroll 40s linear infinite;
+  animation: logoScroll 44s linear infinite;
 }
 .logo-scroll-track:hover {
   animation-play-state: paused;
