@@ -2140,7 +2140,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 }
 .cs-stat-body {
   font-family: 'Inter', sans-serif;
-  font-size: .875rem;
+  font-size: 1.15rem;
   line-height: 1.7;
   color: #444;
 }
