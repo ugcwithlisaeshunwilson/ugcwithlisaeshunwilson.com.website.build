@@ -2147,7 +2147,7 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 .cs-label {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: .75rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: .07em;
   color: #111;
