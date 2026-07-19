@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ — UGC with Lisa</title>
+  <link rel="icon" href="images/favicon-ugc.png">
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/uwl6zhw.css">
+
+  <!-- UGC Favicons -->
+  <link rel="icon" href="/images/favicon-ugc.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-ugc-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-ugc-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-ugc-180.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#1a1a1a">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="FAQ — UGC with Lisa">
+  <meta property="og:description" content="How the UGC process works, from contract to results — answers for brands curious about working with Lisa.">
+  <meta property="og:image" content="https://www.ugcwithlisaeshunwilson.com/images/ugc.jpg">
+  <meta property="og:url" content="https://www.ugcwithlisaeshunwilson.com/faq.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UGC with Lisa">
+  <meta name="author" content="Lisa Eshun-Wilson">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FAQ — UGC with Lisa">
+  <meta name="twitter:description" content="How the UGC process works, from contract to results — answers for brands curious about working with Lisa.">
+  <meta name="twitter:image" content="https://www.ugcwithlisaeshunwilson.com/images/ugc-hero.jpg">
+
+  <style>
+    /* ---- FAQ page styles (scoped to .faq-*, sits on top of style.css) ---- */
+    .faq-hero {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 24px 24px;
+      text-align: center;
+    }
+    .faq-hero .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #6b6b6b;
+      margin-bottom: 14px;
+    }
+    .faq-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.15;
+      margin: 0 0 16px;
+      color: #141414;
+    }
+    .faq-hero p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #4a4a4a;
+      margin: 0;
+    }
+
+    .faq-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    .faq-section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid #e4e0d8;
+      padding-bottom: 14px;
+    }
+    .faq-section-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 26px;
+      margin: 0;
+      color: #141414;
+    }
+    .faq-section-head span {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9a9a9a;
+      white-space: nowrap;
+    }
+
+    /* Process timeline */
+    .faq-timeline {
+      display: flex;
+      flex-direction: column;
+    }
+    .faq-step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      column-gap: 20px;
+      position: relative;
+      padding-bottom: 34px;
+    }
+    .faq-step:last-child { padding-bottom: 0; }
+    .faq-step-num {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 22px;
+      color: #b8b2a4;
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .faq-step-rail {
+      position: absolute;
+      left: 22px;
+      top: 30px;
+      bottom: -4px;
+      width: 1px;
+      background: #e4e0d8;
+    }
+    .faq-step:last-child .faq-step-rail { display: none; }
+    .faq-step-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      margin: 0 0 6px;
+      color: #141414;
+    }
+    .faq-step-body p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #55524a;
+      margin: 0;
+    }
+
+    /* Accordion (native details/summary, no JS required) */
+    .faq-accordion {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid #e4e0d8;
+    }
+    .faq-item {
+      border-bottom: 1px solid #e4e0d8;
+    }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 4px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 15.5px;
+      color: #141414;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary .faq-icon {
+      flex: none;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #cfc9ba;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: #141414;
+      transition: transform 0.2s ease;
+    }
+    .faq-item[open] summary .faq-icon { transform: rotate(45deg); }
+    .faq-item .faq-answer {
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #55524a;
+      padding: 0 4px 22px;
+      max-width: 640px;
+    }
+
+    .faq-cta {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 16px 24px 88px;
+      text-align: center;
+    }
+    .faq-cta p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #4a4a4a;
+      margin: 0 0 20px;
+    }
+
+    @media (max-width: 560px) {
+      .faq-step { grid-template-columns: 40px 1fr; column-gap: 14px; }
+      .faq-step-rail { left: 16px; }
+    }
+  </style>
+</head>
+
+<body class="page-ugc">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">ugc with lisa</a>
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="siteDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Nav Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <nav class="site-drawer" id="siteDrawer" aria-label="Site navigation" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+    <div class="drawer-inner">
+      <a class="drawer-home" href="index.html">HOME</a>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">SOCIALS</div>
+        <a href="https://www.instagram.com/ugcwithlisanow" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@ugcwithlisanow" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@ugcwithlisanow" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.twitter.com/@ugcwithlisanow" target="_blank" rel="noopener">Twitter / X</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">CONNECT</div>
+        <a href="index.html#meet-the-creator">About</a>
+        <a href="mailto:lisa@yogawithlisa.ai">Email Me</a>
+        <a href="https://calendly.com/lisaeshunwilson/30min" target="_blank" rel="noopener">Book a Call</a>
+        <a href="https://meet.ugcwithlisaeshunwilson.com" target="_blank" rel="noopener">Meet with Me</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">CLIENTS</div>
+        <a href="index.html#case-studies">Case Studies</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="reviews.html">Submit Review</a>
+        <a href="https://pay.ugcwithlisa.com" target="_blank" rel="noopener">Submit Payment</a>
+        <a href="rates.html">Rates &amp; Packages</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">PORTFOLIO</div>
+        <a href="index.html#health-wellness">Health &amp; Wellness</a>
+        <a href="index.html#travel-hospitality">Travel &amp; Hospitality</a>
+        <a href="index.html#apps-tech">Apps &amp; Tech</a>
+        <a href="index.html#beauty-lifestyle">Beauty &amp; Lifestyle</a>
+        <a href="index.html#ugc-photography">Photography</a>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-head">OFFICIAL</div>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- FAQ Hero -->
+  <section class="faq-hero">
+    <div class="eyebrow">For Brands</div>
+    <h1>New to UGC? Here's exactly how working together works.</h1>
+    <p>From the first contract to renewing based on real results — a plain-language walkthrough of the process, plus answers to the questions brands ask most before getting started.</p>
+  </section>
+
+  <!-- Process Timeline -->
+  <section class="faq-section" id="process" aria-label="How the UGC process works">
+    <div class="faq-section-head">
+      <h2>The Process</h2>
+      <span>8 Steps</span>
+    </div>
+    <div class="faq-timeline">
+
+      <div class="faq-step">
+        <div class="faq-step-num">01<div class="faq-step-rail"></div></div>
+        <div class="faq-step-body">
+          <h3>Contract &amp; SOW</h3>
+          <p>We sign a contract and Statement of Work that spells out deliverables, timeline, revisions, usage rights, and payment terms before anything goes into production.</p>
+        </div>
+      </div>
+
+      <div class="faq-step">
+        <div class="faq-step-num">02<div class="faq-step-rail"></div></div>
+        <div class="faq-step-body">
+          <h3>Script Writing</h3>
+          <p>I write scripts and hooks tailored to your brand voice, product, and the specific angle we agreed on, then send them over for your review.</p>
+        </div>
+      </div>
+
+      <div class="faq-step">
+        <div class="faq-step-num">03<div class="faq-step-rail"></div></div>
+        <div class="faq-step-body">
+          <h3>Script Approval</h3>
+          <p>You review the script and either approve it or request edits. Nothing is filmed until the script is signed off, so there are no surprises on shoot day.</p>
+        </div>
+      </div>
+
+      <div class="faq-step">
+        <div class="faq-step-num">04<div class="faq-step-rail"></div></div>
+        <div class="faq-step-body">
+          <h3>Filming &amp; Editing</h3>
+          <p>I film and edit the content to match the approved script, your brand guidelines, and the specs of the platform it's headed to.</p>
+        </div>
+      </div>
+
+      <div class="faq-step">
+        <div class="faq-step-num">05<div class="faq-step-rail"></div></div>
+        <div class="faq-step-body">
+          <h3>Approval &amp; Revisions</h3>
+          <p>You review the edited draft. Any revisions included in the SOW are made at this stage until the content is fully approved.</p>
+        </div>
+      </div>
+
+      <div class="faq-step">
+        <div class="faq-step-num">06<div class="faq-step-rail"></div></div>
+        <div class="faq-step-body">
+          <h3>Ad Distribution</h3>
+          <p>Approved content goes live, whether that's whitelisted paid ads, organic posting, or handed off to your team to run through your own channels.</p>
+        </div>
+      </div>
+
+      <div class="faq-step">
+        <div class="faq-step-num">07<div class="faq-step-rail"></div></div>
+        <div class="faq-step-body">
+          <h3>Stats Collection</h3>
+          <p>Once content is live, performance data is gathered — ROAS, CTR, hook rate, and any other metrics that matter for your campaign.</p>
+        </div>
+      </div>
+
+      <div class="faq-step">
+        <div class="faq-step-num">08</div>
+        <div class="faq-step-body">
+          <h3>Impression Analysis &amp; Renewal</h3>
+          <p>We look at what the numbers say together, which angles and hooks actually worked, and you have the option to renew with an updated, results-driven strategy for the next round.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="faq-section" id="questions" aria-label="Frequently asked questions">
+    <div class="faq-section-head">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-accordion">
+
+      <details class="faq-item">
+        <summary>How long does the whole process take?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Timelines depend on scope and revision rounds, but most single-video projects move from contract to final delivery within one to two weeks. Larger campaigns with multiple concepts take longer — exact timelines are laid out in the SOW.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How many revisions are included?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">The number of included revision rounds is defined upfront in the SOW so both sides know what to expect. Additional rounds beyond that can be added if needed.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Who owns the content and what are the usage rights?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Usage rights — organic use, paid whitelisting, duration, and platforms — are spelled out in the contract before filming starts, so it's clear from day one where and how long you can run the content.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What do you need from me to get started?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">A brief on the product, brand voice, target audience, and campaign goal. If you have brand guidelines, past-performing content, or a specific angle in mind, that helps too, but I can also help shape the concept from scratch.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you handle ad distribution, or just create the content?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Both are available. I can hand off final files for your team to run, or the content can be whitelisted so it's posted from your own ad accounts — whichever fits your workflow.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you help analyze how the content performed?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Yes. Once content has run, we review the stats together — ROAS, CTR, and other relevant metrics — and talk through what that means for the next round of content.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can we renew or run another round after the campaign?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Absolutely. That's built into the process — after reviewing results, we put together an updated strategy based on what actually worked, rather than starting from scratch.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do we get started?<span class="faq-icon">+</span></summary>
+        <div class="faq-answer">Reach out with a bit about your brand and what you're looking to create, and we'll go from there.</div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="faq-cta">
+    <p>Ready to talk through a project?</p>
+    <a class="btn btn-pill btn-outline" href="mailto:contact@ugcwithlisa.com?subject=UGC%20Collaboration%20Inquiry">WORK WITH ME</a>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer-full">
+    <div class="footer-columns container">
+
+      <div class="footer-col">
+        <div class="footer-col-head">SOCIALS</div>
+        <a href="https://www.instagram.com/ugcwithlisanow" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@ugcwithlisanow" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@ugcwithlisanow" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.twitter.com/@ugcwithlisanow" target="_blank" rel="noopener">Twitter / X</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">CONNECT</div>
+        <a href="index.html#meet-the-creator">About</a>
+        <a href="mailto:lisa@yogawithlisa.ai">Email Me</a>
+        <a href="https://calendly.com/lisaeshunwilson/30min" target="_blank" rel="noopener">Book a Call</a>
+        <a href="https://meet.ugcwithlisaeshunwilson.com" target="_blank" rel="noopener">Meet with Me</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">CLIENTS</div>
+        <a href="index.html#case-studies">Case Studies</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="reviews.html">Submit Review</a>
+        <a href="https://pay.ugcwithlisa.com" target="_blank" rel="noopener">Submit Payment</a>
+        <a href="rates.html">Rates &amp; Packages</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">PORTFOLIO</div>
+        <a href="index.html#health-wellness">Health &amp; Wellness</a>
+        <a href="index.html#travel-hospitality">Travel &amp; Hospitality</a>
+        <a href="index.html#apps-tech">Apps &amp; Tech</a>
+        <a href="index.html#beauty-lifestyle">Beauty &amp; Lifestyle</a>
+        <a href="index.html#ugc-photography">Photography</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">OFFICIAL</div>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+
+    </div>
+    <div class="footer-copy">
+      &copy; UGC with Lisa by Lisa Eshun-Wilson &amp; Associates, LLC. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var btn = document.getElementById('hamburgerBtn');
+    var overlay = document.getElementById('drawerOverlay');
+    var drawer = document.getElementById('siteDrawer');
+    var close = document.getElementById('drawerClose');
+    function openDrawer(){
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-open');
+      btn.setAttribute('aria-expanded','true');
+      drawer.setAttribute('aria-hidden','false');
+      overlay.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function closeDrawer(){
+      drawer.classList.remove('is-open');
+      overlay.classList.remove('is-open');
+      btn.setAttribute('aria-expanded','false');
+      drawer.setAttribute('aria-hidden','true');
+      overlay.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    }
+    btn.addEventListener('click', openDrawer);
+    close.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDrawer(); });
+    drawer.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeDrawer);
+    });
+  })();
+  </script>
+
+</body>
+</html>
