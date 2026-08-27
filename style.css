@@ -2005,11 +2005,17 @@ body[data-ms-member="true"] .mcard.locked .lock { display: none; }
 }
 
 /* =====================================================
-   UGC — CENTER the reels when there are only a few cards
+   UGC — track alignment
+   justify-content must stay flex-start: the .ugc-spacer elements
+   already size themselves to center each slide via JS (goTo/
+   centerScrollLeftFor). justify-content: center on an overflowing
+   flex row pushes roughly half the overflow into negative-scroll
+   territory that's unreachable in LTR, permanently hiding the
+   first several slides once a carousel has enough cards to overflow.
    ===================================================== */
 
 .page-ugc .ugc-videos .ugc-track{
-  justify-content: center;   /* centers the whole strip if it’s narrower than the container */
+  justify-content: flex-start;
 }
 
 /* =====================================================
