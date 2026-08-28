@@ -428,41 +428,6 @@
     <button class="ugc-arrow ugc-arrow--next" type="button" aria-label="Next video">›</button>
     <div class="ugc-track" data-ugc-track>
       <div class="ugc-spacer" aria-hidden="true"></div>
-      <article class="ugc-slide" aria-label="Doola skit video 1">
-        <div class="ugc-type">Skit</div>
-        <div class="ugc-phone">
-          <video class="ugc-video" data-src="videos/apps-tech/doola-skit02.mp4" playsinline controls preload="none"></video>
-        </div>
-        <div class="ugc-pill">Doola</div>
-      </article>
-      <article class="ugc-slide" aria-label="Doola skit video 2">
-        <div class="ugc-type">Skit</div>
-        <div class="ugc-phone">
-          <video class="ugc-video" data-src="videos/apps-tech/doola-skit03.mp4" playsinline controls preload="none"></video>
-        </div>
-        <div class="ugc-pill">Doola</div>
-      </article>
-      <article class="ugc-slide" aria-label="Specode AI skit video">
-        <div class="ugc-type">Skit</div>
-        <div class="ugc-phone">
-          <video class="ugc-video" data-src="videos/apps-tech/specodeai-skit.mp4" playsinline controls preload="none"></video>
-        </div>
-        <div class="ugc-pill">Specode AI</div>
-      </article>
-      <article class="ugc-slide" aria-label="Ava skit video">
-        <div class="ugc-type">Skit</div>
-        <div class="ugc-phone">
-          <video class="ugc-video" data-src="videos/apps-tech/ava-skit.mp4" playsinline controls preload="none"></video>
-        </div>
-        <div class="ugc-pill">Ava</div>
-      </article>
-      <article class="ugc-slide" aria-label="Runable Broll w/Music video 2">
-        <div class="ugc-type">Broll w/Music</div>
-        <div class="ugc-phone">
-          <video class="ugc-video" data-src="videos/apps-tech/runable-brollwm02.mp4" playsinline controls preload="none"></video>
-        </div>
-        <div class="ugc-pill">Runable</div>
-      </article>
       <article class="ugc-slide" aria-label="Onceover video">
         <div class="ugc-type">Broll w/VO</div>
         <div class="ugc-phone">
@@ -476,6 +441,41 @@
           <video class="ugc-video" data-src="videos/apps-tech/runable-testimonial02.mp4" playsinline controls preload="none"></video>
         </div>
         <div class="ugc-pill">Runable</div>
+      </article>
+      <article class="ugc-slide" aria-label="Runable Broll w/Music video 2">
+        <div class="ugc-type">Broll w/Music</div>
+        <div class="ugc-phone">
+          <video class="ugc-video" data-src="videos/apps-tech/runable-brollwm02.mp4" playsinline controls preload="none"></video>
+        </div>
+        <div class="ugc-pill">Runable</div>
+      </article>
+      <article class="ugc-slide" aria-label="Doola skit video 2">
+        <div class="ugc-type">Skit</div>
+        <div class="ugc-phone">
+          <video class="ugc-video" data-src="videos/apps-tech/doola-skit03.mp4" playsinline controls preload="none"></video>
+        </div>
+        <div class="ugc-pill">Doola</div>
+      </article>
+      <article class="ugc-slide" aria-label="Ava skit video">
+        <div class="ugc-type">Skit</div>
+        <div class="ugc-phone">
+          <video class="ugc-video" data-src="videos/apps-tech/ava-skit.mp4" playsinline controls preload="none"></video>
+        </div>
+        <div class="ugc-pill">Ava</div>
+      </article>
+      <article class="ugc-slide" aria-label="Specode AI skit video">
+        <div class="ugc-type">Skit</div>
+        <div class="ugc-phone">
+          <video class="ugc-video" data-src="videos/apps-tech/specodeai-skit.mp4" playsinline controls preload="none"></video>
+        </div>
+        <div class="ugc-pill">Specode AI</div>
+      </article>
+      <article class="ugc-slide" aria-label="Doola skit video 1">
+        <div class="ugc-type">Skit</div>
+        <div class="ugc-phone">
+          <video class="ugc-video" data-src="videos/apps-tech/doola-skit02.mp4" playsinline controls preload="none"></video>
+        </div>
+        <div class="ugc-pill">Doola</div>
       </article>
       <div class="ugc-spacer" aria-hidden="true"></div>
     </div>
@@ -1087,7 +1087,7 @@
     const featuredIdx = slides.findIndex(function (s) {
       const v = s.querySelector('video');
       const src = v && v.getAttribute('data-src');
-      return src && src.indexOf('doola-skit02.mp4') !== -1;
+      return src && src.indexOf('doola-skit03.mp4') !== -1;
     });
     const startIdx = featuredIdx !== -1 ? featuredIdx : Math.floor(slides.length / 2);
     setActive(startIdx);
