@@ -132,6 +132,7 @@
     .form-group input[type="text"],
     .form-group input[type="url"],
     .form-group input[type="number"],
+    .form-group select,
     .form-group textarea {
       font-family: 'Inter', sans-serif;
       font-size: .92rem;
@@ -145,7 +146,11 @@
       width: 100%;
       box-sizing: border-box;
     }
+    .form-group select {
+      cursor: pointer;
+    }
     .form-group input:focus,
+    .form-group select:focus,
     .form-group textarea:focus {
       border-color: #111;
       background: #fff;
@@ -234,6 +239,30 @@
       .stats-grid {
         grid-template-columns: 1fr 1fr;
       }
+    }
+    .stats-grid .full {
+      grid-column: 1 / -1;
+    }
+
+    /* ===== Campaign type / conditional metric groups ===== */
+    .campaign-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 580px) {
+      .campaign-meta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .campaign-metrics-group {
+      padding-top: 4px;
+      margin-bottom: 20px;
+    }
+    .form-group[hidden],
+    .campaign-metrics-group[hidden] {
+      display: none;
     }
 
     /* ===== Permission checkbox ===== */
@@ -600,38 +629,164 @@
           <span class="form-section-title">Performance Stats <span style="font-family:'Inter',sans-serif; font-size:.75rem; font-weight:400; color:#aaa; letter-spacing:0;">optional</span></span>
         </div>
         <p class="star-section-note" style="margin-top:-14px; margin-bottom:20px;">Share any numbers from the campaign if you're comfortable. These won't be published without your permission.</p>
-        <div class="stats-grid">
+
+        <div class="campaign-meta-grid">
           <div class="form-group">
-            <label for="stat_views">Views</label>
-            <input type="text" id="stat_views" name="stat_views" placeholder="e.g. 250,000">
+            <label for="campaign_type">Campaign type</label>
+            <select id="campaign_type" name="campaign_type">
+              <option value="">Select one</option>
+              <option value="organic">Organic post</option>
+              <option value="paid_engagement">Paid ad: in-app engagement (views, profile visits)</option>
+              <option value="paid_traffic">Paid ad: traffic or conversions (website, booking page, app)</option>
+            </select>
           </div>
           <div class="form-group">
-            <label for="stat_engagement">Engagement Rate</label>
-            <input type="text" id="stat_engagement" name="stat_engagement" placeholder="e.g. 8.2%">
+            <label for="platform">Platform</label>
+            <select id="platform" name="platform">
+              <option value="">Select one</option>
+              <option value="instagram">Instagram</option>
+              <option value="tiktok">TikTok</option>
+              <option value="facebook">Facebook</option>
+              <option value="youtube">YouTube</option>
+              <option value="other">Other</option>
+            </select>
           </div>
-          <div class="form-group">
-            <label for="stat_ctr">CTR</label>
-            <input type="text" id="stat_ctr" name="stat_ctr" placeholder="e.g. 3.5%">
-          </div>
-          <div class="form-group">
-            <label for="stat_roas">ROAS</label>
-            <input type="text" id="stat_roas" name="stat_roas" placeholder="e.g. 4.2x">
-          </div>
-          <div class="form-group">
-            <label for="stat_profile_visits">Profile Visits</label>
-            <input type="text" id="stat_profile_visits" name="stat_profile_visits" placeholder="e.g. 12,000">
-          </div>
-          <div class="form-group">
-            <label for="stat_cpv">CPV</label>
-            <input type="text" id="stat_cpv" name="stat_cpv" placeholder="e.g. $0.02">
+          <div class="form-group full" id="adDestinationGroup" hidden>
+            <label for="ad_destination">Where did the ad send people?</label>
+            <select id="ad_destination" name="ad_destination" disabled>
+              <option value="">Select one</option>
+              <option value="website">Website</option>
+              <option value="booking_demo_page">Booking or demo page</option>
+              <option value="app_install">App install</option>
+              <option value="online_shop">Online shop</option>
+              <option value="other">Other</option>
+            </select>
           </div>
         </div>
+
+        <!-- Organic post metrics -->
+        <div class="campaign-metrics-group" data-campaign-group="organic" hidden>
+          <div class="stats-grid">
+            <div class="form-group">
+              <label for="organic_views">Views</label>
+              <input type="text" id="organic_views" name="organic_views" placeholder="e.g. 250,000" disabled>
+              <span class="field-hint">Views: total number of times the video played</span>
+            </div>
+            <div class="form-group">
+              <label for="organic_reach">Reach</label>
+              <input type="text" id="organic_reach" name="organic_reach" placeholder="e.g. 180,000" disabled>
+              <span class="field-hint">Reach: number of unique accounts that saw the post</span>
+            </div>
+            <div class="form-group">
+              <label for="organic_engagement_rate">Engagement rate</label>
+              <input type="text" id="organic_engagement_rate" name="organic_engagement_rate" placeholder="e.g. 8.2%" disabled>
+              <span class="field-hint">Engagement rate: likes, comments, and shares as a share of views</span>
+            </div>
+            <div class="form-group">
+              <label for="organic_profile_visits">Profile visits</label>
+              <input type="text" id="organic_profile_visits" name="organic_profile_visits" placeholder="e.g. 12,000" disabled>
+              <span class="field-hint">Profile visits: people who tapped through to your profile</span>
+            </div>
+            <div class="form-group">
+              <label for="organic_saves_shares">Saves and shares</label>
+              <input type="text" id="organic_saves_shares" name="organic_saves_shares" placeholder="e.g. 1,400" disabled>
+              <span class="field-hint">Saves and shares: how many people saved or shared the post</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paid ad: in-app engagement metrics -->
+        <div class="campaign-metrics-group" data-campaign-group="paid_engagement" hidden>
+          <div class="stats-grid">
+            <div class="form-group">
+              <label for="paid_eng_views">Views</label>
+              <input type="text" id="paid_eng_views" name="paid_eng_views" placeholder="e.g. 250,000" disabled>
+              <span class="field-hint">Views: total number of times the ad played</span>
+            </div>
+            <div class="form-group">
+              <label for="paid_eng_cpv">Cost per view (CPV)</label>
+              <input type="text" id="paid_eng_cpv" name="paid_eng_cpv" placeholder="e.g. $0.02" disabled>
+              <span class="field-hint">CPV: average cost for each view</span>
+            </div>
+            <div class="form-group">
+              <label for="paid_eng_hook_rate">Hook rate (3-second view rate)</label>
+              <input type="text" id="paid_eng_hook_rate" name="paid_eng_hook_rate" placeholder="e.g. 42%" disabled>
+              <span class="field-hint">Hook rate: % of people who watched at least 3 seconds</span>
+            </div>
+            <div class="form-group">
+              <label for="paid_eng_engagement_rate">Engagement rate</label>
+              <input type="text" id="paid_eng_engagement_rate" name="paid_eng_engagement_rate" placeholder="e.g. 8.2%" disabled>
+              <span class="field-hint">Engagement rate: likes, comments, and shares as a share of views</span>
+            </div>
+            <div class="form-group">
+              <label for="paid_eng_profile_visits">Profile visits</label>
+              <input type="text" id="paid_eng_profile_visits" name="paid_eng_profile_visits" placeholder="e.g. 12,000" disabled>
+              <span class="field-hint">Profile visits: people who tapped through to your profile</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paid ad: traffic or conversions metrics -->
+        <div class="campaign-metrics-group" data-campaign-group="paid_traffic" hidden>
+          <div class="stats-grid">
+            <div class="form-group">
+              <label for="paid_traffic_impressions">Impressions</label>
+              <input type="text" id="paid_traffic_impressions" name="paid_traffic_impressions" placeholder="e.g. 500,000" disabled>
+              <span class="field-hint">Impressions: total number of times the ad was shown</span>
+            </div>
+            <div class="form-group">
+              <label for="paid_traffic_link_ctr">Link CTR</label>
+              <input type="text" id="paid_traffic_link_ctr" name="paid_traffic_link_ctr" placeholder="e.g. 3.5%" disabled>
+              <span class="field-hint">CTR: % of people who saw the ad and clicked</span>
+            </div>
+            <div class="form-group">
+              <label for="paid_traffic_cpc">Cost per link click (CPC)</label>
+              <input type="text" id="paid_traffic_cpc" name="paid_traffic_cpc" placeholder="e.g. $0.45" disabled>
+              <span class="field-hint">CPC: average cost for each link click</span>
+            </div>
+            <div class="form-group">
+              <label for="paid_traffic_landing_views">Landing page views</label>
+              <input type="text" id="paid_traffic_landing_views" name="paid_traffic_landing_views" placeholder="e.g. 12,600" disabled>
+              <span class="field-hint">Landing page views: people who actually loaded the page after clicking</span>
+            </div>
+            <div class="form-group">
+              <label for="paid_traffic_cost_per_landing_view">Cost per landing page view</label>
+              <input type="text" id="paid_traffic_cost_per_landing_view" name="paid_traffic_cost_per_landing_view" placeholder="e.g. $0.09" disabled>
+              <span class="field-hint">Cost per landing page view: average cost for each landing page view</span>
+            </div>
+            <div class="form-group">
+              <label for="paid_traffic_conversions">Conversions</label>
+              <input type="text" id="paid_traffic_conversions" name="paid_traffic_conversions" placeholder="e.g. 85" disabled>
+              <span class="field-hint">Conversions: demos booked, sign-ups, purchases, or whatever counted as a win</span>
+            </div>
+            <div class="form-group full">
+              <label for="paid_traffic_conversion_type">What counted as a conversion?</label>
+              <input type="text" id="paid_traffic_conversion_type" name="paid_traffic_conversion_type" placeholder="e.g. demos booked, sign-ups, purchases" disabled>
+            </div>
+            <div class="form-group">
+              <label for="paid_traffic_cost_per_conversion">Cost per conversion</label>
+              <input type="text" id="paid_traffic_cost_per_conversion" name="paid_traffic_cost_per_conversion" placeholder="e.g. $5.20" disabled>
+              <span class="field-hint">Cost per conversion: average cost for each conversion</span>
+            </div>
+            <div class="form-group">
+              <label for="paid_traffic_roas">ROAS</label>
+              <input type="text" id="paid_traffic_roas" name="paid_traffic_roas" placeholder="e.g. 4.2x" disabled>
+              <span class="field-hint">ROAS: return on ad spend, only if purchases were tracked</span>
+            </div>
+          </div>
+        </div>
+
         <div class="form-group">
-          <label for="stat_comparison">How did this content compare to your typical results?</label>
+          <label for="stat_comparison">How did this content compare to your other ads or creators?</label>
           <textarea
             id="stat_comparison"
             name="stat_comparison"
-            placeholder="[Lisa] delivered [quality / creative / on-brand] content that [performed well / drove strong engagement]. The process was [easy / seamless / professional] and we highly recommend working with her. [Optional: add a specific stat like views, ROAS, or CPV.]"></textarea>
+            placeholder="e.g. 4x lower cost per site visit than our other creatives"></textarea>
+        </div>
+
+        <div class="permission-group" style="margin-top:18px;">
+          <input type="checkbox" id="stats_permission" name="stats_permission" value="granted">
+          <label for="stats_permission">You have my permission to publish these stats on Lisa's website.</label>
         </div>
       </div>
 
@@ -768,6 +923,29 @@
         paint(selectedValue);
       });
     });
+
+    /* ---- Performance Stats: conditional campaign fields ---- */
+    var campaignTypeSelect = document.getElementById('campaign_type');
+    var adDestinationGroup = document.getElementById('adDestinationGroup');
+    var campaignMetricGroups = document.querySelectorAll('[data-campaign-group]');
+
+    function setGroupActive(group, isActive) {
+      group.hidden = !isActive;
+      group.querySelectorAll('input, select, textarea').forEach(function (field) {
+        field.disabled = !isActive;
+      });
+    }
+
+    function updateCampaignFields() {
+      var value = campaignTypeSelect.value;
+      campaignMetricGroups.forEach(function (group) {
+        setGroupActive(group, group.getAttribute('data-campaign-group') === value);
+      });
+      setGroupActive(adDestinationGroup, value === 'paid_traffic');
+    }
+
+    campaignTypeSelect.addEventListener('change', updateCampaignFields);
+    updateCampaignFields();
 
     /* ---- Formspree AJAX submission ---- */
     var form = document.getElementById('reviewForm');
